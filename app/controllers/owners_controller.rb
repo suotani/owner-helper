@@ -1,6 +1,6 @@
 class OwnersController < ApplicationController
-    
-  def index
-    @owners = Owner.all
+
+  def show
+    @owner = current_owner
   end
 end

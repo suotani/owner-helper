@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  
+  root to: "top#index"
 
+  get 'top/index'
   devise_for :owners, controllers: {
     sessions:      'owners/sessions',
     passwords:     'owners/passwords',
@@ -12,5 +15,9 @@ Rails.application.routes.draw do
     registrations: 'residents/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'owners#index'
+  namespace :admin do
+    root to: 'owners#index'
+  end
+  
+  get 'owner', to: 'owners#show'
 end

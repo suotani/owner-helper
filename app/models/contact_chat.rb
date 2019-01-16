@@ -1,0 +1,2 @@
+class ContactChat < ApplicationRecord
+end

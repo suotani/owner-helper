@@ -4,14 +4,27 @@
     <title>OwnerHelper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "owners", media: "all" %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <h1>OwnerHelper</h1>
+      <ul>
+        <% if @owner.present? %>
+          <li class="header-pull-list-parent">
+            <%= @owner.name %><i class="fas fa-angle-down"></i>
+            <ul class="header-pull-list">
+              <li><%= link_to "ログアウト", destroy_owner_session_path, method: "delete" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "管理人登録", new_owner_registration_path %></li>
+        <% end %>
+      </ul>
+    </header>
+      <%= yield %>
   </body>
 </html>

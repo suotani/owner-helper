@@ -1,6 +1,5 @@
-class OwnersController < ApplicationController
+class OwnersController < OwnerController
 
   def show
-    @owner = current_owner
   end
 end

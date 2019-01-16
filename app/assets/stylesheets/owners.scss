@@ -1,3 +1,57 @@
 // Place all the styles related to the Owners controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #f2f3f3;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(106, 91, 152);
+}
+
+header h1{
+  padding: 0 70px 0 50px;
+  font-size: 20px;
+  color: #fff;
+}
+
+header ul{
+  list-style: none;
+  display: flex;
+  color: #fff;
+  margin: 0;
+  margin-right: 50px;
+}
+
+header li{
+  color: #fff;
+  line-height: 56px;
+}
+
+.header-pull-list-parent{
+    position: relative;
+}
+
+.header-pull-list{
+    position: absolute;
+    display: none;
+    top: 36px;
+    width: 124px;
+    padding: 0;
+    background-color: #fff;
+    border: solid 1px #ddd;
+}
+
+.header-pull-list li{
+  line-height: 32px;
+  padding: 6px;
+}
+
+.header-pull-list li a{
+  text-decoration: none;
+  color: #000;
+}

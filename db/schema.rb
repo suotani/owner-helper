@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_011219) do
+ActiveRecord::Schema.define(version: 2019_01_14_025532) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "account"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_chats", force: :cascade do |t|
+    t.integer "contact_id"
+    t.text "text"
+    t.boolean "readFlg"
+    t.integer "owner_id"
+    t.integer "resident_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "room_id"
+    t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +48,10 @@ ActiveRecord::Schema.define(version: 2019_01_13_011219) do
   create_table "owners", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,6 +60,19 @@ ActiveRecord::Schema.define(version: 2019_01_13_011219) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+  end
+
+  create_table "post_houses", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "Owner_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "residents", force: :cascade do |t|

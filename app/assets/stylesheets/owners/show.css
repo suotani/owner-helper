@@ -1,0 +1,106 @@
+header i{
+  line-height: 56px;
+  margin-left: 5px;
+}
+
+main{
+  padding: 0 8%;
+  margin-top: 20px;
+  display: flex;
+}
+
+.card{
+  box-shadow: 0 1px 1px 0 rgba(0,28,36,0.5);
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+main h2{
+  margin: 0;
+  font-size: 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eaeded;
+  padding: 10px 19px;
+  font-weight: 100;
+}
+
+main .main-block{
+  width: 65%;
+  padding-right: 20px;
+}
+
+main .side-block{
+  width: 35%;
+}
+
+.contact {
+  display: flex;
+  border-bottom: solid 1px #cacaca;
+  padding: 5px;
+}
+.contact .contact-date{
+  width: 20%;
+}
+
+.contact .contact-sentense{
+  width: 80%;
+}
+
+.all-contacts{
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px; 
+}
+
+.houses ul{
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.posts{
+  padding-bottom: 13px;
+}
+
+.post{
+  display: flex;
+  border-bottom: solid 1px #cacaca;
+  padding: 5px;
+}
+
+.post .post-date{
+  width: 30%;
+}
+
+.post .post-title{
+  width: 70%;
+}
+
+.all-posts{
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px; 
+}
+
+.btn{
+  border-radius: 40px;
+}
+
+.new-post-btn{
+  width: 90%;
+  background-color: #2f499e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-decoration: none;
+  line-height: 32px;
+}
+
+.new-post-btn:hover{
+  background-color: #243879;
+}
+
+.new-post-btn:hover{
+  color: rgb(209, 209, 209);
+}

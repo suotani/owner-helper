@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   devise_for :owners, controllers: {
     sessions:      'owners/sessions',
     passwords:     'owners/passwords',
-    registrations: 'owners/registrations'
+    registrations: 'owners/registrations',
+    confirmations: "owners/confirmations"
   }
 
   devise_for :residents, controllers: {

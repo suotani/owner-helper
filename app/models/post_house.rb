@@ -1,0 +1,2 @@
+class PostHouse < ApplicationRecord
+end

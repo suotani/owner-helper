@@ -1,2 +1,69 @@
-<p>mypage</p>
-<%= @owner.name %>
+<%= stylesheet_link_tag "owners/show", :media => "all" %>
+  <main>
+    <div class="main-block">
+      <div class="card">
+        <h2>最近の連絡</h2>
+        <div class="contact">
+          <div class="contact-date">
+            2019/10/12<br />
+            12:22
+          </div>
+          <div class="contact-sentense">
+            アクシスカナエ 703 魚谷<br />
+            <a href="#">下からの苦情に関しまして</a>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="contact-date">
+            2019/10/12<br />
+            12:22
+          </div>
+          <div class="contact-sentense">
+            アクシスカナエ 703 魚谷<br />
+            <a href="#">下からの苦情に関しまして</a>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="contact-date">
+            2019/10/12<br />
+            12:22
+          </div>
+          <div class="contact-sentense">
+            アクシスカナエ 703 魚谷<br />
+            <a href="#">下からの苦情に関しまして</a>
+          </div>
+        </div>
+        <a href="#" class="all-contacts">すべて見る</a>
+      </div>
+    </div>
+    <div class="side-block">
+      <div class="card houses">
+        <h2>管理物件</h2>
+        <ul>
+          <% @owner.houses.each do |house| %>
+            <li><a href="#"><%= house.name %>(12/24)</a></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="card posts">
+        <h2>お知らせ回覧</h2>
+        <div class="post">
+          <div class="post-date">2019/11/12<br />12:00</div>
+          <div class="post-title"><a href="#">ゴミ出し日</a></div>
+        </div>
+        <div class="post">
+          <div class="post-date">2019/11/12<br />12:00</div>
+          <div class="post-title"><a href="#">ゴミ出し日</a></div>
+        </div>
+        <div class="post">
+          <div class="post-date">2019/11/12<br />12:00</div>
+          <div class="post-title"><a href="#">ゴミ出し日</a></div>
+        </div>
+        <a href="#" class="all-posts">すべて見る>></a>
+        <a href="#" class="btn new-post-btn">新しく回覧を作る</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+  </footer>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :demos
   root to: "top#index"
 
   get 'top/index'
@@ -21,4 +22,8 @@ Rails.application.routes.draw do
   end
   
   get 'owner', to: 'owners#show'
+  
+  namespace :owner do
+    resources :houses
+  end
 end

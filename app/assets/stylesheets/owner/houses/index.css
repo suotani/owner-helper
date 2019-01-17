@@ -1,0 +1,72 @@
+main{
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.add-btn-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0px;
+}
+
+.add-btn-wrapper a{
+  padding: 9px 19px;
+  background-color: cornflowerblue;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.add-btn-wrapper a i{
+  margin: 0 5px;
+}
+
+.houselist{
+  width: 100%;
+}
+
+.houselist ul{
+  list-style: none;
+  margin: 0;
+  line-height: 50px;
+  padding: 0;
+}
+
+.houselist li{
+  border-right: solid 1px #555;
+}
+
+.list-row{
+  display: flex;
+  border: solid 1px #333;
+  border-top: none;
+}
+
+.list-header{
+  background-color: black;
+}
+
+.list-header li{
+  color: white;
+}
+
+.list-row .name{
+  width: 50%;
+  padding-left: 15px;
+}
+
+.list-row .regident-num{
+  width: 10%;
+  text-align: center;
+}
+
+.list-row .room-num{
+  width: 10%;
+  text-align: center;
+}
+
+.list-row .actions{
+  width: 30%;
+  padding-left: 15px;
+}

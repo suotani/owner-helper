@@ -1,0 +1,55 @@
+main{
+  width: 80%;
+  margin: auto;
+}
+
+.house-wrapper{
+  margin-top: 50px;
+}
+
+.row{
+  display: flex;
+  list-style: none;
+  line-height: 39px;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #5f5c5c;
+}
+
+.row .key{
+  width: 20%;
+  background-color: #333333;
+  color: white;
+  padding-left: 10px;
+}
+
+.row .value{
+  width: 80%;
+  padding-left: 10px;
+}
+
+.room-list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: solid 1px #333;
+  border-left: solid 1px #333;
+}
+
+.room-list li{
+  width: 20%;
+  box-sizing: border-box;
+  border-bottom: solid 1px #333;
+  border-right: solid 1px #333;
+}
+
+.room-list li a{
+  margin: 5px;
+}
+
+.room-list li p{
+  margin: 5px;
+  text-align: center;
+}

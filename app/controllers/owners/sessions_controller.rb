@@ -2,7 +2,7 @@
 
 class Owners::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  layout "owner"
   def after_sign_in_path_for(resource)
     owner_path
   end

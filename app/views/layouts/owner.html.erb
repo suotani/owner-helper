@@ -13,15 +13,14 @@
     <header>
       <h1>OwnerHelper</h1>
       <ul>
-        <% if @owner.present? %>
+        <% if @owner.present? && !@owner.new_record? %>
           <li class="header-pull-list-parent">
             <%= @owner.name %><i class="fas fa-angle-down"></i>
             <ul class="header-pull-list">
               <li><%= link_to "ログアウト", destroy_owner_session_path, method: "delete" %></li>
+               <li><%= link_to "管理人情報の変更", ""  %></li>
             </ul>
           </li>
-        <% else %>
-          <li><%= link_to "管理人登録", new_owner_registration_path %></li>
         <% end %>
       </ul>
     </header>

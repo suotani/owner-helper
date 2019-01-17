@@ -1,0 +1,45 @@
+main{
+  padding: 0;
+  margin: auto;
+  margin-top: 20px;
+  width: 40%;
+}
+
+main h2{
+  background-color: #f2f3f3;;
+}
+
+form{
+  background-color: #fff;
+  margin: auto;
+  padding: 30px 35px;
+  border-top: solid 2px rgb(180, 180, 180);
+}
+
+form input{
+  width: 100%;
+  line-height: 20px;
+}
+
+.field{
+  margin-bottom: 15px;
+}
+
+.actions input{
+  height: 35px;
+  border-radius: 10px;
+  background-color: #f39303;
+}
+
+#error_explanation h2{
+    display: none;
+}
+
+#error_explanation ul{
+    list-style: none;
+    padding: 0;
+}
+
+#error_explanation li{
+    color: #f00;
+}

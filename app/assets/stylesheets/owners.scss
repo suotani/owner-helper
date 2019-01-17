@@ -24,7 +24,7 @@ header ul{
   display: flex;
   color: #fff;
   margin: 0;
-  margin-right: 50px;
+  margin-right: 130px;
 }
 
 header li{
@@ -40,7 +40,7 @@ header li{
     position: absolute;
     display: none;
     top: 36px;
-    width: 124px;
+    width: 170px;
     padding: 0;
     background-color: #fff;
     border: solid 1px #ddd;
@@ -48,7 +48,8 @@ header li{
 
 .header-pull-list li{
   line-height: 32px;
-  padding: 6px;
+  padding: 2px 6px;
+  border-bottom: solid 1px #ddd;
 }
 
 .header-pull-list li a{

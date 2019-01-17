@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag "owner/houses/show", :media => "all" %>
+
+    <main>
+      <div class="house-wrapper">
+        <h2>物件情報</h2>
+        <ul class="row">
+          <li class="key">物件名</li>
+          <li class="value"><%= @house.name %></li>
+        </ul>
+        <ul class="row">
+          <li class="key">郵便番号</li>
+          <li class="value">5449583</li>
+        </ul>
+        <ul class="row">
+          <li class="key">住所</li>
+          <li class="value">神戸市灘区水道筋6丁目４－１</li>
+        </ul>
+      </div>
+
+      <div class="rooms">
+        <h2>部屋一覧</h2>
+        <ul class="room-list">
+          <li><a href="#">101</a> <p>魚谷</p></li>
+          <li><a href="#">101</a> <p></p></li>
+          <li><a href="#">101</a> <p>魚谷</p></li>
+          <li><a href="#">101</a> <p>魚谷</p></li>
+          <li><a href="#">101</a> <p></p></li>
+          <li><a href="#">101</a> <p>魚谷</p></li>
+          <li><a href="#">101</a> <p>魚谷</p></li>
+          <li><a href="#">101</a> <p></p></li>
+        </ul>
+      </div>
+    </main>

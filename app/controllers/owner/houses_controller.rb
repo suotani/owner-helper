@@ -1,6 +1,7 @@
 class Owner::HousesController < OwnerController
     
     before_action :authenticate_owner!
+    before_action :get_house, only: [:show, :update, :destroy]
     layout "owner"
     
     def index
@@ -21,14 +22,14 @@ class Owner::HousesController < OwnerController
     end
     
     def show
-      @house = House.find(params[:id])
-    end
-    
-    def edit
-        
     end
     
     def update
+      if @house.update(house_params)
+        redirect_to owner_house_path(@house.id)
+      else
+        render :show
+      end
     end
     
     def destroy
@@ -40,5 +41,9 @@ class Owner::HousesController < OwnerController
       params.require(:house).permit(:name, :address).tap do |v|
         v[:owner_id] = current_owner.id
       end
+    end
+    
+    def get_house
+      @house = House.find(params[:id])
     end
 end

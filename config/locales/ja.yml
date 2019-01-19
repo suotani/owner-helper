@@ -204,3 +204,9 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  models:
+    attributes:
+      house:
+        name: "物件名"
+        postal_code: "郵便番号"
+        address: "住所"

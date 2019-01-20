@@ -42,15 +42,22 @@
 
       <div class="rooms">
         <h2>部屋一覧</h2>
+        <div class="room-add-btn-wrapper">
+          <button type="btn" class="room-add-btn">部屋を追加</button>
+        </div>
         <ul class="room-list">
-          <li><a href="#">101</a> <p>魚谷</p></li>
-          <li><a href="#">101</a> <p></p></li>
-          <li><a href="#">101</a> <p>魚谷</p></li>
-          <li><a href="#">101</a> <p>魚谷</p></li>
-          <li><a href="#">101</a> <p></p></li>
-          <li><a href="#">101</a> <p>魚谷</p></li>
-          <li><a href="#">101</a> <p>魚谷</p></li>
-          <li><a href="#">101</a> <p></p></li>
+          <% @house.rooms.each do |room| %>
+            <li><%= link_to (room.number + "<p>#{room.resident&.name}</p>").html_safe, edit_owner_house_room_path(house_id: @house.id) %>  </li>
+          <% end %>
         </ul>
       </div>
     </main>
+    
+<div class="modal">
+  <h2>部屋の追加</h2>
+  <%= form_tag owner_house_rooms_path(house_id: @house.id) do %>
+    <%= text_field_tag 'rooms_name' %>
+    <p class="input-explain">カンマで部屋名を区切って入力してください(例: 101,102,103,201,203)</p>
+    <%= submit_tag "追加" %>
+  <% end %>
+</div>

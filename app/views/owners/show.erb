@@ -41,7 +41,7 @@
         <h2>管理物件</h2>
         <ul>
           <% @owner.houses.each do |house| %>
-            <li><a href="#"><%= house.name %>(12/24)</a></li>
+            <li><%= link_to house.name + "(12/24)", owner_house_path(house.id) %></li>
           <% end %>
         </ul>
       </div>

@@ -38,7 +38,7 @@ class Owner::HousesController < OwnerController
     private
     
     def house_params
-      params.require(:house).permit(:name, :address).tap do |v|
+      params.require(:house).permit(:name, :address, :postal_code).tap do |v|
         v[:owner_id] = current_owner.id
       end
     end

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'owner', to: 'owners#show'
   
   namespace :owner do
-    resources :houses
+    resources :houses do
+      resources :rooms, only: [:create, :edit, :update]
+    end
   end
 end

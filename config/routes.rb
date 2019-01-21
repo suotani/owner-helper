@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   
   namespace :owner do
     resources :houses do
-      resources :rooms, only: [:create, :edit, :update]
+      resources :rooms, only: [:create, :edit, :update, :destroy]
     end
   end
 end

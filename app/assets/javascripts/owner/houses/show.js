@@ -14,4 +14,12 @@ $(document).ready(function(){
       $(".house-read").hide();
       $(".cancel-btn").hide();
    }
+   
+   $(".room-add-btn").click(function(){
+       $(".modal-wrap").show();
+   });
+   
+   $(".room-add-cancel-btn").click(function(){
+      $(".modal-wrap").hide(); 
+   });
 });

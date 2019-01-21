@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "owner/houses/show", :media => "all" %>
 <%= javascript_include_tag 'owner/houses/show', 'data-turbolinks-track': 'reload' %>
     <main>
+      <div class="notice"><%= notice %></div>
       <div class="house-wrapper">
         <h2>物件情報</h2>
         <div>
@@ -42,22 +43,32 @@
 
       <div class="rooms">
         <h2>部屋一覧</h2>
-        <div class="room-add-btn-wrapper">
-          <button type="btn" class="room-add-btn">部屋を追加</button>
+        <div class="room-add-btn-wrapper actions">
+          <button type="btn" class="room-add-btn button">部屋を追加</button>
         </div>
         <ul class="room-list">
-          <% @house.rooms.each do |room| %>
-            <li><%= link_to (room.number + "<p>#{room.resident&.name}</p>").html_safe, edit_owner_house_room_path(house_id: @house.id) %>  </li>
+          <% if @house.rooms.all?{|n| n.number =~ /^[0-9]+$/} %>
+            <% rooms = @house.rooms.sort{|a,b| a.number.to_i <=> b.number.to_i} %>
+          <% else %>
+            <% rooms = @house.rooms.order(:number) %>
+          <% end %>
+          <% rooms.each do |room| %>
+            <li><%= link_to (room.number + "<p>#{room.resident&.name}</p>").html_safe, edit_owner_house_room_path(house_id: @house.id, id: room.id) %>  </li>
           <% end %>
         </ul>
       </div>
     </main>
-    
-<div class="modal">
-  <h2>部屋の追加</h2>
-  <%= form_tag owner_house_rooms_path(house_id: @house.id) do %>
-    <%= text_field_tag 'rooms_name' %>
-    <p class="input-explain">カンマで部屋名を区切って入力してください(例: 101,102,103,201,203)</p>
-    <%= submit_tag "追加" %>
-  <% end %>
+
+<div class="modal-wrap">
+  <div class="modal">
+    <h2>部屋の追加</h2>
+    <%= form_tag owner_house_rooms_path(house_id: @house.id) do %>
+      <%= text_field_tag 'rooms_name' %>
+      <p class="input-explain">カンマで部屋名を区切って入力してください(例: 101,102,103,201,203)</p>
+      <div class="room-submit-wrap actions">
+        <button type="button" class="button room-add-cancel-btn">キャンセル</button>
+        <%= submit_tag "追加", class: "room-submit button" %>
+      </div>
+    <% end %>
+  </div>
 </div>

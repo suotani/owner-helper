@@ -1,0 +1,58 @@
+<%= stylesheet_link_tag "owner/houses/show", :media => "all" %>
+<%= javascript_include_tag 'owner/houses/show', 'data-turbolinks-track': 'reload' %>
+    <main>
+      <div class="notice"><%= notice %></div>
+      <div class="house-wrapper">
+        <h2>物件情報</h2>
+        <div>
+          <%= form_for(@room, url: owner_house_room_path(house_id: @house.id), locale: true, method: "patch") do |form| %>
+            <% if @room.errors.any? %>
+              <div id="error_explanation">
+                <ul>
+                <% @room.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <ul class="row">
+              <li class="key">部屋番号</li>
+              <li class="value house-read"><%= @room.number %></li>
+              <li class="value house-form"><%= form.text_field :number %></li>
+            </ul>
+            <div class="actions">
+              <button class="edit-btn house-read button" type="button">編集</button>
+            </div>
+            <div class="actions">
+              <button class="cancel-btn house-form button" type="button">キャンセル</button>
+              <%= form.submit class: "house-form button submit" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="house-wrapper">
+        <h2>入居人情報</h2>
+        <div>
+          <% resident = @room.resident %>
+          <% if resident %>
+            <ul class="row">
+              <li class="key">名前</li>
+              <li class="value house-read"><%= resident.name %></li>
+            </ul>
+            <ul class="row">
+              <li class="key">電話番号</li>
+              <li class="value house-read"><%= resident.phone_number %></li>
+            </ul>
+            <ul class="row">
+              <li class="key">メールアドレス</li>
+              <li class="value house-read"><%= resident.email %></li>
+            </ul>
+            <ul class="row">
+              <li class="key">家族構成</li>
+              <li class="value house-read"><%= resident.family %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </main>

@@ -1,6 +1,5 @@
 class Owner::HousesController < OwnerController
     
-    before_action :authenticate_owner!
     before_action :get_house, only: [:show, :update, :destroy]
     layout "owner"
     

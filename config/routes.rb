@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'residents/show'
   resources :demos
   root to: "top#index"
 
@@ -21,11 +22,19 @@ Rails.application.routes.draw do
     root to: 'owners#index'
   end
   
+  # dashboard
   get 'owner', to: 'owners#show'
+  get 'resident', to: 'residents#show'
   
   namespace :owner do
     resources :houses do
       resources :rooms, only: [:create, :edit, :update, :destroy]
     end
+    
+    resources :residents, only: [:index, :show]
+  end
+  
+  namespace :resident do
+    
   end
 end

@@ -1,0 +1,13 @@
+<div>
+  <ul class="resident-list-header">
+    <li>名前</li><li>電話番号</li><li>物件名</li><li>部屋番号</li>
+  </ul>
+  <% @residents.each do |resident| %>
+    <ul class="resident-list-item">
+      <li><%= resident.name %></li>
+      <li><%= resident.phone_number %></li>
+      <li><%= resident.room.house.name %></li>
+      <li><%= resident.room.number %></li>
+    </ul>
+  <% end %>
+</div>

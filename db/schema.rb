@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_025351) do
+ActiveRecord::Schema.define(version: 2019_01_22_004229) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_01_21_025351) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "phone_number"
+    t.string "response_time"
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end
@@ -94,6 +96,10 @@ ActiveRecord::Schema.define(version: 2019_01_21_025351) do
     t.string "phone_number"
     t.string "family"
     t.string "name"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["email"], name: "index_residents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_residents_on_reset_password_token", unique: true
   end

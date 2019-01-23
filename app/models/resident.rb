@@ -7,4 +7,10 @@ class Resident < ApplicationRecord
   has_one :room
 
   validates :name, presence: true
+  
+  enum status: {
+    signed_up: 1,  # サインアップのみ
+    requested: 2,  # 入居リクエスト中
+    moving_in: 3   # 入居
+  }
 end

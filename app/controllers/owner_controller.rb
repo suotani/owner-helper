@@ -8,5 +8,6 @@ class OwnerController < ApplicationController
   
   def get_owner_instance
     @owner = current_owner
+    @request_count = Room.joins(:house).where(request: true).merge(House.where(owner_id: @owner.id)).count
   end
 end

@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "residents/sessions/new", :media => "all" %>
+<main>
+<h2>入居リクエスト</h2>
+
+<%= form_tag(new_resident_house_path, id: "select_form", method: "get") do %>
+  <div class="field">
+    <%= label_tag "search_name", "" %><br />
+    <%= text_field_tag "search_name" %>
+  </div>
+  
+  <div class="actions">
+    <button type="button" class="button" onclick="$('#select_form').submit();">検索</button>
+  </div>
+
+<% end %>
+
+<%= form_tag(resident_houses_path) do %>
+
+  <ul>
+  <% @houses.each do |house| %>
+    <li class="house_name" data-id="<%= house.id %>" data-name="<%= house.name %>">
+      <%= house.name %>
+    </li>
+  <% end %>
+  </ul>
+  
+  <%= text_field_tag "house_name" %>
+  
+  <%= hidden_field_tag "house_id" %>
+  
+  <div class="field">
+    <%= label_tag "number", "部屋番号" %><br />
+    <%= text_field_tag "number" %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "リクエストを送信" %>
+  </div>
+<% end %>
+
+</main>

@@ -1,0 +1,50 @@
+.list-wrap{
+    width: 80%;
+    margin: 80px auto;
+}
+
+.list{
+    display: flex;
+    list-style: none;
+    padding: 3px;
+}
+
+.list-header{
+    background-color: #000;
+}
+
+.list-header li{
+    color: #fff;
+}
+
+.request-date{
+    width: 15%;
+}
+.request-resident-name{
+    width: 15%;
+}
+.request-house-name{
+    width: 35%;
+}
+.request-room-number{
+    width: 10%;
+}
+.actions{
+    width: 30%;
+}
+
+.actions .button {
+    width: 100px;
+    background-color: #8498f9;
+    border-radius: 10px;
+    line-height: 36px;
+    color: white;
+    margin-left: 10px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.actions .button.alert {
+    background-color: #ff1515;
+}

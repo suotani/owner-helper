@@ -1,0 +1,9 @@
+
+<%= @resident.name %>様、iRentへようこそ。
+===============================================
+ 
+<%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが受諾されました。 
+
+下記リンクよりログインしてください。
+
+<%= new_resident_session_url(email: @resident.email) %>

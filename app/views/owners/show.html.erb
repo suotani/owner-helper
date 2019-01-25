@@ -44,6 +44,7 @@
             <li><%= link_to house.name + "(12/#{house.rooms.size})", owner_house_path(house.id) %></li>
           <% end %>
         </ul>
+        <%= link_to "新しく物件を登録する", new_owner_house_path, class: "btn new-post-btn" %>
       </div>
       <div class="card posts">
         <h2>お知らせ回覧</h2>

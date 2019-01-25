@@ -5,12 +5,13 @@ class Resident < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_one :room
+  has_many :contacts
 
   validates :name, presence: true
   
   enum status: {
     signed_up: 1,  # サインアップのみ
     requested: 2,  # 入居リクエスト中
-    moving_in: 3   # 入居
+    moving_in: 3   # 入居中
   }
 end

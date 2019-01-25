@@ -1,0 +1,9 @@
+
+<%= @resident.name %>様、iRentへようこそ。
+===============================================
+ 
+<%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが拒否されました。 
+
+下記リンクよりログインし、再度ご契約内容をご確認の上、申請を行ってください。
+
+<%= new_resident_session_url(email: @resident.email) %>

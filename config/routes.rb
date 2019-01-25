@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'contacts/index'
   get 'residents/show'
   resources :demos
   root to: "top#index"
@@ -33,9 +34,12 @@ Rails.application.routes.draw do
     
     resources :residents, only: [:index, :show]
     resources :requests, only: [:index, :update, :destroy]
+    resources :posts, except: [:show]
+    resources :contact, only: [:index]
   end
   
   namespace :resident do
     resources :houses, only: [:new, :create, :show]
+    resources :contact, only: [:index]
   end
 end

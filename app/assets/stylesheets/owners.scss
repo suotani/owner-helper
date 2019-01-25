@@ -14,9 +14,11 @@ header{
 }
 
 header h1{
-  padding: 0 70px 0 50px;
-  font-size: 20px;
-  color: #fff;
+    padding: 0 70px 0 50px;
+    font-size: 27px;
+    color: #fff;
+    margin: 0;
+    line-height: 56px;
 }
 
 header ul{
@@ -30,6 +32,12 @@ header ul{
 header li{
   color: #fff;
   line-height: 56px;
+  margin-left: 35px;
+}
+
+header a{
+  color: #fff;
+  text-decoration: none;
 }
 
 .header-pull-list-parent{
@@ -49,6 +57,7 @@ header li{
 .header-pull-list li{
   line-height: 32px;
   padding: 2px 6px;
+  margin: 0;
   border-bottom: solid 1px #ddd;
 }
 
@@ -60,6 +69,7 @@ header li{
 .header-menu{
   display: flex;
   margin: 0;
+  margin-right: 150px;
 }
 
 .header-right{

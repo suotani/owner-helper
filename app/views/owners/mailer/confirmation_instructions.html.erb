@@ -1,5 +1,14 @@
-<p>Welcome <%= @email %>!</p>
+<p>ようこそ <%= @resource.name %>さん</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>この度は管理人登録していただきありがとうございます。</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>まずは以下のリンク「メールアドレスの認証」をクリックしてください。</p>
+
+<p>クリックしてメールアドレスが認証されますと、ログインが可能となります。</p>
+
+<p><%= link_to 'メールアドレスの認証', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+
+<p><注意></p>
+
+<p>このメールには返信することができません。</p>

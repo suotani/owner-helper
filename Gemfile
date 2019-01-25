@@ -38,6 +38,7 @@ gem 'devise'
 gem "jquery-rails"
 gem 'jquery-turbolinks'
 gem 'mailgun_rails'
+gem 'kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -52,6 +53,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :test do

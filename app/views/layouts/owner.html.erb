@@ -17,8 +17,6 @@
       <ul class="header-menu">
       　　<li><%= link_to "入居人検索", owner_residents_path %></li>
           <li><%= link_to "入居申請(#{@request_count}件)", owner_requests_path %></li>
-      </ul>
-      <ul>
         <li class="header-pull-list-parent">
           <%= @owner.name %><i class="fas fa-angle-down"></i>
           <ul class="header-pull-list">

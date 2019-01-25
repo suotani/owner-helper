@@ -1,4 +1,4 @@
-.list-wrap{
+main{
     width: 80%;
     margin: 80px auto;
 }
@@ -17,17 +17,18 @@
     color: #fff;
 }
 
-.request-date{
+.resident-name{
     width: 15%;
 }
-.request-resident-name{
+
+.resident-phone-number{
+    width: 20%;
+}
+.resident-house-name{
+    width: 50%;
+}
+.resident-room-number{
     width: 15%;
-}
-.request-house-name{
-    width: 35%;
-}
-.request-room-number{
-    width: 10%;
 }
 .actions{
     width: 30%;
@@ -47,4 +48,11 @@
 
 .actions .button.alert {
     background-color: #ff1515;
+}
+
+.form-wrap{
+    padding: 20px;
+    background-color: #fff;
+    border-top: solid 2px #eee;
+    
 }

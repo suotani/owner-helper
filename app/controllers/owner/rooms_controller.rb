@@ -7,7 +7,7 @@ class Owner::RoomsController < OwnerController
     current_rooms_number = @house.rooms.size
     create_room_from_names
     created_rooms_number = @house.rooms.size
-    redirect_to owner_house_path(@house.id), notice: "#{created_rooms_number - current_rooms_number}部屋登録しました"
+    redirect_to owner_house_path(@house.id)
   end
   
   def edit

@@ -13,9 +13,10 @@ class Residents::SessionsController < Devise::SessionsController
   end
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    @email = params[:email]
+    super
+  end
 
   # POST /resource/sign_in
   # def create

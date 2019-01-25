@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_020614) do
+ActiveRecord::Schema.define(version: 2019_01_25_021053) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_01_23_020614) do
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   create_table "demos", force: :cascade do |t|
@@ -79,10 +80,12 @@ ActiveRecord::Schema.define(version: 2019_01_23_020614) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "Owner_id"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "owner_id"
+    t.string "title"
+    t.datetime "post_at"
   end
 
   create_table "residents", force: :cascade do |t|

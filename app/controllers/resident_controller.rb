@@ -1,6 +1,7 @@
 class ResidentController < ApplicationController
-  before_action :get_resident_instance
+
   before_action :authenticate_resident!
+  before_action :get_resident_instance
   before_action :status_redirect
   layout "resident"
 
@@ -14,7 +15,7 @@ class ResidentController < ApplicationController
     if @resident.signed_up?
       redirect_to new_resident_house_path
     elsif @resident.requested?
-      redirect_to resident_house_path(@resident.room.house.id)
+      redirect_to resident_path
     end
   end
 end

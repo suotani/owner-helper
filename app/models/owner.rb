@@ -5,4 +5,6 @@ class Owner < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   
   has_many :houses
+  has_many :posts
+  has_many :contacts
 end

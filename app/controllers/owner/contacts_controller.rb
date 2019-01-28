@@ -1,12 +1,13 @@
 class Owner::ContactsController < OwnerController
   
-  before_action :set_contact, only: [:show, :update]
+  before_action :set_contact, only: [:edit, :update]
   
   def index
-    @contacts = Owner.contacts.order(:updated_at)
+    @contacts = Owner.contacts.eager_load(:contact_chats).order(:updated_at)
   end
 
-  def show
+  def edit
+    @contact_chats = @contact.contact_chats.order(:created_at)
   end
   
   def update

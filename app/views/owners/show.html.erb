@@ -3,37 +3,22 @@
     <div class="main-block">
       <div class="card">
         <h2>最近の連絡</h2>
-        <div class="contact">
-          <div class="contact-date">
-            2019/10/12<br />
-            12:22
+        <% @contacts.each do |contact| %>
+          <div class="contact">
+            <div class="contact-date">
+              <%= contact.updated_at.strftime("%Y/%m/%d") %><br />
+              <%= contact.updated_at.strftime("%H:%M") %>
+            </div>
+            <div class="contact-sentense">
+              <% r = contact.room %>
+              <%= r.house.name %> <%= r.number %> <%= contact.resident.name %><br />
+              <%= link_to edit_owner_contact_path(contact.id) do %>
+                <%= contact.contact_chats.order(:created_at).last.text[0..25] + "..." %></a>
+              <% end %>
+            </div>
           </div>
-          <div class="contact-sentense">
-            アクシスカナエ 703 魚谷<br />
-            <a href="#">下からの苦情に関しまして</a>
-          </div>
-        </div>
-        <div class="contact">
-          <div class="contact-date">
-            2019/10/12<br />
-            12:22
-          </div>
-          <div class="contact-sentense">
-            アクシスカナエ 703 魚谷<br />
-            <a href="#">下からの苦情に関しまして</a>
-          </div>
-        </div>
-        <div class="contact">
-          <div class="contact-date">
-            2019/10/12<br />
-            12:22
-          </div>
-          <div class="contact-sentense">
-            アクシスカナエ 703 魚谷<br />
-            <a href="#">下からの苦情に関しまして</a>
-          </div>
-        </div>
-        <a href="#" class="all-contacts">すべて見る</a>
+        <% end %>
+        <%= link_to "すべて見る", owner_contacts_path, class: "all-contacts" %>
       </div>
     </div>
     <div class="side-block">

@@ -1,0 +1,79 @@
+main{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+h2{
+    background-color: #f7f7f7;
+    border-bottom: solid 1px #abe0ff;
+    border-left: solid 5px #abe0ff;
+    padding: 2px 12px;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.message{
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 40px;
+}
+
+.message-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.created-datetime{
+    font-size: 12px;
+}
+
+.message.resident{
+    border: solid 1px #a7e3ff;
+}
+
+.message.owner{
+    border: solid 1px #cacaca;
+}
+
+.message .short{
+}
+
+.message .long{
+    display: none;
+}
+
+.message .long p{
+    width: 80%;
+}
+
+.message.default-open .short{
+    display: none;
+}
+
+.message.default-open .long{
+    display: block;
+}
+
+textarea{
+    width: 100%;
+    height: 80px;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+}
+
+.actions .button {
+    width: 200px;
+    background-color: #8498f9;
+    border-radius: 10px;
+    line-height: 29px;
+    color: white;
+    margin-left: 10px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}

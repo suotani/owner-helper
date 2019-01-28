@@ -30,15 +30,20 @@ main{
 .resident-room-number{
     width: 15%;
 }
+
+
 .actions{
-    width: 30%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-start;
 }
 
 .actions .button {
     width: 100px;
     background-color: #8498f9;
     border-radius: 10px;
-    line-height: 36px;
+    line-height: 26px;
     color: white;
     margin-left: 10px;
     display: inline-block;
@@ -55,4 +60,12 @@ main{
     background-color: #fff;
     border-top: solid 2px #eee;
     
+}
+
+form{
+    display: flex;
+}
+
+.fiels{
+    width: 50%;
 }

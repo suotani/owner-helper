@@ -1,44 +1,57 @@
 <%= stylesheet_link_tag "owner/contacts/edit", :media => "all" %>
-
+<%= javascript_include_tag 'owner/contacts/edit', 'data-turbolinks-track': 'reload' %>
 <main>
 
   <h2>入居人情報</h2>
   
   <div>
-    <ul>
-      <li></li>
+    <ul class="resident-info-row">
+      <li class="resident-info-header">名前</li>
+      <li class="resident-info-value"><%= @contact.resident.name %></li>
+    </ul>
+    <ul class="resident-info-row">
+      <li class="resident-info-header">物件・部屋</li>
+      <li class="resident-info-value">
+        <%= @contact.room.house.name %> <%= @contact.room.number %>
+      </li>
+    </ul>
+    <ul class="resident-info-row">
+      <li class="resident-info-header">電話番号</li>
+      <li class="resident-info-value"><%= @contact.resident.phone_number %></li>
     </ul>
   </div>
   
   <h2>メッセージ</h2>
-  <% @contact_chats.each_with_index do |chat, i| %>
-    <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
-    <% add_class = (i+1 == @contact_chats.length) ? "default-open" : "" %>
-    <% add_class += chat.resident_id.present? ? " resident" : " owner" %>
-    <div class="message <%= add_class %>">
-      <div class="short">
-        <div class="message-header">
-          <div class="writer-name" >
-            <%= writer.name %> <%= chat.text[0..30] %>
-          </div>
-          <div class="created-datetime">
-            <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
-          </div>
-        </div>
-      </div>
-      <div class="long">
-        <div class="message-header">
-          <div class="writer-name" >
-            <%= writer.name %>
-          </div>
-          <div class="created-datetime">
-            <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+  <div class="messages-wrap">
+    <% @contact_chats.each_with_index do |chat, i| %>
+      <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
+      <% add_class = (i+1 == @contact_chats.length) ? "default-open" : "" %>
+      <% add_class += chat.resident_id.present? ? " resident" : " owner" %>
+      <div class="message <%= add_class %>">
+        <div class="short">
+          <div class="message-header">
+            <div class="writer-name" >
+              <%= writer.name %> <%= chat.text[0..30] %>
+            </div>
+            <div class="created-datetime">
+              <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+            </div>
           </div>
         </div>
-        <p><%= simple_format(h(chat.text)) %></p>
+        <div class="long">
+          <div class="message-header">
+            <div class="writer-name" >
+              <%= writer.name %>
+            </div>
+            <div class="created-datetime">
+              <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+            </div>
+          </div>
+          <p><%= simple_format(h(chat.text)) %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   
   <%= form_tag(owner_contact_path(@contact.id), method: "patch") do %>
     <%= text_area_tag "chat_message" %>

@@ -1,5 +1,33 @@
-
+<%= stylesheet_link_tag "owner/contacts/index", :media => "all" %>
 
 <main>
-  
+  <h2>メッセージ一覧</h2>
+  <div class="messages-wrpper">
+    <% @contacts.each do |contact| %>
+      <% chat = contact.contact_chats.order(created_at: :desc).first %>
+      <div class="message">
+        <ul class="message-row">
+          <li class="message-status">
+            <% if chat.owner_id.present? %>
+              <span class="send">送信済み</span>
+            <% elsif contact.owner_no_read? %>
+               <span class="noread">未読</span>
+            <% else contact.owner_read? %>
+              <span class="read">既読</span>
+            <% end %>
+          </li>
+          <li class="message-from">
+            <%= contact.room.house.name %> <%= contact.room.number %><br />
+            <%= contact.resident.name %>
+          </li>
+          <li class="message-text">
+            <%= link_to chat.text[0..30], edit_owner_contact_path(contact.id) %>
+          </li>
+          <li class="message-wrote-date">
+            <%= contact.last_wrote_at.strftime("%Y年%m月%d日 %H:%M") %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </main>

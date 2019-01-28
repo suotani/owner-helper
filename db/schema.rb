@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_145728) do
+ActiveRecord::Schema.define(version: 2019_01_28_115352) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_145728) do
     t.integer "resident_id"
     t.integer "owner_status", default: 1
     t.integer "resident_status", default: 1
+    t.datetime "last_wrote_at"
   end
 
   create_table "demos", force: :cascade do |t|

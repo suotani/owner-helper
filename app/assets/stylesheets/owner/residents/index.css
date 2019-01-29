@@ -6,11 +6,18 @@ main{
 .list{
     display: flex;
     list-style: none;
-    padding: 3px;
+    padding: 5px;
+    border-bottom: solid 1px #bbb;
+    margin: 0;
+}
+.list-item{
+  margin-top: 7px;
+  padding-bottom: 9px;
 }
 
 .list-header{
     background-color: #000;
+    margin-top: 15px;
 }
 
 .list-header li{
@@ -59,13 +66,72 @@ main{
     padding: 20px;
     background-color: #fff;
     border-top: solid 2px #eee;
-    
+    width: 80%;
+    margin: auto;
+    border: solid 1px #ccc;
 }
 
 form{
     display: flex;
 }
 
-.fiels{
+.fields{
     width: 50%;
+}
+
+.field{
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.field label{
+    width: 20%;
+    text-align: center;
+}
+
+.field select, .field input{
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.field label.checkbox-wrapper{
+    width: 50%;
+}
+
+/* css checkbox01 */
+.checkbox-input{
+  display: none;
+}
+.checkbox-parts{
+  padding-left: 20px;
+  position:relative;
+  margin-right: 20px;
+}
+.checkbox-parts::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 90px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+.checkbox-input:checked + .checkbox-parts{
+  color: #009a9a;
+}
+.checkbox-input:checked + .checkbox-parts::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 95px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid #009a9a;
+  border-right: 3px solid #009a9a;
 }

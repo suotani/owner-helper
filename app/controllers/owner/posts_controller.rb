@@ -1,8 +1,10 @@
 class Owner::PostsController < OwnerController
   def index
+    @posts = @owner.posts.order(updated_at: :desc)
   end
 
   def new
+    @post = Post.new
   end
 
   def cerate

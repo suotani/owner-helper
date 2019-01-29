@@ -5,16 +5,19 @@
       <div class="fields" >
         <div class="field">
           <%= label_tag "name", "名前" %>
-          <%= text_field_tag "name", @name %>
+          <%= text_field_tag "name", params[:name] %>
         </div>
         <div class="field">
-          <%= label_tag "house_name", "物件名" %>
-          <%= select_tag "house_name", options_for_select([["指定無し", nil]] + @owner.houses.map{|h| [h.name, h.id]})%>
+          <%= label_tag "house_id", "物件名" %>
+          <% options = [["指定無し", nil]] + @owner.houses.map{|h| [h.name, h.id]} %>
+          <%= select_tag "house_id", options_for_select(options, selected: params[:house_id])%>
         </div>
       </div>
       
-      <div class="actions">
-        <%= submit_tag "検索", class: "button" %>
+      <div class="fields" >
+        <div class="actions">
+          <%= submit_tag "検索", class: "button" %>
+        </div>
       </div>
     <% end %>
   </div>

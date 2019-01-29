@@ -5,12 +5,18 @@ body{
   margin: 0;
   padding: 0;
   background-color: #f2f3f3;
+  margin-top: 100px;
 }
 
 header{
   display: flex;
   justify-content: space-between;
-  background-color: rgb(106, 91, 152);
+  background-color: #6a5b98;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 header h1{
@@ -38,6 +44,11 @@ header li{
 header a{
   color: #fff;
   text-decoration: none;
+  display: inline-block;
+}
+
+header i{
+  margin-left: 5px;
 }
 
 .header-pull-list-parent{
@@ -48,7 +59,8 @@ header a{
     position: absolute;
     display: none;
     top: 36px;
-    width: 170px;
+    left: -45px;
+    width: 150px;
     padding: 0;
     background-color: #fff;
     border: solid 1px #ddd;
@@ -69,7 +81,7 @@ header a{
 .header-menu{
   display: flex;
   margin: 0;
-  margin-right: 150px;
+  margin-right: 75px;
 }
 
 .header-right{

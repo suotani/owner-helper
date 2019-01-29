@@ -9,5 +9,6 @@ class OwnerController < ApplicationController
   def get_owner_instance
     @owner = current_owner
     @request_count = Room.joins(:house).where(request: true).merge(House.where(owner_id: @owner.id)).count
+    @new_message_count = Contact.owner_no_read.count
   end
 end

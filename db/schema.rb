@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2019_01_28_115352) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.integer "resident_id"
-    t.integer "owner_status", default: 1
-    t.integer "resident_status", default: 1
+    t.integer "owner_status", default: 2
+    t.integer "resident_status", default: 2
     t.datetime "last_wrote_at"
   end
 

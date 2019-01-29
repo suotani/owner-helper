@@ -20,7 +20,6 @@ class Resident::HousesController < ApplicationController
       ActiveRecord::Base.transaction do
         room.update(resident_id: @resident.id, request: true, requested_at: Time.zone.now)
         @resident.update(status: ::Resident.statuses[:requested])
-        Contact.new(resident_id: @resident.id, owner_id: room.house.owner_id)
       end
       redirect_to resident_path
     else

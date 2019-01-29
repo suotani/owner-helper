@@ -11,6 +11,7 @@ class Owner::RequestsController < OwnerController
     ActiveRecord::Base.transaction do
       resident.update(status: Resident.statuses[:moving_in])
       @room.update(request: false)
+      Contact.new(resident_id: resident.id, owner_id: @owner.id)
     end
     ToResidentMailer.request_accept_mail(resident).deliver_now
     redirect_to owner_requests_path, notice: "#{resident.name}さんの申請を許可しました"

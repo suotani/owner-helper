@@ -22,13 +22,15 @@ class Owner::ContactsController < OwnerController
       readFlg: false
     )
     ActiveRecord::Base.transaction do
-      contact_chat.save
-      @contact.update(
+      contact_chat.save!
+      @contact.update!(
         last_wrote_at: Time.zone.now,
         resident_status: Contact.resident_statuses[:resident_no_read]
       )
     end
-    redirect_to edit_owner_contact_path(@contact.id)
+    redirect_to edit_owner_contact_path(@contact.id), notice: "送信しました"
+    rescue
+    redirect_to edit_owner_contact_path(@contact.id), notice: "入力エラーがあります"
   end
   
   private

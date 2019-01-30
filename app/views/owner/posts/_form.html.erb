@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag "owner/posts/form", :media => "all" %>
+<%= javascript_include_tag 'owner/posts/form' %>
+
+
+<div class="form-wrapper">
+  <div class="form">
+    <%= form_with(model: @post, url:  owner_posts_path,local: true) do |f| %>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field datetime">
+        <%= f.label :post_at %>
+        <input type="text" id="year">/
+        <input type="text" id="month">/
+        <input type="text" id="day">
+        <input type="text" id="hour">:
+        <input type="text" id="minite">
+        <%= f.hidden_field :title %>
+      </div>
+      <div class="main-text">
+        
+      </div>
+      <div class="actions">
+        <button type="button" class="button" id="addParagraphBtn">追加</button>
+      </div>
+      <div class="template">
+        <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
+        位置: <%= select_tag "alignment", options_for_select(alignments), class: "apply-box alignment" %>
+        文字サイズ: <%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-box fontsize" %>
+        <textarea class="apply-box"></textarea>
+      </div>
+      <%= f.hidden_field :text %>
+      <div class="actions">
+        <button class="button submit-btn">送信</button>
+      </div>
+    <% end %>
+  </div>
+  <div class="preview"></div>
+</div>

@@ -15,9 +15,19 @@
                 </ul>
               </div>
             <% end %>
+            <% if @room.request %>
+              現在入居申請中です。
+              <%= link_to "こちら", owner_requests_path %>
+              から申請の許可または却下を行ってください。
+            <% end %>
             <ul class="row">
               <li class="key">部屋番号</li>
-              <li class="value house-read"><%= @room.number %></li>
+              <li class="value house-read">
+                <%= @room.number %>
+                <% if @room.request %>
+                  <span class="status info">申請中</span>
+                <% end %>
+              </li>
               <li class="value house-form"><%= form.text_field :number %></li>
             </ul>
             <div class="actions">
@@ -52,6 +62,11 @@
               <li class="key">家族構成</li>
               <li class="value house-read"><%= resident.family %></li>
             </ul>
+          <% end %>
+        </div>
+        <div class="actions">
+          <% if @contact %>
+          <%= link_to "メッセージを見る・送る", edit_owner_contact_path(@contact.id) %>
           <% end %>
         </div>
       </div>

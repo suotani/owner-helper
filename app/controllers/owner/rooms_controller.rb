@@ -2,6 +2,7 @@ class Owner::RoomsController < OwnerController
     
   before_action :get_house
   before_action :get_room, only: [:edit, :update, :destroy]
+  before_action :set_contact, only: [:edit]
 
   def create
     current_rooms_number = @house.rooms.size
@@ -17,6 +18,7 @@ class Owner::RoomsController < OwnerController
     if @room.update(room_params)
       redirect_to edit_owner_house_room_path(house_id: @house.id, id: @room.id)
     else
+      set_contact
       render :edit
     end
   end
@@ -33,6 +35,10 @@ class Owner::RoomsController < OwnerController
   
   def get_room
     @room = Room.find(params[:id])
+  end
+  
+  def set_contact
+    @contact = Contact.where(owner_id: @owner.id, resident_id: @room.resident_id).first
   end
   
   def room_params

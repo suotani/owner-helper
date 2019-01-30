@@ -31,10 +31,17 @@
     </ul>
     <% @residents.each do |resident| %>
       <ul class="list list-item">
-        <li class="resident-name"><%= resident.name %></li>
+        <li class="resident-name">
+          <%= link_to resident.name, edit_owner_house_room_path(house_id: resident.room.house.id, id: resident.room.id) %>
+        </li>
         <li class="resident-phone-number"><%= resident.phone_number %></li>
         <li class="resident-house-name"><%= resident.room.house.name %></li>
-        <li class="resident-room-number"><%= resident.room.number %></li>
+        <li class="resident-room-number">
+          <%= resident.room.number %>
+          <% if resident.room.request %>
+            <span class="status info">申請中</span>
+          <% end %>
+        </li>
       </ul>
     <% end %>
   </div>

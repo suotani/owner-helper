@@ -1,0 +1,71 @@
+body{
+    margin-top: 70px;
+}
+.form-wrapper{
+    display: flex;
+}
+
+.form{
+    width: 50%;
+    padding: 5px;
+}
+
+.datetime input{
+    width: 40px;
+}
+
+#hour{
+    margin-left: 10px;
+}
+
+.preview{
+    width: 50%;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.template{
+    display: none;
+}
+
+.main-text{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.main-text textarea{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.preview{
+    
+}
+
+.preview .left{
+    text-align: left;
+}
+
+.preview .center{
+    text-align: center;
+}
+
+.preview .right{
+    text-align: right;
+}
+
+.preview .size1{
+    font-size: 11px;
+}
+.preview .size2{
+    font-size: 13px;
+}
+.preview .size3{
+    font-size: 15px;
+}
+.preview .size4{
+    font-size: 18px;
+}
+.preview .size5{
+    font-size: 20px;
+}

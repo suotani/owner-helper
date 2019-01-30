@@ -28,3 +28,5 @@ Rails.application.config.assets.precompile += %w( residents/sessions/new.css )
 Rails.application.config.assets.precompile += %w( residents/registrations/new.css )
 Rails.application.config.assets.precompile += %w( resident.css resident.js )
 Rails.application.config.assets.precompile += %w( resident/houses/new.js )
+
+Rails.application.config.assets.precompile += %w( posts/review.css )

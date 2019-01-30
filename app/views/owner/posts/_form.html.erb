@@ -1,38 +1,48 @@
 <%= stylesheet_link_tag "owner/posts/form", :media => "all" %>
+<%= stylesheet_link_tag "posts/review", :media => "all" %>
 <%= javascript_include_tag 'owner/posts/form' %>
 
 
 <div class="form-wrapper">
   <div class="form">
     <%= form_with(model: @post, url:  owner_posts_path,local: true) do |f| %>
-      <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+      <div class="field title">
+        <%= f.text_field :title, placeholder: "タイトル" %>
       </div>
       <div class="field datetime">
-        <%= f.label :post_at %>
-        <input type="text" id="year">/
-        <input type="text" id="month">/
-        <input type="text" id="day">
-        <input type="text" id="hour">:
-        <input type="text" id="minite">
-        <%= f.hidden_field :title %>
-      </div>
-      <div class="main-text">
+        <%= f.label :post_at, "お知らせ日時" %>
+        <% y = Time.zone.now.year %>
+        <%= select_tag "year", options_for_select((y..y+5).to_a), class: "year" %>年
+        <%= select_tag "month", options_for_select((1..12).to_a), class: "" %>月
+        <%= select_tag "day", options_for_select((1..31).to_a), class: "" %>日
+        <%= select_tag "hour", options_for_select((0..23).to_a), class: "" %>時
+        <%= f.hidden_field :post_at %>
         
       </div>
-      <div class="actions">
-        <button type="button" class="button" id="addParagraphBtn">追加</button>
+      <div class="text-input-wrap">
+        <div class="main-text">
+          
+        </div>
+        <div class="actions add-button">
+          <button type="button" class="button" id="addParagraphBtn">
+            <i class="fas fa-plus"></i>追加
+          </button>
+        </div>
       </div>
-      <div class="template">
+      <div class="template instance">
+        <span class="remove-button"><i class="fas fa-times"></i></span>
         <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
-        位置: <%= select_tag "alignment", options_for_select(alignments), class: "apply-box alignment" %>
-        文字サイズ: <%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-box fontsize" %>
+        <div class="options">
+          <div class="options-select">
+            位置: <%= select_tag "alignment", options_for_select(alignments), class: "apply-input alignment" %>
+            文字サイズ: <%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-input fontsize" %>
+          </div>
+        </div>
         <textarea class="apply-box"></textarea>
       </div>
       <%= f.hidden_field :text %>
-      <div class="actions">
-        <button class="button submit-btn">送信</button>
+      <div class="actions submit-action">
+        <button class="button submit-btn">作成</button>
       </div>
     <% end %>
   </div>

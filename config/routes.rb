@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     
     resources :residents, only: [:index, :show]
     resources :requests, only: [:index, :update, :destroy]
-    resources :posts, except: [:show]
+    resources :posts
     resources :contacts, only: [:index, :edit, :update]
   end
   

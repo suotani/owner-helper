@@ -1,5 +1,5 @@
 body{
-    margin-top: 70px;
+    margin-top: 60px;
 }
 .form-wrapper{
     display: flex;
@@ -10,27 +10,60 @@ body{
     padding: 5px;
 }
 
-.datetime input{
+.title{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.title input{
+    width: 100%;
+    line-height: 24px;
+    box-sizing: border-box;
+}
+
+.datetime{
+    margin-bottom: 7px;
+    border: solid 1px #ddd;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.datetime select{
     width: 40px;
+    height: 22px;
+}
+
+.datetime select.year{
+  width: 60px;
+    
 }
 
 #hour{
     margin-left: 10px;
 }
 
-.preview{
-    width: 50%;
-    padding: 10px;
-    background-color: #fff;
-}
-
 .template{
     display: none;
 }
 
-.main-text{
-    max-height: 300px;
+.instance{
+    margin-top: 5px;
+    position: relative;
+}
+
+.apply-box{
+    height: 50px;
+}
+
+.text-input-wrap{
+    height: 350px;
     overflow-y: scroll;
+    box-sizing: border-box;
+    border: solid 1px #ddd;
+    padding: 5px;
+}
+
+.main-text{
 }
 
 .main-text textarea{
@@ -38,34 +71,57 @@ body{
   box-sizing: border-box;
 }
 
-.preview{
-    
+
+.options{
+  display: flex;
+  justify-content: space-between;
 }
 
-.preview .left{
-    text-align: left;
+.remove-button{
+    color: white;
+    background-color: #f00;
+    border-radius: 11px;
+    line-height: 12px;
+    padding: 1px 4px;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    cursor: pointer;
 }
 
-.preview .center{
-    text-align: center;
+.remove-button i{
+    font-size: 14px;
 }
 
-.preview .right{
-    text-align: right;
+.options-select select{
+    margin-right: 11px;
+    height: 23px;
+    margin-bottom: 4px;
 }
 
-.preview .size1{
-    font-size: 11px;
+.actions{
+    display: flex;
 }
-.preview .size2{
-    font-size: 13px;
+
+.actions .button {
+    width: 118px;
+    line-height: 24px;
 }
-.preview .size3{
-    font-size: 15px;
+
+.submit-action{
+    justify-content: flex-end;
 }
-.preview .size4{
-    font-size: 18px;
+
+.add-button{
+    justify-content: center;
 }
-.preview .size5{
-    font-size: 20px;
+
+.add-button .button i{
+    margin-right: 2px;
+}
+
+#addParagraphBtn{
+    background-color: white;
+    color: #000;
 }

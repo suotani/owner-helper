@@ -1,0 +1,66 @@
+/* css checkbox01 */
+.checkbox-input{
+  display: none;
+}
+.checkbox-parts{
+  padding-left: 20px;
+  position:relative;
+}
+.checkbox-parts::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+.checkbox-input:checked + .checkbox-parts{
+  color: white;
+}
+.checkbox-input:checked + .checkbox-parts::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.checkbox-input:checked + .checkbox-parts::before{
+  border: 1px solid white;
+}
+
+.parent{
+  background-color: #518bc7;
+}
+
+form label{
+    padding: 5px 27px 5px 4px;
+    border: solid 1px #888;
+    border-radius: 14px;
+    text-align: left;
+    background-color: white;
+    margin-right: 20px;
+}
+
+.houses{
+    margin-top: 30px;
+}
+
+.actions{
+    display: flex;
+    margin-top: 30px;
+}
+
+.actions .button {
+    width: 118px;
+    line-height: 24px;
+    margin: 0;
+}

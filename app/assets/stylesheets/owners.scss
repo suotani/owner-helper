@@ -4,8 +4,27 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #f2f3f3;
+  background-color: #e5e6e6;
   margin-top: 100px;
+}
+
+main{
+  width: 80%;
+  margin: auto;
+}
+
+h2{
+  font-weight: 400;
+  font-size: 24px;
+}
+
+a{
+  text-decoration: none;
+}
+
+.separator{
+  border-right: solid 1px #555;
+  margin: 0 5px;
 }
 
 header{

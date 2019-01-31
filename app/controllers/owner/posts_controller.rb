@@ -4,20 +4,44 @@ class Owner::PostsController < OwnerController
   before_action :set_text, only: [:show]
   
   def index
-    @posts = @owner.posts.order(updated_at: :desc)
+    @posts = @owner.posts
+    @posts = @posts.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+    @posts = if params[:status].present? && params[:status] == "posted"
+               @posts.where("post_at < ?", Time.zone.now)
+             elsif params[:status].present? && params[:status] == "no_post"
+               @posts.where("post_at > ?", Time.zone.now)
+             else
+               @posts
+             end
+    @posts = @posts.order(updated_at: :desc)
+  end
+  
+  def houses
+    @houses = @owner.houses
   end
 
   def new
     @post = Post.new
+    @house_ids = params[:ids].join(",")
   end
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to owner_posts_path, notice: "登録しました"
-    else
-      render :new
+    @house_ids = params[:house_ids]
+    house_ids = params[:house_ids].split(",").map(&:to_i)
+    owner_house_ids = @owner.houses.ids
+    ActiveRecord::Base.transaction do
+      @post.save!
+      @post.reload
+      house_ids.each do |house_id|
+        if(owner_house_ids.include?(house_id))
+          PostHouse.create!(house_id: house_id, post_id: @post.id)
+        end
+      end
     end
+    redirect_to owner_posts_path, notice: "登録しました"
+    rescue
+      render :new
   end
   
   def show
@@ -35,7 +59,7 @@ class Owner::PostsController < OwnerController
   private
   
   def set_post
-    @post = Post.find(params[:id])
+    @post = @owner.posts.where(id: params[:id]).first
   end
   
   def post_params

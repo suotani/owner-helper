@@ -5,7 +5,7 @@
 
 <div class="form-wrapper">
   <div class="form">
-    <%= form_with(model: @post, url:  owner_posts_path,local: true) do |f| %>
+    <%= form_with(model: @post, url: url, method: method, local: true) do |f| %>
       <div class="field title">
         <%= f.text_field :title, placeholder: "タイトル" %>
       </div>
@@ -41,6 +41,7 @@
         <textarea class="apply-box"></textarea>
       </div>
       <%= f.hidden_field :text %>
+      <%= hidden_field_tag "house_ids", house_ids %>
       <div class="actions submit-action">
         <button class="button submit-btn">作成</button>
       </div>

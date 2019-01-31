@@ -46,7 +46,7 @@
           <div class="post-date">2019/11/12<br />12:00</div>
           <div class="post-title"><a href="#">ゴミ出し日</a></div>
         </div>
-        <a href="#" class="all-posts">すべて見る>></a>
+        <%= link_to "すべて見る>>", houses_owner_posts_path, class: "all-posts" %>
         <%= link_to "新しく回覧を作る", new_owner_post_path, class: "btn new-post-btn" %>
       </div>
     </div>

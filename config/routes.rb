@@ -34,7 +34,11 @@ Rails.application.routes.draw do
     
     resources :residents, only: [:index, :show]
     resources :requests, only: [:index, :update, :destroy]
-    resources :posts
+    resources :posts do
+      collection do
+        get "houses"
+      end
+    end
     resources :contacts, only: [:index, :edit, :update]
   end
   

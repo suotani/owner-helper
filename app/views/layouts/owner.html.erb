@@ -16,6 +16,7 @@
       <% if @owner.present? && !@owner.new_record? %>
       <div class="header-right">
       <ul class="header-menu">
+          <li><%= link_to "お知らせを作成", houses_owner_posts_path %></li>
           <li><%= link_to "メッセージ(未読#{@new_message_count}件)", owner_contacts_path %></li>
       　　<li><%= link_to "入居人検索", owner_residents_path %></li>
           <li><%= link_to "入居申請(#{@request_count}件)", owner_requests_path %></li>

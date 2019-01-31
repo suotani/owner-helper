@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag "owner/posts/houses", :media => "all" %>
+<%= javascript_include_tag 'owner/posts/houses' %>
+<main>
+  <h2>お知らせ対象の物件を選択</h2>
+  <%= form_tag(new_owner_post_path, method: "get") do %>
+    <div class="all-check">
+      <label>
+        <%= check_box_tag "all", true, false, class: "checkbox-input" %>
+        <span class="checkbox-parts">すべて</span>
+      </label>
+    </div>
+    
+    <div class="houses">
+      <% @houses.each do |house| %>
+          <label>
+            <%= check_box_tag "ids[]", house.id, false, class: "checkbox-input" %>
+            <span class="checkbox-parts"><%= house.name %></span>
+          </label>
+      <% end %>
+    </div>
+    
+    <div class="actions">
+        <%= submit_tag "次へ", class: "button" %>
+    </div>
+  <% end %>
+</main>

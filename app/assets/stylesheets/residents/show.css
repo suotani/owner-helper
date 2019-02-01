@@ -1,0 +1,84 @@
+
+.main-wrapper{
+    display: flex;
+}
+
+.room-info{
+    width: 100%;
+}
+
+.list-row{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: solid 1px #b3b3b3;
+}
+.list-row.last{
+    border-bottom: solid 1px #b3b3b3;
+}
+
+.list-row .key{
+    width: 15%;
+    background-color: #d0d0d0;
+    padding: 5px 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 15px;
+}
+
+.list-row .value{
+    width: 85%;
+    background-color: #e5e6e6;
+    box-sizing: border-box;
+    padding: 5px 8px;
+    font-size: 15px;
+}
+
+.posts-wrapper{
+    width: 70%;
+}
+
+.post-wrapper{
+    display: flex;
+    list-style: none;
+    border-bottom: solid 1px #c1c1c1;
+    padding: 2px 5px;
+}
+
+.post-title{
+    width: 70%;
+    font-size: 20px;
+}
+
+.post-at{
+    width: 30%;
+    font-size: 14px;
+}
+.contact-wrapper{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-button{
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    background-color: #ffb568;
+    color: white;
+    padding: 20px 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 70%;
+    height: 61px;
+    box-shadow: 1px 1px 2px 2px #b7b2b2;
+}
+
+.chat-button:hover{
+  background-color: #ffb568;
+}
+
+.chat-button:active{
+    box-shadow: none;
+}

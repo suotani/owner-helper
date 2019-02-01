@@ -70,11 +70,12 @@ main .side-block{
 }
 
 .post .post-date{
-  width: 30%;
+  width: 33%;
+  font-size: 12px;
 }
 
 .post .post-title{
-  width: 70%;
+  width: 67%;
 }
 
 .all-posts{

@@ -3,6 +3,10 @@ main{
     margin: auto;
 }
 
+h2{
+    margin: 0;
+}
+
 .list-wrapper{
     width: 100%;
     background-color: white;
@@ -26,19 +30,11 @@ main{
 }
 
 .title{
-    width: 35%;
-}
-
-.updated-at{
-    width: 18%;
+    width: 60%;
 }
 
 .post-at{
-    width: 18%;
-}
-
-.actions{
-    width: 29%;
+    width: 40%;
 }
 
 .form-wrapper{

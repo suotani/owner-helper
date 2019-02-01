@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "posts/review", :media => "all" %>
+<%= stylesheet_link_tag "resident/posts/show", :media => "all" %>
+<div class="preview">
+  <% #[position, size, [text]] %>
+  <% @texts.each do |paragraph| %>
+    <div class="paragraph <%= paragraph[0] %> size<%= paragraph[1] %>">
+        <% paragraph[2].each do |text| %>
+          <%= text %><br />
+        <% end %>
+    </div>
+  <% end %>
+</div>

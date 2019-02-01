@@ -2,6 +2,7 @@ class ResidentController < ApplicationController
 
   before_action :authenticate_resident!
   before_action :get_resident_instance
+  before_action :set_content
   before_action :status_redirect
   layout "resident"
 
@@ -16,6 +17,12 @@ class ResidentController < ApplicationController
       redirect_to new_resident_house_path
     elsif @resident.requested?
       redirect_to resident_path
+    end
+  end
+  
+  def set_content
+    if @resident.moving_in?
+      @contact = @resident.contacts.where(room_id: @resident.room.id).first
     end
   end
 end

@@ -1,2 +1,39 @@
-<h1>Residents#show</h1>
-<p>Find me in app/views/residents/show.html.erb</p>
+<%= stylesheet_link_tag "residents/show", media: "all" %>
+<main>
+  <h2>部屋情報</h2>
+  <div class="room-info">
+    <div class="room-info-list-wrapper">
+      <ul class="list-row">
+        <li class="key">部屋番号</li>
+        <li class="value"><%= @resident.room.house.name %> <%= @resident.room.number %></li>
+      </ul>
+      <ul class="list-row last">
+        <li class="key">住所</li>
+        <li class="value"><%= @resident.room.house.postal_code %> <%= @resident.room.house.address %></li>
+      </ul>
+    </div>
+  </div>
+  <% if @resident.moving_in? %>
+  <div class="main-wrapper">
+    <div class="posts-wrapper">
+      <h2>新着お知らせ</h2>
+      <div class="new-posts">
+        <% @posts.each do |post| %>
+          <ul class="post-wrapper">
+            <li class="post-title">
+              <%= link_to post.title, resident_post_path(post.id), target: "_blank" %>
+            </li>
+            <li class="post-at"><%= post.post_at.strftime("%Y/%m/%d %H時") %></li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="actions">
+        <%= link_to "すべて見る>>", resident_posts_path %>
+      </div>
+    </div>
+    <div class="contact-wrapper">
+      <%= link_to "チャットを見る", edit_resident_contact_path(@contact.id), class: "chat-button" %>
+    </div>
+  </div>
+  <% end %>
+</main>

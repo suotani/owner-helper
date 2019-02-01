@@ -45,5 +45,6 @@ Rails.application.routes.draw do
   namespace :resident do
     resources :houses, only: [:new, :create, :show]
     resources :contacts, only: [:index, :edit, :update]
+    resources :posts, only: [:index, :show]
   end
 end

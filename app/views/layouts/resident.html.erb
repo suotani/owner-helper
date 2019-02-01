@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'resident', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'residents' %>
+    <%= stylesheet_link_tag "residents", media: "all" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   </head>
@@ -17,6 +18,12 @@
       <% if @resident.present? && !@resident.new_record? %>
       <div class="header-right">
       <ul>
+        <li class="contact-info <%= 'new-contact' if @contact.resident_no_read? %>">
+          <%= link_to edit_resident_contact_path(@contact.id) do %>
+            <i class="far fa-envelope"></i>
+          <% end %>
+          <span>!</span>
+        </li>
         <li class="header-pull-list-parent">
           <%= @resident.name %><i class="fas fa-angle-down"></i>
           <ul class="header-pull-list">

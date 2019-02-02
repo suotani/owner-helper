@@ -1,19 +1,28 @@
 class Resident::ContactsController < ResidentController
-  def index
-    @contacts = @resident.contacts.order(:updated_at)
-  end
-  
-  def new
-    @contact = Contact.new
-  end
-  
-  def create
-  end
-  
-  def show
-    @contact = Contact.find(params[:id])
+
+  def edit
+    @contact = @resident.current_contact
+    @contact_chats = @contact.contact_chats.order(created_at: :desc).limit(20).reverse
+    @contact.update(resident_status: Contact.resident_statuses[:resident_read])
   end
   
   def update
+    contact_chat = ContactChat.new(
+      contact_id: @contact.id,
+      text: params[:chat_message],
+      resident_id: @resident.id,
+      readFlg: false
+    )
+    ActiveRecord::Base.transaction do
+      contact_chat.save!
+      @contact.update!(
+        last_wrote_at: Time.zone.now,
+        owner_status: Contact.owner_statuses[:owner_no_read]
+      )
+    end
+    redirect_to edit_resident_contact_path(@contact.id), notice: "送信しました"
+    rescue
+    redirect_to edit_resident_contact_path(@contact.id), notice: "入力エラーがあります"
   end
+  
 end

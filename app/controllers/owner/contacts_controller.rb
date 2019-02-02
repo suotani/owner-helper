@@ -10,7 +10,7 @@ class Owner::ContactsController < OwnerController
   end
 
   def edit
-    @contact_chats = @contact.contact_chats.order(:created_at)
+    @contact_chats = @contact.contact_chats.order(created_at: :desc).limit(20).reverse
     @contact.update(owner_status: Contact.owner_statuses[:owner_read])
   end
   
@@ -36,6 +36,6 @@ class Owner::ContactsController < OwnerController
   private
   
   def set_contact
-    @contact = Contact.eager_load(:contact_chats).find(params[:id])
+    @contact = @owner.contacts.eager_load(:contact_chats).find(params[:id])
   end
 end

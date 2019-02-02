@@ -11,6 +11,12 @@ class ResidentsController < ResidentController
     end
   end
   
+  def edit
+  end
+  
+  def update
+  end
+  
   private
   
   def status_redirect

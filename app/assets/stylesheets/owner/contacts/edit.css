@@ -39,7 +39,7 @@ h2{
 }
 
 .message{
-  margin-bottom: 20px;
+  margin-bottom: 9px;
   padding: 10px;
   padding-left: 40px;
   cursor: pointer;
@@ -48,6 +48,14 @@ h2{
 .message-header{
     display: flex;
     justify-content: space-between;
+}
+
+.long .message-header{
+    margin-bottom: 5px;
+}
+
+.long p{
+    margin: 0;
 }
 
 .created-datetime{

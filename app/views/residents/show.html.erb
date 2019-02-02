@@ -7,9 +7,16 @@
         <li class="key">部屋番号</li>
         <li class="value"><%= @resident.room.house.name %> <%= @resident.room.number %></li>
       </ul>
-      <ul class="list-row last">
+      <ul class="list-row">
         <li class="key">住所</li>
         <li class="value"><%= @resident.room.house.postal_code %> <%= @resident.room.house.address %></li>
+      </ul>
+      <ul class="list-row last">
+        <li class="key">管理人</li>
+        <li class="value">
+          <%= @resident.room.house.owner.name %>
+          (電話番号: <%= @resident.room.house.owner.phone_number %>)
+        </li>
       </ul>
     </div>
   </div>

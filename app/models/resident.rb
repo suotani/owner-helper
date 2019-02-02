@@ -14,4 +14,8 @@ class Resident < ApplicationRecord
     requested: 2,  # 入居リクエスト中
     moving_in: 3   # 入居中
   }
+  
+  def current_contact
+    contacts.where(owner_id: room.house.owner_id).first
+  end
 end

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   # dashboard
   get 'owner', to: 'owners#show'
   get 'resident', to: 'residents#show'
+  get 'resident/setting', to: 'residents#edit'
+  post 'resident/setting', to: 'residents#update'
   
   namespace :owner do
     resources :houses do

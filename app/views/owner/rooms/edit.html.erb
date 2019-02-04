@@ -6,15 +6,6 @@
         <h2>物件情報</h2>
         <div>
           <%= form_for(@room, url: owner_house_room_path(house_id: @house.id), locale: true, method: "patch") do |form| %>
-            <% if @room.errors.any? %>
-              <div id="error_explanation">
-                <ul>
-                <% @room.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
             <% if @room.request %>
               現在入居申請中です。
               <%= link_to "こちら", owner_requests_path %>

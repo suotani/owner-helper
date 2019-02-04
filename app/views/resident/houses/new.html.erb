@@ -1,10 +1,10 @@
-<%= stylesheet_link_tag "residents/sessions/new", :media => "all" %>
+<%= stylesheet_link_tag "resident/houses/new", :media => "all" %>
+<%= javascript_include_tag 'resident/houses/new', 'data-turbolinks-track': 'reload' %>
 <main>
 <h2>入居リクエスト</h2>
 
 <%= form_tag(new_resident_house_path, id: "select_form", method: "get") do %>
   <div class="field">
-    <%= label_tag "search_name", "" %><br />
     <%= text_field_tag "search_name" %>
   </div>
   
@@ -16,7 +16,7 @@
 
 <%= form_tag(resident_houses_path) do %>
 
-  <ul>
+  <ul class="select-house-list">
   <% @houses.each do |house| %>
     <li class="house_name" data-id="<%= house.id %>" data-name="<%= house.name %>">
       <%= house.name %>
@@ -24,17 +24,17 @@
   <% end %>
   </ul>
   
-  <%= text_field_tag "house_name" %>
+  <p>物件：<span id="house_name">未選択</span></p>
   
   <%= hidden_field_tag "house_id" %>
   
   <div class="field">
-    <%= label_tag "number", "部屋番号" %><br />
+    <%= label_tag "number", "部屋番号：" %>
     <%= text_field_tag "number" %>
   </div>
 
   <div class="actions">
-    <%= submit_tag "リクエストを送信" %>
+    <%= submit_tag "リクエストを送信", class: "button" %>
   </div>
 <% end %>
 

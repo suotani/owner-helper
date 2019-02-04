@@ -1,17 +1,6 @@
 <%= stylesheet_link_tag "owner/houses/form", :media => "all" %>
 
 <%= form_for(@house, url: post_url, locale: true, method: post_method) do |form| %>
-  <% if house.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(house.errors.count, "error") %> prohibited this demo from being saved:</h2>
-
-      <ul>
-      <% house.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :name, "物件名" %>

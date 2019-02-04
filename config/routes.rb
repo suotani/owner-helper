@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   
   # dashboard
   get 'owner', to: 'owners#show'
+  get 'owner/setting', to: 'owners#edit'
+  post 'owner/setting', to: 'owners#update'
   get 'resident', to: 'residents#show'
   get 'resident/setting', to: 'residents#edit'
   post 'resident/setting', to: 'residents#update'

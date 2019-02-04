@@ -3,6 +3,7 @@ class Resident::HousesController < ApplicationController
   before_action :authenticate_resident!
   before_action :moving_in_redirect
   before_action :requested_redirect, only: [:new, :create]
+  layout "resident"
     
   def new
     if params[:search_name]
@@ -16,7 +17,7 @@ class Resident::HousesController < ApplicationController
   def create
     house = House.find(params[:house_id])
     room = house.rooms.where(number: params[:number]).first
-    if room
+    if room && room.resident.blank?
       ActiveRecord::Base.transaction do
         room.update(resident_id: @resident.id, request: true, requested_at: Time.zone.now)
         @resident.update(status: ::Resident.statuses[:requested])
@@ -27,9 +28,6 @@ class Resident::HousesController < ApplicationController
       @errors = ["存在しない部屋番号が指定されました。"]
       render :new
     end
-  end
-  
-  def show
   end
   
   private

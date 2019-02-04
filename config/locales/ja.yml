@@ -204,9 +204,23 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  models:
+  activerecord:
     attributes:
       house:
         name: "物件名"
         postal_code: "郵便番号"
         address: "住所"
+      resident:
+        name: 氏名
+        phone_number: 電話番号
+        family: 家族構成
+        post_mail_setting: お知らせメール設定
+        contact_mail_setting: チャット受信メール設定
+  enums:
+    resident:
+      post_mail_setting:
+        post_none: 受け取らない
+        post_approval: 受け取る
+      contact_mail_setting:
+        contact_none: 受け取らない
+        contact_approval: 受け取る

@@ -15,6 +15,12 @@ class ResidentsController < ResidentController
   end
   
   def update
+    if @resident.update(resident_params)
+      redirect_to resident_setting_path, notice: "更新しました"
+    else
+      @errors = @resident.errors.full_messages
+      render :edit
+    end
   end
   
   private
@@ -23,5 +29,9 @@ class ResidentsController < ResidentController
     if @resident.signed_up?
       redirect_to new_resident_house_path
     end
+  end
+  
+  def resident_params
+    params.require(:resident).permit(:name, :phone_number, :family, :post_mail_setting, :contact_mail_setting)
   end
 end

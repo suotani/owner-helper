@@ -1,0 +1,59 @@
+
+.inputs-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+form{
+    width: 70%;
+}
+
+form input{
+  width: 90%;
+  line-height: 20px;
+}
+
+.field{
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.field label{
+    width: 15%;
+}
+
+.field input{
+    width: 85%;
+}
+
+.field.long-field{
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+.field.long-field label{
+    width: 100%;
+    margin-bottom: 10px; 
+}
+
+.field.long-field input{
+    width: 100%;
+}
+
+.actions input{
+  height: 35px;
+  border-radius: 10px;
+  background-color: #f39303;
+}
+
+.radio_buttons{
+    display: flex;
+}
+
+.field input[type="radio"]{
+    width: 20px;
+}
+
+.radio-label{
+    margin-left: 30px;
+}

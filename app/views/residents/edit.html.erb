@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag "residents/edit", :media => "all" %>
+<main>
+  <h2>設定</h2>
+
+  <%= form_for(@resident, url: resident_setting_path, method: "post") do |f| %>
+    <h3>基本設定</h3>
+    <div class="field">
+      <%= label_tag "name", "氏名" %>
+      <%= f.text_field "name" %>
+    </div>
+
+    <div class="field">
+      <%= label_tag "phone_number", "電話番号" %>
+      <%= f.text_field "phone_number" %>
+    </div>
+  
+    <div class="field">
+      <%= label_tag "family", "家族構成" %>
+      <%= f.text_field "family" %>
+    </div>
+    
+    <h3>メール設定</h3>
+
+    <div class="field long-field">
+      <%= label_tag "post_mail_setting", "お知らせメール" %>
+      <div class="radio_buttons">
+        <% Resident.post_mail_settings_i18n.map do |k, v| %>
+          <span class="radio-label"><%= v %></span>
+          <%= f.radio_button "post_mail_setting", k, {} %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="field long-field">
+      <%= label_tag "post_mail_setting", "チャット受信メール" %>
+      <div class="radio_buttons">
+        <% Resident.contact_mail_settings_i18n.map do |k, v| %>
+          <span class="radio-label"><%= v %></span>
+          <%= f.radio_button "contact_mail_setting", k, {} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "更新" , class: "button"%>
+    </div>
+  <% end %>
+</main>

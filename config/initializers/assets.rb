@@ -11,6 +11,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
+Rails.application.config.assets.precompile += %w( common.css )
+Rails.application.config.assets.precompile += %w( posts/review.css )
+
 Rails.application.config.assets.precompile += %w( owners/show.css )
 Rails.application.config.assets.precompile += %w( owners.css owners.js )
 Rails.application.config.assets.precompile += %w( owners/registrations/new.css )
@@ -29,11 +32,11 @@ Rails.application.config.assets.precompile += %w( owner/posts/houses.css owner/p
 
 Rails.application.config.assets.precompile += %w( residents.css residents.js )
 Rails.application.config.assets.precompile += %w( residents/show.css )
+Rails.application.config.assets.precompile += %w( residents/edit.css )
 Rails.application.config.assets.precompile += %w( residents/sessions/new.css )
 Rails.application.config.assets.precompile += %w( residents/registrations/new.css )
 Rails.application.config.assets.precompile += %w( resident.css resident.js )
-Rails.application.config.assets.precompile += %w( resident/houses/new.js )
+Rails.application.config.assets.precompile += %w( resident/houses/new.js resident/houses/new.css )
 Rails.application.config.assets.precompile += %w( resident/posts/show.css )
 Rails.application.config.assets.precompile += %w( resident/posts/index.css )
 
-Rails.application.config.assets.precompile += %w( posts/review.css )

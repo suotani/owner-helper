@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'owners' %>
+    <%= stylesheet_link_tag "common", media: "all" %>
     <%= stylesheet_link_tag "owners", media: "all" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
@@ -31,6 +32,17 @@
       </div>
       <% end %>
     </header>
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <% if @errors.present? %>
+        <% @errors.each do |error| %>
+          <p class="alert"><%= error %></p>
+        <% end %>
+      <% end %>
       <%= yield %>
   </body>
 </html>

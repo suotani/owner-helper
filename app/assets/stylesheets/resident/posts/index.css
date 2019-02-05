@@ -78,3 +78,20 @@ form{
     border: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+  main{
+    width: 95%;
+  }
+  .form-wrapper{
+      padding: 5px;
+  }
+  
+  .search-for-title{
+      width: 70%;
+  }
+  .search-submit{
+      width: 30%
+  }
+  
+}

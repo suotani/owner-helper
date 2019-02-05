@@ -82,3 +82,34 @@
 .chat-button:active{
     box-shadow: none;
 }
+
+@media screen and (max-width: 640px) {
+    
+    .list-row .key{
+        width: 25%;
+    }
+    
+    .list-row .value{
+        width: 75%;
+    }
+    .main-wrapper{
+        flex-direction: column;
+    }
+    .posts-wrapper{
+        width: 100%
+    }
+    
+    .post-wrapper{
+        flex-direction: column;
+    }
+    .post-title{
+        width: 100%;
+    }
+    
+    .contact-wrapper {
+        width: 100%;
+        position: fixed;
+        bottom: 9px;
+    }
+
+}

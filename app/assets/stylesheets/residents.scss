@@ -149,3 +149,23 @@ span.status.info{
   justify-content: flex-end;
 }
 
+@media screen and (max-width: 640px) {
+  .actions{
+    justify-content: center;
+  }
+  header h1{
+    padding-left: 15px;
+  }
+  header ul{
+    margin-right: 15px;  
+  }
+
+  .header-pull-list{
+    position: fixed;
+    width: 100%;
+    top: 56px;
+  }
+  .header-pull-list li{
+    line-height: 50px;
+  }
+}

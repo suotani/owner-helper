@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "residents/registrations/new", :media => "all" %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<h2>入居登録</h2>
 <main>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2>入居者登録</h2>
   <%= devise_error_messages! %>
   <div class="inputs-wrap">
     <div class="main-left">
@@ -51,6 +51,6 @@
         </div>
     </div>
   </div>
-</main>
 <% end %>
+</main>
 

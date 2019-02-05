@@ -110,3 +110,22 @@ textarea{
     text-decoration: none;
     text-align: center;
 }
+
+@media screen and (max-width: 640px) {
+    .message{
+        padding-left: 15px;
+    }
+    .message .long p{
+        width: 100%;
+    }
+    
+    .short .writer-name{
+        width: 65%;
+    }
+    .short .created-datetime{
+        width: 35%;
+    }
+    main{
+        margin-top: 0;
+    }
+}

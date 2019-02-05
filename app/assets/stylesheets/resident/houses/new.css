@@ -42,3 +42,16 @@ main{
 .select-house-list li:hover{
     background-color: #dae0f7;
 }
+
+@media screen and (max-width: 640px) {
+    main{
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .select-house-list{
+        height: 200px;
+        margin: 29px 0;
+    }
+}

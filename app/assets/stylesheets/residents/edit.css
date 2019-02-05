@@ -61,3 +61,37 @@ form input{
 .radio-label{
     margin-left: 30px;
 }
+
+@media screen and (max-width: 640px) {
+    form{
+        width: 100%;
+    }
+    
+    .field{
+        flex-direction: column;
+        padding: 7px;
+        box-sizing: border-box;
+    }
+    .field label{
+        width: 50%;
+    }
+    
+    .field input{
+        width: 100%;
+    }
+    .radio_buttons{
+        flex-direction: column;
+    }
+    
+    .radio_buttons p{
+        display: flex;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+    
+    .radio-label{
+        order: 2;
+        margin-left: 10px;
+    }
+    
+}

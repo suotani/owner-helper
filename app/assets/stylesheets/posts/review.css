@@ -40,3 +40,17 @@
     padding: 10px 55px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 640px) {
+    body{
+        background-color: #9c9c9c;
+    }
+    .preview{
+        width: 95%;
+        min-height: 600px;
+        box-sizing: border-box;
+    }
+    .paragraph{
+       padding: 10px 38px;
+    }
+}

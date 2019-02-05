@@ -212,6 +212,9 @@ ja:
         address: "住所"
       resident:
         name: 氏名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
         phone_number: 電話番号
         family: 家族構成
         post_mail_setting: お知らせメール設定

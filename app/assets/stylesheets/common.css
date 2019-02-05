@@ -1,3 +1,11 @@
+.pc{
+  display: block;
+}
+
+.sp{
+  display: none;
+}
+
 input{
     border: none;
     border-bottom: solid 1px #d2d2d2;
@@ -89,4 +97,33 @@ ul{
     margin-left: 10px;
     box-shadow: 1px 1px #505050;
     border-bottom: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .pc{
+    display: none;
+  }
+  
+  .sp{
+    display: block;
+  }
+
+  main{
+    width: 100%;
+    padding: 5px;
+  }
+  p.alert, p.notice, p.info{
+    width: 100%;
+  }
+  
+  .fas.fa-bars{
+    font-size: 26px;
+  }
+
+  .header-pull-list{
+    position: fixed;
+    width: 100%;
+  }
+
 }

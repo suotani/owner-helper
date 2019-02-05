@@ -6,7 +6,7 @@
     <div class="form">
       <%= form_tag(resident_posts_path, method: "get") do %>
         <%= text_field_tag "title", params[:title], placeholder: "タイトル", class:"search-for-title" %>
-        <%= submit_tag "検索", class: "search-submit" %>
+        <%= button_tag "検索", class: "search-submit" %>
       <% end %>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <% @posts.each do |post| %>
       <ul class="list-item">
         <li class="title">
-            <%= link_to post.title, owner_post_path(post.id), class: "", target: "_blank" %>
+            <%= link_to post.title, resident_post_path(post.id), class: "", target: "_blank" %>
         </li>
         <li class="post-at"><%= post.post_at.strftime("%Y/%m/%d %H時") %></li>
       </ul>

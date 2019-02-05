@@ -2,7 +2,7 @@ class Resident::PostsController < ResidentController
   def index
     @posts = @resident.room.house.posts
                       .where("post_at < ?", Time.zone.now)
-    @posts = @posts.where("title like ?", params[:title]) if params[:title].present?
+    @posts = @posts.where("title like ?", "%#{params[:title]}%") if params[:title].present?
     @posts = @posts.order(post_at: :desc)
   end
   

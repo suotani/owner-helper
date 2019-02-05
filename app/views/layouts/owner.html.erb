@@ -25,7 +25,8 @@
           <%= @owner.name %><i class="fas fa-angle-down"></i>
           <ul class="header-pull-list">
             <li><%= link_to "ログアウト", destroy_owner_session_path, method: "delete" %></li>
-            <li><%= link_to "管理人情報の変更", ""  %></li>
+            <li><%= link_to "設定", owner_setting_path  %></li>
+            <li><%= link_to "お問い合わせ", new_owner_inquiry_path  %></li>
           </ul>
         </li>
       </ul>

@@ -7,4 +7,20 @@ class OwnersController < OwnerController
                    .order(post_at: :desc)
                    .limit(5)
   end
+  
+  def edit
+  end
+  
+  def update
+    if @owner.update(owner_params)
+      redirect_to owner_setting_path, notice: "更新しました"
+    else
+      @errors = @owner.errors.full_messages
+      render :edit
+    end
+  end
+  
+  def owner_params
+    params.require(:owner).permit(:name, :phone_number, :contact_mail_setting, :request_mail_setting)
+  end
 end

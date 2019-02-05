@@ -40,6 +40,10 @@ form input{
     width: 100%;
 }
 
+.field.long-field textarea{
+    height: 100px;
+}
+
 .actions input{
   height: 35px;
   border-radius: 10px;

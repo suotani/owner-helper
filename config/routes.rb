@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: 'owners#index'
+    resources :inquiry, only: [:index]
   end
   
   # dashboard
@@ -44,11 +45,13 @@ Rails.application.routes.draw do
       end
     end
     resources :contacts, only: [:index, :edit, :update]
+    resources :inquiries, only: [:new, :create]
   end
   
   namespace :resident do
     resources :houses, only: [:new, :create, :show]
     resources :contacts, only: [:index, :edit, :update]
     resources :posts, only: [:index, :show]
+    resources :inquiries, only: [:new, :create]
   end
 end

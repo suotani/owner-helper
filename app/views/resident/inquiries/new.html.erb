@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "residents/edit", :media => "all" %>
+<main>
+  <h2>お問い合わせ</h2>
+
+  <%= form_for(@inquiry, url: resident_inquiries_path, method: "post") do |f| %>
+    <div class="field long-field">
+      <%= label_tag "emaul", "返信用メールアドレス" %>
+      <%= f.text_field "email" %>
+    </div>
+
+    <div class="field long-field">
+      <%= label_tag "post_mail_setting", "お問い合わせ種別" %>
+      <div class="radio_buttons">
+        <% Inquiry.categories_i18n.map do |k, v| %>
+          <span class="radio-label"><%= v %></span>
+          <%= f.radio_button "category", k, {} %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="field long-field">
+      <%= label_tag "text", "お問い合わせ内容" %>
+      <%= f.text_area "text" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "送信" , class: "button"%>
+    </div>
+  <% end %>
+</main>

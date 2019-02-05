@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "residents/edit", :media => "all" %>
+<main>
+  <h2>設定</h2>
+
+  <%= form_for(@owner, url: owner_setting_path, method: "post") do |f| %>
+    <h3>基本設定</h3>
+    <div class="field">
+      <%= label_tag "name", "氏名" %>
+      <%= f.text_field "name" %>
+    </div>
+
+    <div class="field">
+      <%= label_tag "phone_number", "電話番号" %>
+      <%= f.text_field "phone_number" %>
+    </div>
+
+    <h3>メール設定</h3>
+
+    <div class="field long-field">
+      <%= label_tag "request_mail_setting", "入居申請お知らせメール" %>
+      <div class="radio_buttons">
+        <% Owner.request_mail_settings_i18n.map do |k, v| %>
+          <span class="radio-label"><%= v %></span>
+          <%= f.radio_button "request_mail_setting", k, {} %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="field long-field">
+      <%= label_tag "contact_mail_setting", "メッセージ受信メール" %>
+      <div class="radio_buttons">
+        <% Owner.contact_mail_settings_i18n.map do |k, v| %>
+          <span class="radio-label"><%= v %></span>
+          <%= f.radio_button "contact_mail_setting", k, {} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "更新" , class: "button"%>
+    </div>
+  <% end %>
+</main>

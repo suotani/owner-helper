@@ -26,8 +26,9 @@ class ToResidentMailer < ApplicationMailer
         )
     end
     
-    def leave_mail(resident)
+    def leave_mail(resident, owner)
       @resident = resident
+      @owner = owner
         mail(
           subject: "【#{OwnerHelper::Application::SERVICE_NAME}】ご利用いただきありがとうございました。", #メールのタイトル,
           to: @resident.email #宛先

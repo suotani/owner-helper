@@ -31,7 +31,7 @@ class Owner::RoomsController < OwnerController
       resident = @room.resident
       @room.update!(request: nil, resident_id: nil)
       resident.reload.update!(status: Resident.statuses[:signed_up])
-      ToResidentMailer.leave_mail(resident).deliver_now
+      ToResidentMailer.leave_mail(resident, @onwer).deliver_now
     end
     redirect_to edit_owner_house_room_path(house_id: @house.id, id: @room.id), notice: "退去処理を完了しました"
     rescue => e

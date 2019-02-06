@@ -24,7 +24,8 @@ class Resident::ContactsController < ResidentController
       ToOwnerMailer.contact_update_mail(contact_chat).deliver_now
     end
     redirect_to edit_resident_contact_path(@contact.id)+"#last", notice: "送信しました"
-    rescue
+    rescue => e
+    logger.error(e)
     redirect_to edit_resident_contact_path(@contact.id)+"#last", alert: "入力エラーがあります"
   end
   

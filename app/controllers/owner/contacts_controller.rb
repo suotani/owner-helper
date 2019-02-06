@@ -28,7 +28,9 @@ class Owner::ContactsController < OwnerController
         resident_status: Contact.resident_statuses[:resident_no_read]
       )
     end
-    ToResidentMailer.contact_update_mail(contact_chat).deliver_now
+    if contact_chat.contact.resident.contact_approval?
+      ToResidentMailer.contact_update_mail(contact_chat).deliver_now
+    end
     redirect_to edit_owner_contact_path(@contact.id) + "#last", notice: "送信しました"
     rescue
     redirect_to edit_owner_contact_path(@contact.id) + "#last", alert: "入力エラーがあります"

@@ -11,6 +11,12 @@
               から申請の許可または却下を行ってください。
             <% end %>
             <ul class="row">
+              <li class="key">物件</li>
+              <li class="value">
+                <%= @room.house.name %>
+              </li>
+            </ul>
+            <ul class="row">
               <li class="key">部屋番号</li>
               <li class="value house-read">
                 <%= @room.number %>
@@ -32,7 +38,7 @@
       </div>
 
       <div class="house-wrapper">
-        <h2>入居人情報</h2>
+        <h2>住人情報</h2>
         <div>
           <% resident = @room.resident %>
           <% if resident %>
@@ -43,10 +49,6 @@
             <ul class="row">
               <li class="key">電話番号</li>
               <li class="value"><%= resident.phone_number %></li>
-            </ul>
-            <ul class="row">
-              <li class="key">メールアドレス</li>
-              <li class="value"><%= resident.email %></li>
             </ul>
             <ul class="row">
               <li class="key">家族構成</li>

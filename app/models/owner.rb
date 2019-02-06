@@ -21,4 +21,16 @@ class Owner < ApplicationRecord
     request_approval: 2, #許可
     request_weekday_only: 3 #平日のみ通知する
   }
+  
+  def request_mail_accept?
+    return false if request_none?
+    return false if request_weekday_only? && [0,6].include?(Time.zone.today.wday)
+    true
+  end
+
+  def contact_mail_accept?
+    return false if contact_none?
+    return false if contact_weekday_only? && [0,6].include?(Time.zone.today.wday)
+    true
+  end
 end

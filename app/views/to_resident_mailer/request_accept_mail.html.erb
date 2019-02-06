@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @resident.name %>様、iRentへようこそ。</h1>
+    <p><%= @resident.name %>様、<%= OwnerHelper::Application::SERVICE_NAME %>へようこそ。</p>
     <p>
       <%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが受諾されました。 
     </p>

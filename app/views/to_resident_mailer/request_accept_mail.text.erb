@@ -1,5 +1,5 @@
 
-<%= @resident.name %>様、iRentへようこそ。
+<%= @resident.name %>様、<%= OwnerHelper::Application::SERVICE_NAME %>へようこそ。
 ===============================================
  
 <%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが受諾されました。 

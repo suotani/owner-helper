@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>いつも<%= OwnerHelper::Application::SERVICE_NAME %>をご利用いただきありがとうございます。</p>
+    <p>
+        <%= @resident.name %>様から
+        「<%= @room.house.name %> <%= @room.number %>」
+        への入居申請が届きました
+    </p>
+    <p>入居される物件・部屋番号が間違いないかご確認の上、許可を行ってください。</p>
+    <p>申請内容に身に覚えがない場合は却下を行ってください。</p>
+  　<%= link_to "申請を確認", owner_requests_url %>
+  </body>
+</html>

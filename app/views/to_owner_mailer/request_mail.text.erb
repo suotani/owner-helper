@@ -1,0 +1,8 @@
+いつも<%= OwnerHelper::Application::SERVICE_NAME %>をご利用いただきありがとうございます。
+
+<%= @resident.name %>様から「<%= @room.house.name %> <%= @room.number %>」への入居申請が届きました
+
+入居される物件・部屋番号が間違いないかご確認の上、許可を行ってください。
+申請内容に身に覚えがない場合は却下を行ってください。
+
+<%= link_to "申請を確認", owner_requests_url %>

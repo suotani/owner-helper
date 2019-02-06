@@ -4,9 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @resident.name %>様、iRentへようこそ。</h1>
     <p>
-      <%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが却下されました。 
+      <%= "#{@resident.room.house.owner.name}" %>様より<%= "#{@resident.room.house.name} #{@resident.room.number}" %>への入居リクエストが却下されました。 
     </p>
     
     <p>下記リンクよりログインし、再度ご契約内容をご確認の上、申請を行ってください。</p>

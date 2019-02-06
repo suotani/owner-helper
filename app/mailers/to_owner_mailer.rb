@@ -5,7 +5,17 @@ class ToOwnerMailer < ApplicationMailer
       @owner = chat.contact.owner
       @resident = chat.contact.resident
         mail(
-          subject: "新着メッセージが届きました", #メールのタイトル,
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】新着メッセージが届きました", #メールのタイトル,
+          to: @owner.email #宛先
+        )
+    end
+    
+    def request_mail(room, resident)
+      @room = room
+      @owner = room.house.owner
+      @residet = resident
+        mail(
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】入居申請が届きました", #メールのタイトル,
           to: @owner.email #宛先
         )
     end

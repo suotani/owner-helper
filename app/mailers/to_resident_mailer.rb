@@ -3,7 +3,7 @@ class ToResidentMailer < ApplicationMailer
     def request_accept_mail(resident)
       @resident = resident
         mail(
-          subject: "入居リクエストが受諾されました。", #メールのタイトル,
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】入居リクエストが受諾されました。", #メールのタイトル,
           to: resident.email #宛先
         )
     end
@@ -11,7 +11,7 @@ class ToResidentMailer < ApplicationMailer
     def request_reject_mail(resident)
       @resident = resident
         mail(
-          subject: "入居リクエストが拒否されました。", #メールのタイトル,
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】入居リクエストが拒否されました。", #メールのタイトル,
           to: resident.email #宛先
         )
     end
@@ -21,7 +21,15 @@ class ToResidentMailer < ApplicationMailer
       @owner = chat.contact.owner
       @resident = chat.contact.resident
         mail(
-          subject: "新着メッセージが届きました", #メールのタイトル,
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】新着メッセージが届きました", #メールのタイトル,
+          to: @resident.email #宛先
+        )
+    end
+    
+    def leave_mail(resident)
+      @resident = resident
+        mail(
+          subject: "【#{OwnerHelper::Application::SERVICE_NAME}】ご利用いただきありがとうございました。", #メールのタイトル,
           to: @resident.email #宛先
         )
     end

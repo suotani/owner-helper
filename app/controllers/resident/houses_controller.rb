@@ -16,11 +16,15 @@ class Resident::HousesController < ApplicationController
   
   def create
     house = House.find(params[:house_id])
+    owner = house.owner
     room = house.rooms.where(number: params[:number]).first
     if room && room.resident.blank?
       ActiveRecord::Base.transaction do
-        room.update(resident_id: @resident.id, request: true, requested_at: Time.zone.now)
-        @resident.update(status: ::Resident.statuses[:requested])
+        room.update!(resident_id: @resident.id, request: true, requested_at: Time.zone.now)
+        @resident.update!(status: ::Resident.statuses[:requested])
+      end
+      if owner.mail_accept?
+        ToOwnerMailer.request_mail(room, @resident).deliver_now
       end
       redirect_to resident_path
     else
@@ -28,6 +32,8 @@ class Resident::HousesController < ApplicationController
       @errors = ["存在しない部屋番号が指定されました。"]
       render :new
     end
+    rescue
+    redirect_to resident_path
   end
   
   private

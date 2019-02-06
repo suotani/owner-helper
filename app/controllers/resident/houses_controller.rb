@@ -23,7 +23,7 @@ class Resident::HousesController < ApplicationController
         room.update!(resident_id: @resident.id, request: true, requested_at: Time.zone.now)
         @resident.update!(status: ::Resident.statuses[:requested])
       end
-      if owner.mail_accept?
+      if owner.request_mail_accept?
         ToOwnerMailer.request_mail(room, @resident).deliver_now
       end
       redirect_to resident_path
@@ -32,7 +32,8 @@ class Resident::HousesController < ApplicationController
       @errors = ["存在しない部屋番号が指定されました。"]
       render :new
     end
-    rescue
+    rescue => e
+    logger.error(e)
     redirect_to resident_path
   end
   

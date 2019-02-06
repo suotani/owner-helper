@@ -1,7 +1,7 @@
 class Owner::RoomsController < OwnerController
     
   before_action :get_house
-  before_action :get_room, only: [:edit, :update, :destroy]
+  before_action :get_room, only: [:edit, :update, :destroy, :remove]
   before_action :set_contact, only: [:edit]
 
   def create
@@ -24,6 +24,18 @@ class Owner::RoomsController < OwnerController
   end
   
   def destroy
+  end
+  
+  def remove
+    ActiveRecord::Base.transaction do
+      resident = @room.resident
+      @room.update!(request: nil, resident_id: nil)
+      resident.reload.update!(status: Resident.statuses[:signed_up])
+    end
+    redirect_to edit_owner_house_room_path(house_id: @house.id, id: @room.id), notice: "退去処理を完了しました"
+    rescue
+    redirect_to edit_owner_house_room_path(house_id: @house.id, id: @room.id), alert: "エラーが発生し、処理が中断されました。"
+
   end
  
  

@@ -27,11 +27,12 @@
       <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
       <% add_class = (i+1 == @contact_chats.length) ? "default-open" : "" %>
       <% add_class += chat.resident_id.present? ? " resident" : " owner" %>
-      <div class="message <%= add_class %>">
+      <div class="message <%= add_class %>" id="<%= 'last' if @contact_chats.size == i + 1 %>">
         <div class="short">
           <div class="message-header">
             <div class="writer-name" >
-              <%= writer.name %> <%= chat.text[0..30] %>
+              <span class="name"><%= writer.name %></span>
+              <%= chat.text[0..30] %>
             </div>
             <div class="created-datetime">
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
@@ -41,7 +42,7 @@
         <div class="long">
           <div class="message-header">
             <div class="writer-name" >
-              <%= writer.name %>
+              <span class="name"><%= writer.name %></span>
             </div>
             <div class="created-datetime">
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>

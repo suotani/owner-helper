@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="contact-wrapper">
-      <%= link_to "チャットを見る", edit_resident_contact_path(@contact.id), class: "chat-button" %>
+      <%= link_to "チャットを見る", edit_resident_contact_path(@contact.id)+"#last", class: "chat-button" %>
     </div>
   </div>
   <% end %>

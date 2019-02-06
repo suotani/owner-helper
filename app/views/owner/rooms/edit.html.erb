@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag "owner/houses/show", :media => "all" %>
 <%= javascript_include_tag 'owner/houses/show', 'data-turbolinks-track': 'reload' %>
     <main>
-      <div class="notice"><%= notice %></div>
       <div class="house-wrapper">
         <h2>物件情報</h2>
         <div>
@@ -39,26 +38,28 @@
           <% if resident %>
             <ul class="row">
               <li class="key">名前</li>
-              <li class="value house-read"><%= resident.name %></li>
+              <li class="value"><%= resident.name %></li>
             </ul>
             <ul class="row">
               <li class="key">電話番号</li>
-              <li class="value house-read"><%= resident.phone_number %></li>
+              <li class="value"><%= resident.phone_number %></li>
             </ul>
             <ul class="row">
               <li class="key">メールアドレス</li>
-              <li class="value house-read"><%= resident.email %></li>
+              <li class="value"><%= resident.email %></li>
             </ul>
             <ul class="row">
               <li class="key">家族構成</li>
-              <li class="value house-read"><%= resident.family %></li>
+              <li class="value"><%= resident.family %></li>
             </ul>
           <% end %>
         </div>
-        <div class="actions">
-          <% if @contact %>
-          <%= link_to "メッセージを見る・送る", edit_owner_contact_path(@contact.id) %>
-          <% end %>
-        </div>
+        <% if @contact %>
+          <h2>操作</h2>
+          <div class="action-buttons">
+            <%= link_to "退去", remove_owner_house_room_path(house_id: @room.house_id, id: @room.id), class: "remove" %>
+            <%= link_to "メッセージを見る・送る", edit_owner_contact_path(@contact.id) + "#last", class: "contact" %>
+          </div>
+        <% end %>
       </div>
     </main>

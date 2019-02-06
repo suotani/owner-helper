@@ -12,7 +12,8 @@
         <div class="short">
           <div class="message-header">
             <div class="writer-name" >
-              <%= writer.name %> <%= chat.text[0..30] %>
+              <span class="name"><%= writer.name %></span>
+              <%= chat.text[0..30] %>
             </div>
             <div class="created-datetime">
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
@@ -22,7 +23,7 @@
         <div class="long">
           <div class="message-header">
             <div class="writer-name" >
-              <%= writer.name %>
+              <span class="name"><%= writer.name %></span>
             </div>
             <div class="created-datetime">
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>

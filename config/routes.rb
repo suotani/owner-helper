@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   
   namespace :owner do
     resources :houses do
-      resources :rooms, only: [:create, :edit, :update, :destroy]
+      resources :rooms, only: [:create, :edit, :update, :destroy] do
+        member do
+          get "remove"
+        end
+      end
     end
     
     resources :residents, only: [:index, :show]

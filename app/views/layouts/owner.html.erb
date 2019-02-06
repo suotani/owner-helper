@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'owners' %>
+    <%= javascript_include_tag 'common' %>
     <%= stylesheet_link_tag "common", media: "all" %>
     <%= stylesheet_link_tag "owners", media: "all" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -22,7 +23,7 @@
           <li><%= link_to "メッセージ(未読#{@new_message_count}件)", owner_contacts_path %></li>
       　　<li class="search-resident"><%= link_to "住人検索", owner_residents_path %></li>
           <li><%= link_to "入居申請(#{@request_count}件)", owner_requests_path %></li>
-        <li class="header-pull-list-parent">
+        <li class="pc header-pull-list-parent">
           <%= @owner.name %><i class="fas fa-angle-down"></i>
           <ul class="header-pull-list">
             <li><%= link_to "ログアウト", destroy_owner_session_path, method: "delete" %></li>

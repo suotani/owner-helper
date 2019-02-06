@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @resident.name %>から新着メッセージが届きました</h1>
+    <p>
+      <%= simple_format(h((@chat.text[0..100] + "...").gsub(/\r\n|\r|\n/, "<br />"))) %>
+    </p>
+    
+  　<%= link_to "メッセージを確認", edit_owner_contact_url(id: @chat.contact_id) %>
+  </body>
+</html>

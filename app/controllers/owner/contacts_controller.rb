@@ -28,9 +28,10 @@ class Owner::ContactsController < OwnerController
         resident_status: Contact.resident_statuses[:resident_no_read]
       )
     end
-    redirect_to edit_owner_contact_path(@contact.id), notice: "送信しました"
+    ToResidentMailer.contact_update_mail(contact_chat).deliver_now
+    redirect_to edit_owner_contact_path(@contact.id) + "#last", notice: "送信しました"
     rescue
-    redirect_to edit_owner_contact_path(@contact.id), notice: "入力エラーがあります"
+    redirect_to edit_owner_contact_path(@contact.id) + "#last", alert: "入力エラーがあります"
   end
   
   private

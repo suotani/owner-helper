@@ -15,4 +15,14 @@ class ToResidentMailer < ApplicationMailer
           to: resident.email #宛先
         )
     end
+
+    def contact_update_mail(chat)
+      @chat = chat
+      @owner = chat.contact.owner
+      @resident = chat.contact.resident
+        mail(
+          subject: "新着メッセージが届きました", #メールのタイトル,
+          to: @resident.email #宛先
+        )
+    end
 end

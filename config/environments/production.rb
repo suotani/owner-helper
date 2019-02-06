@@ -98,7 +98,10 @@ Rails.application.configure do
     api_key: '5c4cf1eab7ba2b858e7da1fc3f0b3a5f-2d27312c-6d7ab100',
     domain: 'mg.irenttest.work'
   }
-  config.action_mailer.default_url_options   = { host: ENV['MAILGUN_HOSTNAME'] }
+  config.action_mailer.default_url_options   = {
+    protocol: 'https',
+    host: ENV['MAILGUN_HOSTNAME']
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

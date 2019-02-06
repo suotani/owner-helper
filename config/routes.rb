@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   get 'contacts/index'
   get 'residents/show'
   resources :demos
-  root to: "top#index"
 
-  get 'top/index'
   devise_for :owners, controllers: {
     sessions:      'owners/sessions',
     passwords:     'owners/passwords',

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # static
+  root to: 'statics#index'
+  get 'plan', to: 'statics#plan'
+  get 'owner_use', to: 'statics#owner_use'
+  get 'resident_use', to: 'statics#resident_use'
+  get 'privacy', to: 'static#privacy'
+
   get 'contacts/index'
   get 'residents/show'
   resources :demos

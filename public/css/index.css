@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+
+
 body{
-    background-color: #000;
+  background-color: #000;
+  font-family: 'Sawarabi Gothic', sans-serif;
 }

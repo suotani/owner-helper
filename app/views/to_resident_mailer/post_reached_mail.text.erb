@@ -1,0 +1,3 @@
+<%= @post.owner.name %>様からお知らせが届きました。
+以下のリンクよりご確認ください
+<%= link_to @post.title, resident_post_path(post.id) %>

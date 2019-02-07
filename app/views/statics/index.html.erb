@@ -1,0 +1,205 @@
+<main>
+  <div class="main-visual">
+    <div class="slider-wrap">
+      <div class="slider-item active item1">
+        <div class="slider-item-prev slide" data-to="item4">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slider-item-left">
+          <%= image_tag "what.jpg" %>
+        </div>
+        <div class="slider-item-right">
+          <h2><%= OwnerHelper::Application::SERVICE_NAME %>とは</h2>
+          <p>
+            <%= OwnerHelper::Application::SERVICE_NAME %>はマンションの管理人と住人をつなぐ
+            コミュニケーションサービスです。
+          </p>
+          <p>
+            「伝えたいことがあるけど、なかなか電話がつながらない」「最近見ないけど元気だろうか」
+            などなど、管理人と住人のコミュニケーションに関するあらゆる問題を解決します。
+          </p>
+          <div class="actions">
+            <a href="#what" class="button">詳しく見る</a>
+          </div>
+        </div>
+        <div class="slider-item-next slide" data-to="item2">
+          <i class="fas fa-angle-right"></i>
+        </div>
+      </div>
+      <div class="slider-item item2">
+        <div class="slider-item-prev slide" data-to="item1">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slider-item-left">
+          <%= image_tag "woman.jpg" %>
+        </div>
+        <div class="slider-item-right">
+          <h2>主な機能</h2>
+          <h3>お知らせ</h3>
+          <p>
+            登録されている住人へ一斉にお知らせを送信することができます。専用の
+            エディタ(編集画面)を使って綺麗に整形された文書を作ることができます。
+          </p>
+          <h3>メッセージ</h3>
+          <p>
+            住人と個別に連絡を取り合うことができます。
+            やり取りはずっと記録されるので安全・安心です。
+          </p>
+          <div class="actions">
+            <a href="#function" class="button">詳しく見る</a>
+          </div>
+        </div>
+        <div class="slider-item-next slide" data-to="item3">
+          <i class="fas fa-angle-right"></i>
+        </div>
+      </div>
+      <div class="slider-item item3">
+        <div class="slider-item-prev slide" data-to="item2">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slider-item-left">
+          <%= image_tag "woman.jpg" %>
+        </div>
+        <div class="slider-item-right">
+          <h2>こんな方にお勧め</h2>
+          <p>
+            一人暮らしの社会人や大学生が多く住まわれている物件の管理人様へ特におすすめします。
+          </p>
+          <p>
+            仕事や学校でなかなか電話がつながらない、連絡が取れない等の問題がございましたら是非お使いください。
+          </p>
+          <p>
+            また、チャットでのやり取りが当たり前の世代のご家庭とのやり取りも円滑に行うことができます。
+          </p>
+          <div class="actions">
+            <a href="#recommend" class="button">詳しく見る</a>
+          </div>
+        </div>
+        <div class="slider-item-next slide" data-to="item4">
+          <i class="fas fa-angle-right"></i>
+        </div>
+      </div>
+      <div class="slider-item item4">
+        <div class="slider-item-prev slide" data-to="item3">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slider-item-left">
+          <%= image_tag "plan.jpg" %>
+        </div>
+        <div class="slider-item-right">
+          <h2>料金体系</h2>
+          <p>
+            <%= OwnerHelper::Application::SERVICE_NAME %>では、住人が登録されている部屋につき料金が発生する従量課金制を採用しています。
+          </p>
+          <p>サービスを使われていない住人の方の料金は発生いたしません。</p>
+          <div class="actions">
+            <a href="#plan" class="button">詳しく見る</a>
+          </div>
+        </div>
+        <div class="slider-item-next slide" data-to="item1">
+          <i class="fas fa-angle-right"></i>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <ul>
+        <li class="active item1 slide" data-to="item1">
+          <i class="fas fa-caret-right"></i>
+          <%= OwnerHelper::Application::SERVICE_NAME %>とは
+        </li>
+        <li class="item2 slide" data-to="item2">
+          <i class="fas fa-caret-right"></i>
+          主な機能
+        </li>
+        <li class="item3 slide" data-to="item3">
+          <i class="fas fa-caret-right"></i>
+          こんな方にお勧め
+        </li>
+        <li class="item4 slide" data-to="item4">
+          <i class="fas fa-caret-right"></i>
+          料金体系
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="main-explanation">
+    <p id="what"></p>
+    <h2><%= OwnerHelper::Application::SERVICE_NAME %>とは</h2>
+    <p>
+      <%= OwnerHelper::Application::SERVICE_NAME %>はマンションの「管理人」とマンションの住人
+      をつなぐコミュニケーションサービスです。
+    </p>
+    <p>
+      これまで管理人と住人との連絡手段と言えば、電話か偶然会った時の立ち話のいずれかしかありませんでした。
+    </p>
+    <p>
+      そのため、めったに出会わない方や仕事や学校が忙しくなかなか電話がつながらない住人へは連絡が取れないといった問題がありました。
+    </p>
+    
+    <p>
+      そんな問題を解決するために誕生したのが<%= OwnerHelper::Application::SERVICE_NAME %>です。
+    </p>
+    <p>
+      チャットによるメッセージのやり取りで時間や場所を選ばずに連絡を取り合うことができます。
+    </p>
+    <p>
+      また、「お知らせ」機能では選択した物件の住人に一斉にお知らせ文書を送ることができます。
+    </p>
+    <p id="function"></p>
+    <h2>主な機能</h2>
+    <h3>お知らせ</h3>
+    <p>
+      お知らせ機能では、選択した物件の住人(<%= OwnerHelper::Application::SERVICE_NAME %>利用者のみ)に専用のエディタで作成した文書を送信することができます。
+    </p>
+    <p>
+      紙の文書ではないので、一度お読みいただいた後も、無くしたり捨てられたりすることはなく、何度でも読み返すことができます。
+    </p>
+    
+    <h3>チャット</h3>
+    <p>
+      チャット形式によるメッセージ送信機能で、住民と個別でやり取りを行うことができます。
+    </p>
+    <p>
+      こちらもやり取りがずっと残るため、後から見返したり、「言った言わない」論争を避けることができます。
+    </p>
+    <p id="recommend"></p>
+    <h2>こんな方にお勧め</h2>
+    <ul class="recommend-list">
+      <li>
+        <i class="fas fa-caret-right"></i>
+        連絡が取りにくい社会人や学生など、単身者が多く住まわれているマンションの管理人様
+      </li>
+      <li>
+        <i class="fas fa-caret-right"></i>
+        チャットでのやり取りに慣れている学生向けマンションの管理人様
+      </li>
+      <li>
+        <i class="fas fa-caret-right"></i>
+        他のマンションと差別化したい管理者様
+      </li>
+      <li>
+        <i class="fas fa-caret-right"></i>
+        マンションの管理人様以外にも、自習室の運営者様にもお使いいただけます。
+      </li>
+    </ul>
+    <p id="plan"></p>
+    <h2>料金体系</h2>
+    <h3>基本単価</h3>
+    <p>部屋単位での従量課金制となっています。1部屋の単価は月額300円です。</p>
+    <p>※物件に部屋を登録した時点では料金はかからず、部屋に住人が登録された時点で課金対象となります。</p>
+    <p>※部屋への住人の登録は、住人からシステム利用申請を行い、管理者様が許可した時点で登録完了となります。</p>
+    <h3>料金の算出例①</h3>
+    <p>30部屋あるマンションAの場合。25部屋が入居済みで、そのうち15部屋でシステムに住人登録済みの場合では</p>
+    <p>15×300=4500円(税別)</p>
+    <p>が月額料金となります。</p>
+    <h3>料金の算出例②</h3>
+    <p>10部屋のマンションBと5部屋のマンションCを管理されている場合</p>
+    <p>マンションBでは全部屋の住人が登録済み、マンションCでは一人も登録が無かった場合では</p>
+    <p>10×300(マンションB) + 0×300(マンションC) = 3000円(税別)</p>
+    <p>が月額料金となります。</p>
+    <div class="actions">
+      <%= link_to "管理人登録(無料)", new_owner_registration_path , class: "button large-button"%>
+    </div>
+  </div>
+</main>

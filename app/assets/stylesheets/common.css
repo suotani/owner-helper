@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+
 .pc{
   display: block;
 }
@@ -52,6 +54,7 @@ body{
   padding: 0;
   background-color: #fff;
   margin-top: 60px;
+  font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 main{
@@ -99,6 +102,7 @@ ul{
     box-shadow: 1px 1px #505050;
     border-bottom: none;
     cursor: pointer;
+    text-align: center;
 }
 
 @media screen and (max-width: 640px) {

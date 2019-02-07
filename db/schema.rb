@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_124430) do
+ActiveRecord::Schema.define(version: 2019_02_07_151741) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(version: 2019_02_04_124430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "house_id"
+  end
+
+  create_table "post_residents", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "resident_id"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

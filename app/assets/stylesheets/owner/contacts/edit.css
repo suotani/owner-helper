@@ -43,6 +43,22 @@ h2{
   padding: 10px;
   padding-left: 40px;
   cursor: pointer;
+  position: relative;
+}
+
+.message .read-status{
+    position: absolute;
+    top: 13px;
+    left: 6px;
+    font-size: 13px;
+}
+
+.message .read-status.read{
+    color: #00f;
+}
+
+.message .read-status.yet{
+    color: #f00;
 }
 
 .message-header{

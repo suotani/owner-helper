@@ -7,6 +7,7 @@ class Owner < ApplicationRecord
   has_many :houses
   has_many :posts
   has_many :contacts
+  has_many :contact_chats
 
   validates :name, presence: true
 

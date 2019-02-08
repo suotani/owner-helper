@@ -3,7 +3,6 @@ class Resident::ContactsController < ResidentController
   def edit
     @contact = @resident.current_contact
     @contact_chats = @contact.contact_chats.order(created_at: :desc).limit(20).reverse
-    @contact.update(resident_status: Contact.resident_statuses[:resident_read])
   end
   
   def update
@@ -27,6 +26,13 @@ class Resident::ContactsController < ResidentController
     rescue => e
     logger.error(e)
     redirect_to edit_resident_contact_path(@contact.id)+"#last", alert: "入力エラーがあります"
+  end
+
+  def read
+    contact = @resident.current_contact
+    @resident.contact_chats.where(contact_id: contact.id).update_all(read_status: ContactChat.read_statuses[:read])
+    contact.update(resident_status: Contact.resident_statuses[:resident_read])
+    head :no_content
   end
   
 end

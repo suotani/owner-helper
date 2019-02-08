@@ -12,6 +12,9 @@ class Owner::RequestsController < OwnerController
       resident.update(status: Resident.statuses[:moving_in])
       @room.update!(request: false)
       Contact.create!(resident_id: resident.id, owner_id: @owner.id, room_id: @room.id)
+      @room.house.posts.each do |post|
+        PostResident.create!(post_id: post.id, resident_id: resident.id)
+      end
     end
     ToResidentMailer.request_accept_mail(resident).deliver_now
     redirect_to owner_requests_path, notice: "#{resident.name}さんの申請を許可しました"

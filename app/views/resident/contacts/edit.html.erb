@@ -4,11 +4,17 @@
   
   <h2>メッセージ</h2>
   <div class="messages-wrap">
+    <%= hidden_field_tag "read_url", read_resident_contact_path(@contact.id) %>
     <% @contact_chats.each_with_index do |chat, i| %>
       <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
       <% add_class = (i+1 == @contact_chats.length) ? "default-open" : "" %>
       <% add_class += chat.resident_id.present? ? " resident" : " owner" %>
       <div class="message <%= add_class %>">
+        <% if chat.owner_write? %>
+          <span class="read-status <%= chat.read? ? "read" : "yet" %>">
+            <%= chat.read? ? "既読" : "未読" %>
+          </span>
+        <% end %>
         <div class="short">
           <div class="message-header">
             <div class="writer-name" >

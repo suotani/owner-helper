@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_151741) do
+ActiveRecord::Schema.define(version: 2019_02_08_142846) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2019_02_07_151741) do
   create_table "contact_chats", force: :cascade do |t|
     t.integer "contact_id"
     t.text "text"
-    t.boolean "readFlg"
     t.integer "owner_id"
     t.integer "resident_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "read_status", default: 2
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 2019_02_07_151741) do
   create_table "post_residents", force: :cascade do |t|
     t.integer "post_id"
     t.integer "resident_id"
-    t.boolean "read"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "read_status", default: 2
   end
 
   create_table "posts", force: :cascade do |t|

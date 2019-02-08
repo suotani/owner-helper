@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag "posts/review", :media => "all" %>
 <%= stylesheet_link_tag "resident/posts/show", :media => "all" %>
+<%= javascript_include_tag 'resident/posts/show', 'data-turbolinks-track': 'reload' %>
 <div class="preview">
+  <%= hidden_field_tag "read-url", read_resident_post_path(@post.id) %>
   <% #[position, size, [text]] %>
   <% @texts.each do |paragraph| %>
     <div class="paragraph <%= paragraph[0] %> size<%= paragraph[1] %>">

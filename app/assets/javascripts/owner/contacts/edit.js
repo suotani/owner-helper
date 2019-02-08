@@ -9,5 +9,11 @@ $(document).ready(function(){
       $short.hide();
       $long.show();
     }
-  });  
+  });
+  $.ajax({
+    url: $("#read_url").val(),
+    type: 'get',
+    data: {}
+  });
+  
 });

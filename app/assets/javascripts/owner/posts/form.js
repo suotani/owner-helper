@@ -52,7 +52,9 @@ function createText(){
        $position = $(element).find(".alignment").val();
        $size = $(element).find(".fontsize").val();
        $text = $(element).find("textarea").val();
-       $texts += "$$" + $position + "," + $size + "$$" + $text + "$end$";
+       if($text !== ""){
+         $texts += "$$" + $position + "," + $size + "$$" + $text + "$end$";
+       }
     });
     return $texts;
 }

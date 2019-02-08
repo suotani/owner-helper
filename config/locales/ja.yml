@@ -228,6 +228,10 @@ ja:
         text: お問い合わせ内容
         category: お問い合わせ種別
         email: 返信用メールアドレス
+      post:
+        title: タイトル
+        post_at: お知らせ日時
+        text: 本文
   enums:
     resident:
       post_mail_setting:

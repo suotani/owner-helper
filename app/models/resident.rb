@@ -6,6 +6,8 @@ class Resident < ApplicationRecord
 
   has_one :room
   has_many :contacts
+  has_many :contact_chats
+  has_many :post_residents
 
   validates :name, presence: true
   

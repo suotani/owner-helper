@@ -12,16 +12,29 @@
       <div class="field datetime">
         <%= f.label :post_at, "お知らせ日時" %>
         <% y = Time.zone.now.year %>
-        <%= select_tag "year", options_for_select((y..y+5).to_a), class: "year" %>年
-        <%= select_tag "month", options_for_select((1..12).to_a), class: "" %>月
-        <%= select_tag "day", options_for_select((1..31).to_a), class: "" %>日
-        <%= select_tag "hour", options_for_select((0..23).to_a), class: "" %>時
+        <%= select_tag "year", options_for_select((y..y+5).to_a, @post.post_at&.year), class: "year" %>年
+        <%= select_tag "month", options_for_select((1..12).to_a, @post.post_at&.month), class: "" %>月
+        <%= select_tag "day", options_for_select((1..31).to_a, @post.post_at&.day), class: "" %>日
+        <%= select_tag "hour", options_for_select((0..23).to_a, @post.post_at&.hour), class: "" %>時
         <%= f.hidden_field :post_at %>
         
       </div>
       <div class="text-input-wrap">
         <div class="main-text">
-          
+          <% (@texts || []).each do |text| %>
+            <% #text = [position, size, texts]%>
+            <div class="instance">
+              <span class="remove-button"><i class="fas fa-times"></i></span>
+              <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
+              <div class="options">
+                <div class="options-select">
+                  位置: <%= select_tag "alignment", options_for_select(alignments,text[0]), class: "apply-input alignment" %>
+                  文字サイズ: <%= select_tag "fontsize", options_for_select((1..5).to_a, text[1].to_i), class: "apply-input fontsize" %>
+                </div>
+              </div>
+              <%= text_area_tag "", text[2].join("\n"), class: "apply-box" %>
+            </div>
+          <% end %>
         </div>
         <div class="actions add-button">
           <button type="button" class="button" id="addParagraphBtn">
@@ -43,7 +56,7 @@
       <%= f.hidden_field :text %>
       <%= hidden_field_tag "house_ids", house_ids %>
       <div class="actions submit-action">
-        <button class="button submit-btn">作成</button>
+        <button class="button submit-btn">保存</button>
       </div>
     <% end %>
   </div>

@@ -218,6 +218,7 @@ main{
     margin-top: 100px;
     background-color: white;
     padding: 13px;
+    padding-top: 23px;
 }
 
 .modal .field{
@@ -231,16 +232,16 @@ main{
 
 .close-button{
     position: absolute;
-    top: -22px;
-    right: -98px;
-    border: solid 1px white;
+    top: -6px;
+    right: 0px;
     padding: 7px 13px;
-    color: black;
+    color: #fffefe;
     border-radius: 9px;
     cursor: pointer;
 }
 .close-button i{
-    color: black;
+    color: #737373;
+    font-size: 16px;
 }
 
 #inquiry-modal-open{

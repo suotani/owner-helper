@@ -1,7 +1,7 @@
 class Owner::PostsController < OwnerController
   
   before_action :set_post, only: [:edit, :update, :destroy, :show]
-  before_action :set_text, only: [:show]
+  before_action :set_text, only: [:show, :edit]
   
   def index
     @posts = @owner.posts
@@ -36,12 +36,17 @@ class Owner::PostsController < OwnerController
       house_ids.each do |house_id|
         if(owner_house_ids.include?(house_id))
           PostHouse.create!(house_id: house_id, post_id: @post.id)
+          residents = Resident.joins(room: :house).moving_in.merge(House.where(id: house_id))
+          residents.each do |resident|
+            PostResident.create!(post_id: @post.id, resident_id: resident.id)
+          end
         end
       end
     end
     redirect_to owner_posts_path, notice: "登録しました"
     rescue
-      render :new
+    @errors = @post.errors.full_messages
+    render :new
   end
   
   def show
@@ -51,6 +56,13 @@ class Owner::PostsController < OwnerController
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to edit_owner_post_path(@post.id), notice: "保存しました"
+    else
+      set_text
+      @errors = @post.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy

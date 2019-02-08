@@ -99,7 +99,6 @@ Rails.application.configure do
     api_key: '5c4cf1eab7ba2b858e7da1fc3f0b3a5f-2d27312c-6d7ab100',
     domain: 'mg.irenttest.work'
   }
-  
   config.action_mailer.default_url_options   = {
     protocol: 'https',
     host: ENV['MAILGUN_HOSTNAME']

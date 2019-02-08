@@ -93,6 +93,7 @@ Rails.application.configure do
   #   :authentication => :plain,
   # }
   # ActionMailer::Base.delivery_method = :smtp
+
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: '5c4cf1eab7ba2b858e7da1fc3f0b3a5f-2d27312c-6d7ab100',

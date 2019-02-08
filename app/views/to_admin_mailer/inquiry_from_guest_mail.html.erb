@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= @name %>様から新着メッセージが届きました</p>
+    <p><%= @email %></p>
+    <p>
+      <%= simple_format(h(@text.gsub(/\r\n|\r|\n/, "<br />"))) %>
+    </p>
+  </body>
+</html>

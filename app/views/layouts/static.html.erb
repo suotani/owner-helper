@@ -32,7 +32,7 @@
             </div>
           </li>
           <li>会員登録(無料)</li>
-          <li><%= link_to "お問い合わせ", plan_path %></li>
+          <li id="inquiry-modal-open" onclick="$('.modal').show();">お問い合わせ</li>
         </ul>
       </div>
     </header>
@@ -43,5 +43,39 @@
       <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
+    
+    <div class="modal">
+      <%= form_tag inquiry_path, remote: true do %>
+        <span class="close-button" onclick="$('.modal').hide();">
+          閉じる<i class="fas fa-times"></i>
+        </span>
+        <div class="field">
+         <%= label_tag "name", "お名前" %>
+         <%= text_field_tag "name" %>
+        </div>
+        <div class="field">
+         <%= label_tag "email", "メールアドレス" %>
+         <%= text_field_tag "email" %>
+        </div>
+        <div class="field">
+         <%= label_tag "text", "お問い合わせ内容" %>
+         <%= text_area_tag "text" %>
+        </div>
+        <div class="actions">
+          <%= button_tag "送信", type: "button", class: "button", id: "inquiry_submit", onclick: "$(this).text('送信中');$(form).submit();" %>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="success">
+      <div class="message">
+        <span class="close-button" onclick="$('.success').hide();">
+          閉じる<i class="fas fa-times"></i>
+        </span>
+        <p>お問い合わせいただきありがとうございます。</p>
+        <p>後日、記入いただきましたメールアドレスにご返信させていただきます。</p>
+      </div>
+    </div>
+    
   </body>
 </html>

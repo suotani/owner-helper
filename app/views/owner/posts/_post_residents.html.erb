@@ -1,0 +1,33 @@
+<div class="modal">
+  <% if house_read_statuses.present? %>
+    <div class="house">
+      <span class="close-button" data-modal-id="<%= post.id %>">
+          <i class="fas fa-times"></i>
+      </span>
+      <% house_read_statuses.each do |hts| %>
+        <div>
+          <p class="house-name">
+            <%= hts[:house].name %>
+            <i class="fas fa-chevron-down"></i>
+          </p>
+          <ul class="read-status-list">
+            <% hts[:post_residents].each do |pr| %>
+              <li class="<%= pr.read_status %>">
+                <p class="room-number"><%= pr.resident.room.number %></p>
+                <p class="resident-name"><%= pr.resident.name %></p>
+                <p class="resident-read-status"><%= pr.read_status_i18n %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="house">
+      <span class="close-button" data-modal-id="<%= post.id %>">
+          <i class="fas fa-times"></i>
+      </span>
+   　　 <div>対象となる住人が見るかりませんでした</div>
+    </div>
+  <% end %>
+</div>

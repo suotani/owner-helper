@@ -29,8 +29,8 @@ main{
     width: 35%;
 }
 
-.updated-at{
-    width: 18%;
+.status{
+    width: 13%;
 }
 
 .post-at{
@@ -38,7 +38,7 @@ main{
 }
 
 .actions{
-    width: 29%;
+    width: 24%;
 }
 
 .form-wrapper{
@@ -81,4 +81,110 @@ form{
     border-radius: 10px;
     border: none;
     cursor: pointer;
+}
+
+.read-status{
+    display: none;
+    color: #00f;
+    cursor: pointer;
+}
+
+.read-status.active{
+    display: inline-block;
+}
+
+.read-status-modal-wrap{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200,200,200,0.6);
+}
+
+.read-status-modal-wrap.active{
+    display: block;
+}
+
+.modal{
+    position: relative;
+    width: 500px;
+    height: 350px;
+    overflow-y: scroll;
+    margin: auto;
+    background-color: white;
+    margin-top: 92px;
+}
+
+.house{
+    padding: 5px;
+    position: relative;
+    padding-top: 15px;
+}
+
+.house-name{
+    width: 100%;
+    border-bottom: solid 1px #d2d2d2;
+    margin-bottom: 0;
+    padding: 7px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.house-name i{
+    align-self: center;
+}
+
+ul.read-status-list{
+    display: none;
+    border: solid 1px #bbb;
+}
+
+ul.read-status-list li{
+    display: flex;
+    padding-left: 10px;
+    border-bottom: solid 1px #d2d2d2;
+}
+
+ul.read-status-list li.read{
+    background-color: #def7d4;
+}
+ul.read-status-list li.yet{
+    background-color: #f7d4d4;
+}
+
+ul.read-status-list li p{
+    margin: 0;
+}
+
+.read-status-list .room-number{
+    width: 20%;
+}
+
+.read-status-list .resident-name{
+    width: 50%;
+}
+
+.read-status-list .resident-read-status{
+    width: 30%;
+}
+
+.close-button{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close-button i{
+  color: #929292;
+  font-size: 20px;
+}
+
+.close-button i:hover{
+    color: #545252;
 }

@@ -39,6 +39,9 @@ Rails.application.routes.draw do
       collection do
         get "houses"
       end
+      member do
+        get "read_status"
+      end
     end
     resources :contacts, only: [:index, :edit, :update] do
       member do

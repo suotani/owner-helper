@@ -255,3 +255,7 @@ ja:
         howto: 使い方に関するお問い合わせ
         product: 改善・要望
         other: その他
+    post_resident:
+      read_status:
+        read: 既読
+        yet: 未読

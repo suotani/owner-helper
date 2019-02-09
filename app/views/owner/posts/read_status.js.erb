@@ -1,0 +1,3 @@
+$("#modal<%= @post.id %>").html("<%= j(render 'post_residents', post: @post, house_read_statuses: @house_read_statuses) %>");
+$("#link-read-status<%= @post.id %>").removeClass("active");
+$("#no-link-read-status<%= @post.id %>").addClass("active");

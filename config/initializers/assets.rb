@@ -27,7 +27,7 @@ Rails.application.config.assets.precompile += %w( owner/residents/index.css )
 Rails.application.config.assets.precompile += %w( owner/contacts/edit.css owner/contacts/edit.js )
 Rails.application.config.assets.precompile += %w( owner/contacts/index.css )
 Rails.application.config.assets.precompile += %w( owner/posts/form.css owner/posts/form.js )
-Rails.application.config.assets.precompile += %w( owner/posts/index.css )
+Rails.application.config.assets.precompile += %w( owner/posts/index.css owner/posts/index.js)
 Rails.application.config.assets.precompile += %w( owner/posts/show.css )
 Rails.application.config.assets.precompile += %w( owner/posts/houses.css owner/posts/houses.js )
 

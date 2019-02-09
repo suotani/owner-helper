@@ -1,6 +1,6 @@
 class Owner::PostsController < OwnerController
   
-  before_action :set_post, only: [:edit, :update, :destroy, :show]
+  before_action :set_post, only: [:edit, :update, :destroy, :show, :read_status]
   before_action :set_text, only: [:show, :edit]
   
   def index
@@ -66,6 +66,22 @@ class Owner::PostsController < OwnerController
   end
 
   def destroy
+  end
+  
+  def read_status
+    @house_read_statuses = []
+    post_residents = @post.post_residents.joins(resident: [room: :house])
+    @post.houses.each do |house|
+      post_residents_in_house = post_residents.merge(House.where(id: house.id))
+      if post_residents_in_house.present?
+        @house_read_statuses += [
+          {
+            house: house,
+            post_residents: post_residents_in_house
+          }
+        ]
+      end
+    end
   end
   
   private

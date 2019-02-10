@@ -41,7 +41,7 @@
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 770px) {
     body{
         background-color: #9c9c9c;
     }

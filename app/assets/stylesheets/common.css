@@ -105,7 +105,7 @@ ul{
     text-align: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 770px) {
   .pc{
     display: none;
   }

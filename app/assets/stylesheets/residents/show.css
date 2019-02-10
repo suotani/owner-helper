@@ -83,7 +83,7 @@
     box-shadow: none;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 770px) {
     
     .list-row .key{
         width: 25%;

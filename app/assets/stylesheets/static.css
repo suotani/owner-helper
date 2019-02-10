@@ -247,3 +247,71 @@ main{
 #inquiry-modal-open{
     cursor: pointer;
 }
+
+.fa-bars.sp{
+    display: none;
+}
+@media screen and (max-width: 770px) {
+    .fa-bars.sp{
+        display: block;
+    }
+    .pc{
+        display: none;
+    }
+    .menu-wrap{
+        display: none;
+        width: 100%;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        background-color: white;
+    }
+    .menu-wrap li, .menu-wrap a{
+        color: black;
+    }
+    
+    .fas.fa-bars{
+        align-self: center;
+        padding-right: 20px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    header ul{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .slider-item{
+        flex-direction: column;
+    }
+    
+    .slider-item-left, .slider-item-right{
+        width: 100%;
+    }
+    
+    .slider-item-next{
+        position: absolute;
+        top: 100px;
+        right: 0;
+    }
+    .slider-item-prev{
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+    
+    .slider-item-next i, .slider-item-prev i{
+        color: white;
+    }
+    
+    .main-explanation{
+        width: 95%;
+    }
+    .main-explanation h3{
+        margin-left: 9px;
+    }
+    .main-explanation p{
+        margin-left: 13px;
+    }
+}

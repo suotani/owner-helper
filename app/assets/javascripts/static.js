@@ -8,6 +8,14 @@ $(document).ready(function(){
     }
   );
   
+  $("#menu-toggle").on("click", function(){
+    if($(".menu-wrap").is(":hidden")){
+      $(".menu-wrap").slideDown();
+    }else{
+      $(".menu-wrap").slideUp();
+    }
+  });
+  
   $(".slide").click(function(){
     $(".slider-item").each(function(i,e){
       $(e).removeClass("active");

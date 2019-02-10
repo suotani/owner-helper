@@ -132,7 +132,7 @@ textarea{
     text-align: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 770px) {
     .message{
         padding-left: 15px;
     }
@@ -146,7 +146,11 @@ textarea{
     .short .created-datetime{
         width: 35%;
     }
+    .message-header{
+        padding-left: 23px;    
+    }
     main{
         margin-top: 0;
+        width: 95%;
     }
 }

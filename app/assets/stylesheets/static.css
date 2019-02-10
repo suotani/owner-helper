@@ -247,9 +247,8 @@ main{
 #inquiry-modal-open{
     cursor: pointer;
 }
-
-.fa-bars.sp{
-    display: none;
+.sp{
+    display: none !important;
 }
 @media screen and (max-width: 770px) {
     .fa-bars.sp{
@@ -257,6 +256,9 @@ main{
     }
     .pc{
         display: none;
+    }
+    .sp{
+        display: block !important;
     }
     .menu-wrap{
         display: none;
@@ -313,5 +315,10 @@ main{
     }
     .main-explanation p{
         margin-left: 13px;
+    }
+    
+    .modal form{
+        width: 95%;
+        box-sizing: border-box;
     }
 }

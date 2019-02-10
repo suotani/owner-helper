@@ -272,6 +272,12 @@ main{
         color: black;
     }
     
+    .menu-wrap li{
+        border-bottom: solid 1px #aba7a7;
+        margin: 0;
+        padding: 0px 13px;
+    }
+    
     .fas.fa-bars{
         align-self: center;
         padding-right: 20px;
@@ -282,6 +288,13 @@ main{
     header ul{
         display: flex;
         flex-direction: column;
+    }
+    
+    .menu-wrap ul{
+        margin-right: 15px;
+        box-shadow: 0px 0px 1px 1px #000;
+        width: 98%;
+        margin: auto;
     }
     
     .slider-item{

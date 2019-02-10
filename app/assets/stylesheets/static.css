@@ -317,7 +317,7 @@ main{
         margin-left: 13px;
     }
     
-    .modal form{
+    .modal form, .success .message{
         width: 95%;
         box-sizing: border-box;
     }

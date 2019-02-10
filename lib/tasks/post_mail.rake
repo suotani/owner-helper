@@ -13,4 +13,12 @@ namespace :post_mail do
       end
     end
   end
+
+  task :send_check => :environment do
+    begin
+    ToAdminMailer.mail_running_check.deliver_now
+    rescue => e
+    p e
+    end
+  end
 end

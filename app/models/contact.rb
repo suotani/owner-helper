@@ -13,4 +13,5 @@ class Contact < ApplicationRecord
     resident_no_read: 1,
     resident_read: 2
   }
+
 end

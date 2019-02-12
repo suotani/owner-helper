@@ -36,7 +36,7 @@ class Owner::ContactsController < OwnerController
   end
   
   def read
-    @owner.contact_chats.where(contact_id: @contact.id).update_all(read_status: ContactChat.read_statuses[:read])
+    @contact.contact_chats.where(owner_id: nil).update_all(read_status: ContactChat.read_statuses[:read])
     @contact.update(owner_status: Contact.owner_statuses[:owner_read])
     head :no_content
   end

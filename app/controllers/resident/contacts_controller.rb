@@ -29,7 +29,7 @@ class Resident::ContactsController < ResidentController
 
   def read
     contact = @resident.current_contact
-    @resident.contact_chats.where(contact_id: contact.id).update_all(read_status: ContactChat.read_statuses[:read])
+    contact.contact_chats.where(resident_id: nil).update_all(read_status: ContactChat.read_statuses[:read])
     contact.update(resident_status: Contact.resident_statuses[:resident_read])
     head :no_content
   end

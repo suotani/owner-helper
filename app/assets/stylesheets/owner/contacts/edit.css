@@ -146,8 +146,16 @@ textarea{
     .short .created-datetime{
         width: 35%;
     }
+
+    .long .writer-name{
+        width: 65%;
+    }
+    .long .created-datetime{
+        width: 35%;
+    }
+    
     .message-header{
-        padding-left: 23px;    
+        padding-left: 23px;
     }
     main{
         margin-top: 0;

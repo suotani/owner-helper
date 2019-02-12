@@ -93,7 +93,7 @@ class Owner::PostsController < OwnerController
   def post_params
     params.require(:post).permit(:text, :title, :post_at).tap do |v|
       v[:owner_id] = @owner.id
-      v[:post_at] = v[:post_at].to_datetime
+      v[:post_at] = Time.zone.parse(v[:post_at])
     end
   end
   

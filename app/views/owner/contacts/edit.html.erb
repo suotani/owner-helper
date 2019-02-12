@@ -29,7 +29,7 @@
       <% add_class = (i+1 == @contact_chats.length) ? "default-open" : "" %>
       <% add_class += chat.resident_id.present? ? " resident" : " owner" %>
       <div class="message <%= add_class %>" id="<%= 'last' if @contact_chats.size == i + 1 %>">
-        <% if chat.resident_write? %>
+        <% if chat.owner_write? %>
           <span class="read-status <%= chat.read? ? "read" : "yet" %>">
             <%= chat.read? ? "既読" : "未読" %>
           </span>

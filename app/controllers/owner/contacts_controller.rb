@@ -17,8 +17,7 @@ class Owner::ContactsController < OwnerController
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],
-      owner_id: @owner.id,
-      readFlg: false
+      owner_id: @owner.id
     )
     ActiveRecord::Base.transaction do
       contact_chat.save!
@@ -31,7 +30,8 @@ class Owner::ContactsController < OwnerController
       ToResidentMailer.contact_update_mail(contact_chat).deliver_now
     end
     redirect_to edit_owner_contact_path(@contact.id) + "#last", notice: "送信しました"
-    rescue
+    rescue => e
+    logger.error(e)
     redirect_to edit_owner_contact_path(@contact.id) + "#last", alert: "入力エラーがあります"
   end
   

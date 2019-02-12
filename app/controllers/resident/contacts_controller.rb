@@ -9,8 +9,7 @@ class Resident::ContactsController < ResidentController
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],
-      resident_id: @resident.id,
-      readFlg: false
+      resident_id: @resident.id
     )
     ActiveRecord::Base.transaction do
       contact_chat.save!

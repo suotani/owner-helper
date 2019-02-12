@@ -56,6 +56,7 @@ class Owner::PostsController < OwnerController
   end
 
   def update
+    
     if @post.update(post_params)
       redirect_to edit_owner_post_path(@post.id), notice: "保存しました"
     else

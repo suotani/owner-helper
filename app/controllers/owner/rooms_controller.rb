@@ -51,7 +51,7 @@ class Owner::RoomsController < OwnerController
   end
   
   def set_contact
-    @contact = Contact.where(owner_id: @owner.id, resident_id: @room.resident_id).first
+    @contact = @room.contact
   end
   
   def room_params

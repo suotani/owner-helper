@@ -27,7 +27,7 @@ class ResidentController < ApplicationController
   
   def set_content
     if @resident.moving_in?
-      @contact = @resident.contacts.where(room_id: @resident.room.id).first
+      @contact = @resident.room.contact
     end
   end
 end

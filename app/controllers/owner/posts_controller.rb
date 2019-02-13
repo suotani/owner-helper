@@ -27,6 +27,7 @@ class Owner::PostsController < OwnerController
 
   def create
     @post = Post.new(post_params)
+    p @post
     @house_ids = params[:house_ids]
     house_ids = params[:house_ids].split(",").map(&:to_i)
     owner_house_ids = @owner.houses.ids
@@ -45,6 +46,7 @@ class Owner::PostsController < OwnerController
     end
     redirect_to owner_posts_path, notice: "登録しました"
     rescue
+    set_text
     @errors = @post.errors.full_messages
     render :new
   end

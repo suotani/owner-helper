@@ -6,7 +6,7 @@ class Resident < ApplicationRecord
 
   has_one :room
   has_many :contacts
-  belongs_to: contact
+  belongs_to :contact
   has_many :contact_chats
   has_many :post_residents
 

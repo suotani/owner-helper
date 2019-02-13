@@ -104,3 +104,17 @@ main .side-block{
 .new-post-btn:hover{
   color: rgb(209, 209, 209);
 }
+
+@media screen and (max-width: 770px) {
+  main .main-block, main .side-block{
+    width: 100%;
+  }
+  
+  .contact{
+    flex-direction: column;
+  }
+  
+  .contact .contact-date{
+    width: 100%;
+  }
+}

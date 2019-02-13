@@ -7,29 +7,13 @@ main{
   width: 70%;
 }
 
-main h2{
-  background-color: #f2f3f3;;
-}
-
-.main-left{
-  width: 48%;
-  margin-top: 80px;
-}
-
-.main-left p{
-  width: 90%;
-  margin: auto;
-  margin-top: 20px;
-}
-
 .main-right{
-  width: 40%;
+  width: 60%;
 }
 
 form{
   background-color: #fff;
   padding: 30px 35px;
-  border-top: solid 2px rgb(180, 180, 180);
 }
 
 form input{
@@ -58,4 +42,17 @@ form input{
 
 #error_explanation li{
     color: #f00;
+}
+
+@media screen and (max-width: 770px) {
+    main{
+      margin: auto;
+      width: 100%;
+      padding: 7px;
+      box-sizing: border-box;
+    }
+    
+    .main-right{
+      width: 100%;
+    }
 }

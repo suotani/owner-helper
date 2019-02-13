@@ -6,9 +6,12 @@
         <% @contacts.each do |contact| %>
           <% next if contact.contact_chats.blank? %>
           <div class="contact">
-            <div class="contact-date">
+            <div class="contact-date pc">
               <%= contact.updated_at.strftime("%Y/%m/%d") %><br />
               <%= contact.updated_at.strftime("%H:%M") %>
+            </div>
+            <div class="contact-date sp">
+              <%= contact.updated_at.strftime("%Y/%m/%d %H:%M") %>
             </div>
             <div class="contact-sentense">
               <% r = contact.room %>

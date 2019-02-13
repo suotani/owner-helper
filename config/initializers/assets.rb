@@ -13,6 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w( common.css common.js )
 Rails.application.config.assets.precompile += %w( static.css static.js )
+Rails.application.config.assets.precompile += %w( select_user.css )
 Rails.application.config.assets.precompile += %w( posts/review.css )
 
 Rails.application.config.assets.precompile += %w( owners/show.css )

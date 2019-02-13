@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "select_user", media: "all" %>
+
+<main>
+  <div class="user-types">
+    <%= link_to "管理人の方はこちら", new_owner_registration_path, class: "owner" %>
+    <%= link_to "ご入居された方はこちら", new_resident_registration_path, class: "resident" %>
+  </div>
+</main>

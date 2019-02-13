@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   ########common#######
   root to: 'statics#index'
   post 'inquiry', to: 'statics#inquiry'
-  get 'privacy', to: 'static#privacy'
+  get 'privacy', to: 'statics#privacy'
+  get 'select_user', to: 'statics#select_user'
   resources :demos
   
   #######admin######

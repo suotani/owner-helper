@@ -49,6 +49,13 @@ form input{
   background-color: #f39303;
 }
 
+.new_resident select{
+    width: 90%;
+    border: none;
+    border-bottom: solid 1px #ccc;
+    padding: 7px;
+}
+
 #error_explanation h2{
     display: none;
 }

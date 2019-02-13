@@ -12,6 +12,9 @@ class StaticsController < ApplicationController
     logger.error(e)
   end
   
+  def select_user
+  end
+  
   def privacy
   end
 end

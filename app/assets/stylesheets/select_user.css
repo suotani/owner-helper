@@ -1,0 +1,40 @@
+.user-types{
+    width: 600px;
+    margin: auto;
+    margin-top: 300px;
+    justify-content: space-around;
+    display: flex;
+}
+
+
+.user-types a{
+    width: 48%;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    padding: 22px 0;
+    border-radius: 20px 20px;
+}
+
+a.owner{
+    background-color: #78bf7e;
+}
+
+a.resident{
+    background-color: #78a2bf;
+}
+
+@media screen and (max-width: 770px) {
+  .user-types{
+     margin-top: 229px;
+     width: 100%;
+     flex-direction: column;
+  }
+  
+  .user-types a{
+    width: 87%;
+    align-self: center;
+    margin-top: 26px;
+
+  }
+}

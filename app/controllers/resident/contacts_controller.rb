@@ -6,6 +6,7 @@ class Resident::ContactsController < ResidentController
   end
   
   def update
+    raise "終了したチャットに対して送信が行われた" if !@contact.updatable?
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],

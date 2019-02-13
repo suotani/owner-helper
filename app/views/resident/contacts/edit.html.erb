@@ -41,7 +41,7 @@
     <% end %>
   </div>
   
-  <% if @contact.updatable %>
+  <% if @contact.updatable? %>
     <%= form_tag(resident_contact_path(@contact.id), method: "patch") do %>
       <%= text_area_tag "chat_message" %>
       <div class="actions">

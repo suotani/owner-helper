@@ -27,6 +27,14 @@ class Resident < ApplicationRecord
     contact_approval: 2, #許可
   }
   
+  FAMILY_TYPE = [
+    "単身(男性)",
+    "単身(女性)",
+    "ご家族",
+    "ご家族（お子様1名以上）",
+    "その他"
+  ]
+  
   def current_contact
     room.contact
   end

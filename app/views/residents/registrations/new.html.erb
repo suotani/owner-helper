@@ -43,11 +43,12 @@
       
         <div class="field">
           <%= f.label :family, "家族構成" %><br />
-          <%= f.text_field :family, autocomplete: "family" %>
+          <% family_initval = params[:resident].present? ? params[:resident][:family] : nil %>
+          <%= f.select :family, options_for_select(Resident::FAMILY_TYPE, family_initval) %>
         </div>
       
         <div class="actions">
-          <%= f.button "登録" %>
+          <%= f.button "登録", class: "button" %>
         </div>
     </div>
   </div>

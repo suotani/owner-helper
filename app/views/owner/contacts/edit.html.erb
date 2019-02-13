@@ -60,11 +60,13 @@
     <% end %>
   </div>
   
-  <%= form_tag(owner_contact_path(@contact.id), method: "patch") do %>
-    <%= text_area_tag "chat_message" %>
-    <div class="actions">
-      <%= button_tag "送信", class: "button", type: "button", onclick: "$(form).submit();" %>
-    </div>
+  <% if @contact.updatable? %>
+    <%= form_tag(owner_contact_path(@contact.id), method: "patch") do %>
+      <%= text_area_tag "chat_message" %>
+      <div class="actions">
+        <%= button_tag "送信", class: "button", type: "button", onclick: "$(form).submit();" %>
+      </div>
+    <% end %>
   <% end %>
 
 </main>

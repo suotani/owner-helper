@@ -25,8 +25,6 @@ $(document).ready(function(){
     });
     
     var target = $(this).data("to");
-    console.log(target);
-    console.log($("." + target));
     $("." + target).each(function(i,e){
       $(e).addClass("active");
     });

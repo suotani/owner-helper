@@ -10,6 +10,11 @@ class ResidentController < ApplicationController
   
   def get_resident_instance
     @resident = current_resident
+    @no_read_post_count = @resident.post_residents
+                                   .yet
+                                   .joins(:post)
+                                   .merge(Post.where("post_at < ?", Time.zone.now))
+                                   .count
   end
   
   def status_redirect

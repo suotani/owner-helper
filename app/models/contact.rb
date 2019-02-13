@@ -13,5 +13,9 @@ class Contact < ApplicationRecord
     resident_no_read: 1,
     resident_read: 2
   }
+  
+  def updatable?
+    resident == room.resident
+  end
 
 end

@@ -4,8 +4,6 @@ header i{
 }
 
 main{
-  padding: 0 8%;
-  margin-top: 20px;
   display: flex;
 }
 

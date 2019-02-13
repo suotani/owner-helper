@@ -6,6 +6,7 @@ class Resident < ApplicationRecord
 
   has_one :room
   has_many :contacts
+  belongs_to: contact
   has_many :contact_chats
   has_many :post_residents
 
@@ -28,6 +29,6 @@ class Resident < ApplicationRecord
   }
   
   def current_contact
-    contacts.where(owner_id: room.house.owner_id).first
+    room.contact
   end
 end

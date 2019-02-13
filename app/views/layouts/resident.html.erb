@@ -12,6 +12,7 @@
     <%= stylesheet_link_tag "common", media: "all" %>
     <%= stylesheet_link_tag "residents", media: "all" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cantata+One" rel="stylesheet">
     <% if (ENV['MAILGUN_HOSTNAME'] && ENV['MAILGUN_HOSTNAME'] == "www.irent.life") %>
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134353860-1"></script>
@@ -32,6 +33,12 @@
       <div class="header-right">
       <ul>
         <% if @resident.moving_in? %>
+        <li class="contact-info <%= 'new-contact' if @no_read_post_count != 0 %>">
+          <%= link_to resident_posts_path do %>
+            <i class="far fa-bell"></i>
+          <% end %>
+          <span><%= @no_read_post_count %></span>
+        </li>
         <li class="contact-info <%= 'new-contact' if @contact.resident_no_read? %>">
           <%= link_to edit_resident_contact_path(@contact.id) do %>
             <i class="far fa-envelope"></i>

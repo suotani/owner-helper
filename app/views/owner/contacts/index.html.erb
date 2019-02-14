@@ -16,8 +16,12 @@
               <span class="read">既読</span>
             <% end %>
           </li>
-          <li class="message-from">
+          <li class="message-from pc">
             <%= contact.room.house.name %> <%= contact.room.number %><br />
+            <%= contact.resident.name %>
+          </li>
+          <li class="message-from sp">
+            <%= contact.room.house.name %> <%= contact.room.number %>
             <%= contact.resident.name %>
           </li>
           <li class="message-text">

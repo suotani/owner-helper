@@ -12,8 +12,10 @@
       <%= label_tag "post_mail_setting", "お問い合わせ種別" %>
       <div class="radio_buttons">
         <% Inquiry.categories_i18n.map do |k, v| %>
-          <span class="radio-label"><%= v %></span>
-          <%= f.radio_button "category", k, {} %>
+          <p>
+            <span class="radio-label"><%= v %></span>
+            <%= f.radio_button "category", k, {} %>
+          </p>
         <% end %>
       </div>
     </div>

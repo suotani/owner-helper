@@ -20,8 +20,10 @@
       <%= label_tag "request_mail_setting", "入居申請お知らせメール" %>
       <div class="radio_buttons">
         <% Owner.request_mail_settings_i18n.map do |k, v| %>
-          <span class="radio-label"><%= v %></span>
-          <%= f.radio_button "request_mail_setting", k, {} %>
+          <p>
+            <span class="radio-label"><%= v %></span>
+            <%= f.radio_button "request_mail_setting", k, {} %>
+          </p>
         <% end %>
       </div>
     </div>
@@ -30,8 +32,10 @@
       <%= label_tag "contact_mail_setting", "メッセージ受信メール" %>
       <div class="radio_buttons">
         <% Owner.contact_mail_settings_i18n.map do |k, v| %>
-          <span class="radio-label"><%= v %></span>
-          <%= f.radio_button "contact_mail_setting", k, {} %>
+          <p>
+            <span class="radio-label"><%= v %></span>
+            <%= f.radio_button "contact_mail_setting", k, {} %>
+          </p>
         <% end %>
       </div>
     </div>

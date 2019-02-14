@@ -110,6 +110,10 @@ main .side-block{
     width: 100%;
   }
   
+  main .main-block{
+    padding: 0;
+  }
+  
   .contact{
     flex-direction: column;
   }

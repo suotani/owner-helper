@@ -13,7 +13,6 @@ form{
   background-color: #fff;
   margin: auto;
   padding: 30px 35px;
-  border-top: solid 2px rgb(180, 180, 180);
 }
 
 form input{
@@ -42,4 +41,11 @@ form input{
 
 #error_explanation li{
     color: #f00;
+}
+
+@media screen and (max-width: 770px) {
+  main{
+    width: 97%;
+    margin: auto;
+  }
 }

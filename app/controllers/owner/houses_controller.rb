@@ -16,6 +16,7 @@ class Owner::HousesController < OwnerController
       if @house.save
         redirect_to owner_house_path(@house.id), notice: "#{@house.name}を登録しました。"
       else
+        @errors = @house.errors.full_messages
         render :new
       end
     end

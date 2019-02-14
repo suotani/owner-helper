@@ -60,7 +60,7 @@
           <h2>操作</h2>
           <div class="action-buttons">
             <%= link_to "退去", remove_owner_house_room_path(house_id: @room.house_id, id: @room.id), class: "remove" %>
-            <%= link_to "メッセージを見る・送る", edit_owner_contact_path(@contact.id) + "#last", class: "contact" %>
+            <%= link_to "メッセージ", edit_owner_contact_path(@contact.id) + "#last", class: "contact" %>
           </div>
         <% end %>
       </div>

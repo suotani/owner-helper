@@ -7,6 +7,7 @@
       <%= form_tag(owner_posts_path, method: "get") do %>
         <%= text_field_tag "title", params[:title], placeholder: "タイトル", class:"search-for-title" %>
         <%= select_tag "status", options_for_select([["未選択", ""],["配信済み", "posted"],["未配信", "no_post"]], params[:status]), class: "search-for-status" %>
+        <p></p>
         <%= submit_tag "検索", class: "search-submit" %>
       <% end %>
     </div>

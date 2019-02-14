@@ -135,3 +135,43 @@ form{
   border-bottom: 3px solid #009a9a;
   border-right: 3px solid #009a9a;
 }
+
+@media screen and (max-width: 770px) {
+    main{
+        width: 97%;
+        margin: auto;
+    }
+    
+    .list.list-header{
+        flex-wrap: wrap;
+    }
+    
+    .list.list-item{
+        flex-wrap: wrap;
+    }
+
+    .resident-name{
+        width: 60%;
+    }
+    .resident-phone-number{
+        width: 40%;
+    }
+    .resident-house-name{
+        width: 60%;
+    }
+    .resident-room-number{
+        width: 40%;
+    }
+    
+    form{
+        flex-wrap: wrap;
+    }
+    
+    .fields{
+        width: 100%;
+    }
+    
+    .actions{
+        width: 100%;
+    }
+}

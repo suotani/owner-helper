@@ -2,7 +2,7 @@
 <main>
   <h2>入居申請一覧</h2>
   <div class="list-wrap">
-    <ul class="list list-header">
+    <ul class="list list-header pc">
       <li class="request-date">申請日</li>
       <li class="request-resident-name">入居人氏名</li>
       <li class="request-house-name">物件名</li>
@@ -10,11 +10,23 @@
       <li class="actions"></li>
     </ul>
     <% @request_rooms.each do |room| %>
-      <ul class="list list-item">
+      <ul class="list list-item pc">
         <li class="request-date"><%= room.requested_at.strftime("%Y年%m月%d日") %></li>
         <li class="request-resident-name"><%= room.resident.name %></li>
         <li class="request-house-name"><%= room.house.name %></li>
         <li class="request-room-number"><%= room.number %></li>
+        <li class="actions">
+          <%= link_to "許可", owner_request_path(id: room.id), method: "patch", class: "button" %>
+          <%= link_to "却下", owner_request_path(id: room.id), method: "delete", class: "button alert" %>
+        </li>
+      </ul>
+      <ul class="list list-item sp">
+        <li class="request-date">
+          <%= room.requested_at.strftime("%Y年%m月%d日") %> <%= room.resident.name %>
+        </li>
+        <li class="request-resident-name">
+          <%= room.house.name %><%= room.number %>
+        </li>
         <li class="actions">
           <%= link_to "許可", owner_request_path(id: room.id), method: "patch", class: "button" %>
           <%= link_to "却下", owner_request_path(id: room.id), method: "delete", class: "button alert" %>

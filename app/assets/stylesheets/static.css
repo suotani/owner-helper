@@ -250,6 +250,9 @@ main{
 .sp{
     display: none !important;
 }
+
+
+
 @media screen and (max-width: 770px) {
     .fa-bars.sp{
         display: block;

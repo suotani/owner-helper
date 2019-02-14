@@ -1,13 +1,21 @@
 body{
     margin-top: 60px;
+    background-color: #d0d0d0;
 }
 .form-wrapper{
     display: flex;
 }
 
+form{
+    background-color: white;
+    padding: 7px;
+}
+
 .form{
     width: 50%;
     padding: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .title{
@@ -88,6 +96,7 @@ body{
     right: 10px;
     top: 6px;
     cursor: pointer;
+    box-shadow: 2px 2px #9c9c9c;
 }
 
 .remove-button i{
@@ -124,4 +133,20 @@ body{
 #addParagraphBtn{
     background-color: white;
     color: #000;
+}
+
+@media screen and (max-width: 770px) {
+
+    .form-wrapper{
+        flex-wrap: wrap;
+    }
+    .form{
+        padding: 5px;
+        width: 98%;
+        margin: auto;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
 }

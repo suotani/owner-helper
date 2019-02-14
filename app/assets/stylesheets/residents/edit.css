@@ -62,7 +62,7 @@ form input{
     margin-left: 30px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 770px) {
     form{
         width: 100%;
     }

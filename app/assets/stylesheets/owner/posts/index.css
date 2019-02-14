@@ -188,3 +188,70 @@ ul.read-status-list li p{
 .close-button i:hover{
     color: #545252;
 }
+
+@media screen and (max-width: 770px) {
+    main{
+        width: 97%;
+        margin: auto;
+    }
+    
+    .form-wrapper{
+        padding: 9px;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    form p{
+        width: 10%;
+    }
+    
+    .search-for-title{
+        width: 58%;
+        margin: 0;
+    }
+    
+    .search-for-status{
+        width: 40%;
+        margin: 0;
+    }
+    
+    .search-submit{
+        width: 100px;
+        margin-top: 10px;
+    }
+
+    
+    .list-header, .list-item{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .title{
+        width: 40%;
+    }
+    
+    .status{
+        width: 20%;
+    }
+    
+    .post-at{
+        width: 40%;
+    }
+    
+    .actions{
+        width: 100%;
+        text-align: right;
+        margin-top: 5px;
+    }
+    .list-item{
+        border-bottom: solid 1px #8e8e8e;
+    }
+    
+    .modal{
+        width: 98%;
+    }
+}

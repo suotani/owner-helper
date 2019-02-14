@@ -155,3 +155,23 @@ body{
 .action-buttons a.contact{
     background-color: #7770e2;
 }
+
+@media screen and (max-width: 770px) {
+  .modal{
+    width: 95%;
+    margin: auto;
+    box-sizing: border-box;
+    margin-top: 81px;
+  }
+  .modal form {
+      padding: 10px 3px;
+  }
+  
+  .action-buttons a{
+    width: 50%;
+    height: 59px;
+    text-align: center;
+    padding: 0;
+    line-height: 59px;
+  }
+}

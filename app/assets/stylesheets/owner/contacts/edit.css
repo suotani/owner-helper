@@ -160,5 +160,11 @@ textarea{
     main{
         margin-top: 0;
         width: 95%;
+        margin-bottom: 0;
     }
+    
+    .resident-info-header{
+        width: 30%;
+    }
+
 }

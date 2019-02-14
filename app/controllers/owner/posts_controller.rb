@@ -104,7 +104,7 @@ class Owner::PostsController < OwnerController
     @texts = @post.text.split("$end$").map do |part|
       paragraph = part.split("$$")
       info = paragraph[1].split(",")
-      texts = paragraph[2].split
+      texts = paragraph[2].split("\n")
       [info[0], info[1], texts]
     end
   end

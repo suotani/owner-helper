@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag "posts/review", :media => "all" %>
+<%= stylesheet_link_tag "resident/posts/show", :media => "all" %>
+<%= javascript_include_tag 'resident/posts/show', 'data-turbolinks-track': 'reload' %>
+<div class="preview">
+  <% #[position, size, [text]] %>
+  <% @texts =[
+       ["left", "3", ["入居者様各位"]],
+       ["center", "5", ["\r", "入退居時のお願い\r", "\r"]],
+       ["left", "2", [
+         "・入退居の時間等を前もってご連絡をお願いいたします 。\r", "\r",
+         "・自動ドアの会場は当社の方で動作方法を指示いたします。\r", "\r",
+         "・エレベータ内及び自動ドアの養生等のお願い\r", "\r",
+         "・荷物等運搬の際に廊下・壁等に傷をつけないように注意してください。\r",
+         "\r", "・運搬の際に発生するごみ等は（共用部分）入退居者で清掃してください。\r",
+         "\r", "・荷物の運搬が終了しましたら最後に必ず自動ドアの施錠を忘れないようにお願いします。"]
+        ],
+        ["right", "3", ["\r", "上記の件よろしくお願いいたします。\r", "\r"]]
+      ]
+  %>
+  <% @texts.each do |paragraph| %>
+    <div class="paragraph <%= paragraph[0] %> size<%= paragraph[1] %>">
+        <% paragraph[2].each do |text| %>
+          <%= text %><br />
+        <% end %>
+    </div>
+  <% end %>
+</div>

@@ -251,6 +251,11 @@ main{
     display: none !important;
 }
 
+.chat-sample-image{
+    width: 80%;
+    padding-left: 50px;
+}
+
 
 
 @media screen and (max-width: 770px) {

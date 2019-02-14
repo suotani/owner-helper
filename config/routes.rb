@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'statics#index'
   post 'inquiry', to: 'statics#inquiry'
   get 'privacy', to: 'statics#privacy'
+  get 'post_sample', to: 'statics#post_sample'
   get 'select_user', to: 'statics#select_user'
   resources :demos
   

@@ -1,7 +1,11 @@
+body{
+    background-color: #8e8e8e;
+}
+
 .preview{
     width: 50%;
     margin: auto;
-    height: 450px;
+    min-height: 450px;
     padding: 10px;
     background-color: #fff;
     font-family: serif;
@@ -46,11 +50,12 @@
         background-color: #9c9c9c;
     }
     .preview{
-        width: 95%;
+        width: 98%;
         min-height: 600px;
         box-sizing: border-box;
+        padding: 2px;
     }
     .paragraph{
-       padding: 10px 38px;
+       padding: 10px 0px;
     }
 }

@@ -17,4 +17,7 @@ class StaticsController < ApplicationController
   
   def privacy
   end
+  
+  def post_sample
+  end
 end

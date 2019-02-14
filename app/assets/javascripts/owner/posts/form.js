@@ -39,7 +39,8 @@ function applyToPreview(){
     $textsWrap.children().each(function(index, element){
        $position = $(element).find(".alignment").val();
        $size = $(element).find(".fontsize").val();
-       $text = $(element).find("textarea").val().replace(/\r?\n/g, '<br>');
+       $text = $(element).find("textarea").val().replace(/\r\n|\r|\n/g, '<br>');
+       console.log($text);
        $texts += "<div class='paragraph " + "size" + $size + " " + $position + "'>" + $text + "</div>"
     });
     $(".preview").html($texts);

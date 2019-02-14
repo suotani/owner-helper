@@ -12,6 +12,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w( common.css common.js )
+Rails.application.config.assets.precompile += %w( flyer.css )
 Rails.application.config.assets.precompile += %w( static.css static.js )
 Rails.application.config.assets.precompile += %w( select_user.css )
 Rails.application.config.assets.precompile += %w( posts/review.css )

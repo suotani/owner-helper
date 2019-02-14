@@ -49,6 +49,8 @@ form label{
     background-color: white;
     margin-right: 20px;
     cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .houses{
@@ -65,3 +67,4 @@ form label{
     line-height: 24px;
     margin: 0;
 }
+

@@ -47,8 +47,8 @@
         <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
         <div class="options">
           <div class="options-select">
-            位置: <%= select_tag "alignment", options_for_select(alignments), class: "apply-input alignment" %>
-            文字サイズ: <%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-input fontsize" %>
+            <%= select_tag "alignment", options_for_select(alignments), class: "apply-input alignment" %>
+            文字サイズ：<%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-input fontsize" %>
           </div>
         </div>
         <textarea class="apply-box"></textarea>

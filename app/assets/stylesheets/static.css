@@ -342,4 +342,9 @@ main{
         width: 95%;
         box-sizing: border-box;
     }
+    
+    .chat-sample-image{
+        width: 100%;
+        padding: 0;
+    }
 }

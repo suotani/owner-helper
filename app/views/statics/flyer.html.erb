@@ -2,7 +2,7 @@
 <% service_name = OwnerHelper::Application::SERVICE_NAME %>
 <main>
   <div class="header">
-    <h1><%= service_name %></h1>
+    <h1><%= link_to service_name, root_path %></h1>
     <p>-住人と管理人をつなぐコミュニケーションサービス-</p>
     <p>https://www.irent.life/</p>
   </div>
@@ -12,23 +12,10 @@
     <%= image_tag "irent-top.jpg" %>
     <div class="about-text">
       <p>
-        <%= service_name %>はマンションやアパートの「管理人さん」と「住人」
+        <%= service_name %>は「平日連絡が取れない」「会話の記録が残らないので不安」など、
+        マンションやアパートの「管理人さん」と「住人」
         の間のコミュニケーションに関する様々な問題を解決します。
       </p>
-      <ul class="recommend-list">
-        <li>
-          <i class="fas fa-caret-right"></i>
-          単身の社会人や学生とは平日日中に電話で連絡が取れない
-        </li>
-        <li>
-          <i class="fas fa-caret-right"></i>
-          英語でしか会話ができない住人と連絡が取れない
-        </li>
-        <li>
-          <i class="fas fa-caret-right"></i>
-          会話の記録が残らないので不安
-        </li>
-      </ul>
     </div>
   </div>
   
@@ -40,22 +27,20 @@
       <div class="function-content">
         <%= image_tag "chat_sample.png" %>
         <div class="text">
-          <p>
-            住人と管理人とのやり取りは主にチャットで行います。
-            既読機能で読まれたかどうかが確認でき、会話の記録も残るため安心です。
+          <p class="small">
+            既読機能・メールでの通知がついているので安心
           </p>
         </div>
       </div>
     </div>
 
     <div class="function">
-      <h3><i class="far fa-file-alt"></i>お知らせ</h3>
+      <h3><i class="far fa-file-alt"></i>お知らせ作成・自動配信</h3>
       <div class="function-content">
         <%= image_tag "post.jpg" %>
         <div class="text">
-          <p>
-            直観的に操作できる専用エディタにより、簡単に本格的な文書を作成し、配信することができます。
-            日時指定で配信することができます。また、既読機能により誰が読んで、誰が読んでないのかを確認することができます。
+          <p class="small">
+            専用エディタを使い、簡単に本格的な文書が作成できます。
           </p>
         </div>
       </div>
@@ -65,28 +50,24 @@
   <h2>3. 料金と紹介制度</h2>
   <div class="two-row">
     <div class="row-item">
-      <h3><i class="fas fa-yen-sign"></i>月額料金</h3>
       <p>
-        <%= service_name %>では従量課金制を採用しております。
-        住人から使用申請を行い、管理人様側で許可を行うと課金対象となります。
+        住人登録済みの部屋、1部屋につき
       </p>
-      
-      <p>
-        1部屋(住人が登録されている部屋)につき<span class="underline">月額300円(税別)</span>がかかります。
-        ただし、入居や退去が発生する月に対しては日割り計算を行います。
+      <p class="large">
+        <span>月額 300円</span>(税別)
       </p>
-      <p>例：20部屋をシステムに登録し、実際に住人が登録されているのが15部屋の場合は、
-      15×300=4500円が月額料金となります。</p>
     </div>
     <div class="row-item">
-      <h3><i class="fab fa-angellist"></i>紹介制度</h3>
       <p>
-        新規で管理人様を紹介していただき、<%= service_name %>をお使いいただけますと、
-        紹介いただいた管理人様の月々の支払から10%を紹介した方へ紹介手数料としてお支払いいたします。
+        さらに、ご新規で管理人様を紹介していただいた方に、
+        紹介していただいた管理人様の
+      </p>
+      
+      <p class="large">
+        <span>月額使用料の1割</span>
       </p>
       <p>
-        紹介を行うには管理人登録を行ってください。
-        管理人登録を行っても、物件や部屋の登録を必ず行っていただく必要はございません。
+        を紹介料として<span class="underline">毎月</span>お支払いいたします。
       </p>
     </div>
   </div>

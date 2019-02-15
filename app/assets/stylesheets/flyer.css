@@ -17,13 +17,20 @@ main{
 
 .header h1{
     text-align: center;
+}
+
+
+.header h1 a{
+    text-align: center;
     font-size: 36px;
     margin-top: 0;
     margin-bottom: 0;
+    color: #636cde;
 }
 
 h2{
     margin: 0;
+    margin-top: 10px;
 }
 
 .header p{
@@ -38,14 +45,15 @@ h2{
     width: 95%;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
 }
 .main-image-wrap img{
-    width: 50%;
+    width: 100%;
     align-self: center;
 }
 
 .about-text{
-    width: 50%;
+    width: 100%;
 }
 
 .recommend-list li{
@@ -72,7 +80,7 @@ h2{
 .function-content{
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 95%;
     margin: auto;
     justify-content: space-between;
 }
@@ -96,6 +104,8 @@ h3 i{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    width: 90%;
+    margin: auto;
 }
 
 
@@ -103,4 +113,30 @@ h3 i{
     width: 49%;
     margin: auto;
     margin-top: 0;
+}
+
+.small{
+    font-size: 12px;
+}
+
+.large{
+    text-align: center;
+}
+
+.large span{
+    color: #ff5200;
+    font-size: 35px;
+    padding: 5px;
+    padding-bottom: 3px;
+    border-bottom: double 2px #f00;
+}
+
+@media screen and (max-width: 770px) {
+    .function{
+        width: 80%;
+    }
+    
+    .two-row .row-item {
+        width: 100%;
+    }
 }

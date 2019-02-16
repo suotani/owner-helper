@@ -1,6 +1,5 @@
 class StaticsController < ApplicationController
     layout 'static'
-    layout 'application', only: [:flyer]
   def index
   end
   
@@ -23,5 +22,6 @@ class StaticsController < ApplicationController
   end
   
   def flyer
+    render layout: "application"
   end
 end

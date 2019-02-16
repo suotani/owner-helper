@@ -46,6 +46,12 @@
           <% family_initval = params[:resident].present? ? params[:resident][:family] : nil %>
           <%= f.select :family, options_for_select(Resident::FAMILY_TYPE, family_initval) %>
         </div>
+
+        <div class="field">
+          <%= f.label :language, "言語(Language)" %><br />
+          <% language_initval = params[:resident].present? ? params[:resident][:language] : nil %>
+          <%= f.select :language, options_for_select(Resident::LANGUAGE_LIST, language_initval) %>
+        </div>
       
         <div class="actions">
           <%= f.button "登録", class: "button" %>

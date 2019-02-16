@@ -35,7 +35,7 @@
             <li><%= link_to "メッセージ(未読#{@new_message_count}件)", owner_contacts_path %></li>
             <li class="search-resident"><%= link_to "住人検索", owner_residents_path %></li>
             <li><%= link_to "入居申請(#{@request_count}件)", owner_requests_path %></li>
-            <li class="header-pull-list-parent">
+            <li class="header-pull-list-parent pc">
               <%= @owner.name %><i class="fas fa-angle-down"></i>
               <ul class="header-pull-list">
                 <li><%= link_to "ログアウト", destroy_owner_session_path, method: "delete" %></li>

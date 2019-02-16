@@ -17,7 +17,9 @@
               <% r = contact.room %>
               <%= r.house.name %> <%= r.number %> <%= contact.resident.name %><br />
               <%= link_to edit_owner_contact_path(contact.id) + "#last" do %>
-                <%= contact.contact_chats.order(:created_at).last.text[0..25] + "..." %></a>
+                <% chat = contact.contact_chats.order(:created_at).last %>
+                <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
+                <%= display_text[0..25] + "..." %></a>
               <% end %>
             </div>
           </div>

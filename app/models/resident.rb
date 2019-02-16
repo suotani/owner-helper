@@ -35,6 +35,11 @@ class Resident < ApplicationRecord
     "その他"
   ]
   
+  LANGUAGE_LIST =[
+    ["日本語", "ja"],
+    ["English", "en"]
+  ]
+  
   def current_contact
     room.contact
   end

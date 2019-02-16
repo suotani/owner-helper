@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_002900) do
+ActiveRecord::Schema.define(version: 2019_02_16_130423) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_002900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "read_status", default: 2
+    t.text "other_language_text"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_002900) do
     t.string "response_time"
     t.integer "contact_mail_setting", default: 2
     t.integer "request_mail_setting", default: 2
+    t.string "language", default: "ja"
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_002900) do
     t.integer "status", default: 1
     t.integer "post_mail_setting", default: 2
     t.integer "contact_mail_setting", default: 2
+    t.string "language"
     t.index ["email"], name: "index_residents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_residents_on_reset_password_token", unique: true
   end

@@ -40,7 +40,7 @@ gem 'jquery-turbolinks'
 gem 'mailgun_rails'
 gem 'kaminari'
 gem 'enum_help'
-
+gem 'google-cloud-translate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

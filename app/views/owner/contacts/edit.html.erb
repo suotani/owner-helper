@@ -22,7 +22,7 @@
   </div>
   
   <h2>メッセージ</h2>
-  <div class="messages-wrap">
+  <div class="messages-wrap" id="chat-scroll">
     <%= hidden_field_tag "read_url", read_owner_contact_path(@contact.id) %>
     <% @contact_chats.each_with_index do |chat, i| %>
       <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
@@ -34,11 +34,12 @@
             <%= chat.read? ? "既読" : "未読" %>
           </span>
         <% end %>
+        <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
         <div class="short">
           <div class="message-header">
             <div class="writer-name" >
               <span class="name"><%= writer.name %></span>
-              <%= chat.text[0..30] %>
+              <%= display_text[0..30] %>
             </div>
             <div class="created-datetime">
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
@@ -54,7 +55,7 @@
               <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
             </div>
           </div>
-          <p><%= simple_format(h(chat.text)) %></p>
+          <p><%= simple_format(h(display_text)) %></p>
         </div>
       </div>
     <% end %>

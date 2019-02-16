@@ -25,8 +25,10 @@
       <%= label_tag "post_mail_setting", "お知らせメール" %>
       <div class="radio_buttons">
         <% Resident.post_mail_settings_i18n.map do |k, v| %>
-          <span class="radio-label"><%= v %></span>
-          <%= f.radio_button "post_mail_setting", k, {} %>
+          <p>
+            <span class="radio-label"><%= v %></span>
+            <%= f.radio_button "post_mail_setting", k, {} %>
+          </p>
         <% end %>
       </div>
     </div>
@@ -35,8 +37,10 @@
       <%= label_tag "post_mail_setting", "チャット受信メール" %>
       <div class="radio_buttons">
         <% Resident.contact_mail_settings_i18n.map do |k, v| %>
-          <span class="radio-label"><%= v %></span>
-          <%= f.radio_button "contact_mail_setting", k, {} %>
+          <p>
+            <span class="radio-label"><%= v %></span>
+            <%= f.radio_button "contact_mail_setting", k, {} %>
+          </p>
         <% end %>
       </div>
     </div>

@@ -7,9 +7,17 @@ class Resident::ContactsController < ResidentController
   
   def update
     raise "終了したチャットに対して送信が行われた" if !@contact.updatable?
+    from_language = @resident.language
+    to_language = @contact.owner.language
+    if from_language == to_language
+      other_language_text = params[:chat_message]
+    else
+      other_language_text = ContactChat.text_translate(params[:chat_message], from_language, to_language)
+    end
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],
+      other_language_text: other_language_text,
       resident_id: @resident.id
     )
     ActiveRecord::Base.transaction do

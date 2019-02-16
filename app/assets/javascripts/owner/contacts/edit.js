@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  var obj = document.getElementById("chat-scroll");
+  obj.scrollTop = obj.scrollHeight;
+  
   $(".message").on("click", function(){
     var $short = $(this).find(".short");
     var $long = $(this).find(".long")

@@ -16,5 +16,7 @@ module OwnerHelper
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     SERVICE_NAME = "iRent"
+    TRANSLATION_API_KEY = "AIzaSyAdNa3-bcmLEgFxbdDRgRaLD0cCd5WH5rI"
+    TRANSLATION_PROJECT_ID = "plasma-figure-231914"
   end
 end

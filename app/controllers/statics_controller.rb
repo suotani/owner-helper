@@ -15,6 +15,9 @@ class StaticsController < ApplicationController
   def select_user
   end
   
+  def tokutei
+  end
+  
   def privacy
   end
   

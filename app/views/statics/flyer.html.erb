@@ -3,8 +3,10 @@
 <main>
   <div class="header">
     <h1><%= link_to service_name, root_path %></h1>
-    <p>-住人と管理人をつなぐコミュニケーションサービス-</p>
-    <p>https://www.irent.life/</p>
+    <div class="sub-header">
+      <span>-住人と管理人をつなぐコミュニケーションサービス-</span>
+      <span>https://www.irent.life/</span>
+    </div>
   </div>
   
   <h2>1. <%= service_name %>とは</h2>
@@ -19,56 +21,82 @@
     </div>
   </div>
   
-  <h2>2. 主な機能</h2>
-  <div class="functions">
-
-    <div class="function">
-      <h3><i class="far fa-comments"></i>チャット</h3>
-      <div class="function-content">
-        <%= image_tag "chat_sample.png" %>
-        <div class="text">
-          <p class="small">
-            既読機能・メールでの通知がついているので安心
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="function">
-      <h3><i class="far fa-file-alt"></i>お知らせ作成・自動配信</h3>
-      <div class="function-content">
-        <%= image_tag "post.jpg" %>
-        <div class="text">
-          <p class="small">
-            専用エディタを使い、簡単に本格的な文書が作成できます。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <h2>3. 料金と紹介制度</h2>
+  <h2>2. 料金と紹介制度</h2>
   <div class="two-row">
     <div class="row-item">
       <p>
         住人登録済みの部屋、1部屋につき
       </p>
       <p class="large">
-        <span>月額 300円</span>(税別)
+        <span>月額300円</span>(税別)
+      </p>
+      <p>
+      さらに、ご新規で管理人様を紹介していただけますと、
       </p>
     </div>
     <div class="row-item">
       <p>
-        さらに、ご新規で管理人様を紹介していただいた方に、
-        紹介していただいた管理人様の
+        紹介していただいた管理人様の月額使用料の
       </p>
       
       <p class="large">
-        <span>月額使用料の1割</span>
+        <span>1割</span>
       </p>
       <p>
-        を紹介料として<span class="underline">毎月</span>お支払いいたします。
+        を紹介料として<span class="underline">毎月お支払い</span>いたします。
       </p>
+    </div>
+  </div>
+
+  <h2>3. 主な機能</h2>
+  <div class="functions">
+
+    <div class="function">
+      <i class="far fa-comments"></i>
+      <div class="function-detail">
+        <h3>チャット</h3>
+        <ul>
+          <li><i class="fas fa-caret-right"></i>既読・未読機能</li>
+          <li><i class="fas fa-caret-right"></i>会話が残る</li>
+          <li><i class="fas fa-caret-right"></i>メールで連絡</li>
+          <li><i class="fas fa-caret-right"></i>自動翻訳</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="function">
+      <i class="far fa-file-alt"></i>
+      <div class="function-detail">
+        <h3>お知らせ作成・自動配信</h3>
+        <ul>
+          <li><i class="fas fa-caret-right"></i>既読・未読機能</li>
+          <li><i class="fas fa-caret-right"></i>日時指定配信</li>
+          <li><i class="fas fa-caret-right"></i>自動翻訳</li>
+          <li><i class="fas fa-caret-right"></i>簡単文書作成</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="function">
+      <i class="fas fa-globe"></i>
+      <div class="function-detail">
+        <h3></i>多言語対応</h3>
+        <ul>
+          <li><i class="fas fa-caret-right"></i>完全多言語化</li>
+          <li><i class="fas fa-caret-right"></i>対応言語は今後増加</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="function point">
+      <h3><i class="far fa-lightbulb"></i>ここに注目！</h3>
+      <ul>
+        <li><i class="fas fa-caret-right"></i>自動翻訳による新感覚体験</li>
+        <li>
+          <i class="fas fa-caret-right"></i>
+          専用エディタによる簡単文書作成。サンプル(https://www.irent.life/post_sample)
+        </li>
+      </ul>
     </div>
   </div>
 </main>

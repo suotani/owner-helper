@@ -12,11 +12,18 @@ main{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 8px;
+}
+.sub-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 16px;
 }
 
 .header h1{
-    text-align: center;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
@@ -71,10 +78,36 @@ h2{
 }
 
 .function{
+    display: flex;
     width: 48%;
     margin: auto;
     margin-top: 0;
     align-self: flex-start;
+}
+
+.function i{
+    width: 15%;
+    font-size: 36px;
+    text-align: center;
+    margin: auto;
+}
+
+.function .function-detail{
+    width: 85%;
+    padding: 7px;
+}
+
+.function .function-detail ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.function .function-detail li{
+    width: 50%;
+}
+
+.function .function-detail i{
+    font-size: 12px;
+        width: 13px;
 }
 
 .function-content{
@@ -90,9 +123,23 @@ h2{
     align-self: center;
 }
 
+.function.point{
+    flex-direction: column;
+}
+
+.function.point h3{
+    width: 100%;
+    color: #f00;
+}
+
+.function.point li i{
+  font-size: 12px;
+  width: 15px;
+}
 h3{
     border-bottom: solid 1px #ff7600;
-    margin-top: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 h3 i{
@@ -104,7 +151,7 @@ h3 i{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -121,14 +168,17 @@ h3 i{
 
 .large{
     text-align: center;
+    width: 345px;
+    background-color: #fff700;
+    border-radius: 16px;
 }
 
 .large span{
     color: #ff5200;
-    font-size: 35px;
+    font-size: 58px;
     padding: 5px;
     padding-bottom: 3px;
-    border-bottom: double 2px #f00;
+    font-weight: 900;
 }
 
 @media screen and (max-width: 770px) {

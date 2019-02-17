@@ -27,20 +27,17 @@ class Owner::PostsController < OwnerController
 
   def create
     @post = Post.new(post_params)
-    p @post
     @house_ids = params[:house_ids]
     house_ids = params[:house_ids].split(",").map(&:to_i)
-    owner_house_ids = @owner.houses.ids
+    house_ids = @owner.houses.ids & house_ids
     ActiveRecord::Base.transaction do
       @post.save!
       @post.reload
       house_ids.each do |house_id|
-        if(owner_house_ids.include?(house_id))
-          PostHouse.create!(house_id: house_id, post_id: @post.id)
-          residents = Resident.joins(room: :house).moving_in.merge(House.where(id: house_id))
-          residents.each do |resident|
-            PostResident.create!(post_id: @post.id, resident_id: resident.id)
-          end
+        PostHouse.create!(house_id: house_id, post_id: @post.id)
+        residents = Resident.joins(room: :house).moving_in.merge(House.where(id: house_id))
+        residents.each do |resident|
+          PostResident.create!(post_id: @post.id, resident_id: resident.id)
         end
       end
     end
@@ -104,8 +101,19 @@ class Owner::PostsController < OwnerController
     @texts = @post.text.split("$end$").map do |part|
       paragraph = part.split("$$")
       info = paragraph[1].split(",")
-      texts = paragraph[2].split("\n")
+      texts = paragraph[2].split(/\r\n|\n|\r/)
       [info[0], info[1], texts]
+    end
+  end
+  
+  def text_translation(target)
+    translated = ""
+    @post.text.split("$end$").map do |part|
+      paragraph = part.split("$$")
+      info = paragraph[1]
+      texts = paragraph[2]
+      translated_text = Post.text_translation(texts, "ja", target)
+      translated += "$$#{info}$$#{translated_text}$end$"
     end
   end
 end

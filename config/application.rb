@@ -18,5 +18,9 @@ module OwnerHelper
     SERVICE_NAME = "iRent"
     TRANSLATION_API_KEY = "AIzaSyAdNa3-bcmLEgFxbdDRgRaLD0cCd5WH5rI"
     TRANSLATION_PROJECT_ID = "plasma-figure-231914"
+    
+    config.i18n.available_locales = %i(ja en)
+    config.i18n.enforce_available_locales = true
+    config.i18n.default_locale = :ja
   end
 end

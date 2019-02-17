@@ -41,6 +41,7 @@ gem 'mailgun_rails'
 gem 'kaminari'
 gem 'enum_help'
 gem 'google-cloud-translate'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

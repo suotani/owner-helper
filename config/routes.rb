@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'inquiry', to: 'statics#inquiry'
   get 'privacy', to: 'statics#privacy'
   get 'flyer', to: 'statics#flyer'
+  get 'tokutei', to: "statics#tokutei"
   get 'post_sample', to: 'statics#post_sample'
   get 'select_user', to: 'statics#select_user'
   resources :demos

@@ -4,9 +4,18 @@ class ResidentController < ApplicationController
   before_action :get_resident_instance
   before_action :set_content
   before_action :status_redirect
+  before_action :set_locale
   layout "resident"
 
   private
+  
+  def set_locale
+    I18n.locale = locale
+  end
+  
+  def locale
+    @locale = @resident.language ||= I18n.default_locale
+  end
   
   def get_resident_instance
     @resident = current_resident

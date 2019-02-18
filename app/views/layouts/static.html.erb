@@ -37,18 +37,8 @@
         <ul>
           <li><%= link_to "#{OwnerHelper::Application::SERVICE_NAME}とは", "/#what" %></li>
           <li><%= link_to "料金体系", "/#plan" %></li>
-          <li class="dropdown-menu-wrap pc">
-            ログイン<i class="fas fa-caret-down"></i>
-            <div class="dropdown-menu">
-              <ul>
-                <li><%= link_to "管理人としてログイン", new_owner_session_path %></li>
-                <li><%= link_to "住人としてログイン", new_resident_session_path %></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sp"><%= link_to "管理人としてログイン", new_owner_session_path %></li>
-          <li class="sp"><%= link_to "住人としてログイン", new_resident_session_path %></li>
-          <li><%= link_to "会員登録(無料)", select_user_path %></li>
+          <li><%= link_to "管理人ログイン", new_owner_session_path %></li>
+          <li><%= link_to "管理人登録(無料)", new_owner_registration_path %></li>
           <li id="inquiry-modal-open" class="pc" onclick="$('.modal').show();">お問い合わせ</li>
           <li id="inquiry-modal-open" class="sp" onclick="$('.menu-wrap').slideUp();$('.modal').show();">お問い合わせ</li>
         </ul>

@@ -1,60 +1,62 @@
 <%= stylesheet_link_tag "residents/registrations/new", :media => "all" %>
 <main>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<h2>入居者登録</h2>
+<h2><%= t('.registration') %></h2>
   <%= devise_error_messages! %>
   <div class="inputs-wrap">
     <div class="main-left">
         <div class="field">
           <div>
-            <%= f.label :name, "お名前" %>
+            <%= f.label :name, t('.name') %>
           </div>
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
       
         <div class="field">
           <div>
-            <%= f.label :email, "メールアドレス" %>
+            <%= f.label :email, t('.email') %>
           </div>
           <%= f.email_field :email, autocomplete: "email" %>
         </div>
       
         <div class="field">
           <div>
-          <%= f.label :password, "パスワード" %>
+          <%= f.label :password, t('.password') %>
           <% if @minimum_password_length %>
-              (半角英数<%= @minimum_password_length %> 文字以上)
+              (<%= t('.more_than', min_length: @minimum_password_length) %>)
           <% end %>
           </div>
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
       
         <div class="field">
-          <%= f.label :password_confirmation, "パスワードをもう一度入力してください" %><br />
+          <%= f.label :password_confirmation, t('.password_confirmation') %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
     </div>
     <div class="main-right">
   
         <div class="field">
-          <%= f.label :phone_number, "電話番号" %><br />
+          <%= f.label :phone_number, t('.phone_number') %><br />
           <%= f.text_field :phone_number, autocomplete: "phone_number" %>
         </div>
       
         <div class="field">
-          <%= f.label :family, "家族構成" %><br />
+          <%= f.label :family, t('.family') %><br />
           <% family_initval = params[:resident].present? ? params[:resident][:family] : nil %>
           <%= f.select :family, options_for_select(Resident::FAMILY_TYPE, family_initval) %>
         </div>
 
         <div class="field">
-          <%= f.label :language, "言語(Language)" %><br />
+          <%= f.label :language, t('.language') %><br />
           <% language_initval = params[:resident].present? ? params[:resident][:language] : nil %>
           <%= f.select :language, options_for_select(Resident::LANGUAGE_LIST, language_initval) %>
         </div>
+        
+        <%= hidden_field_tag "locale", @locale %>
       
         <div class="actions">
-          <%= f.button "登録", class: "button" %>
+          <%= f.button t('.submit'), class: "button" %>
         </div>
     </div>
   </div>

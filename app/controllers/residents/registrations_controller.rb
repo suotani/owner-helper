@@ -2,6 +2,8 @@
 
 class Residents::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :before_service_start
+  before_action :set_language
   # before_action :configure_account_update_params, only: [:update]
   layout "resident"
   # GET /resource/sign_up
@@ -58,5 +60,20 @@ class Residents::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     new_resident_session_path
+  end
+  
+  def before_service_start
+    if Time.zone.today < Time.zone.parse("2019/03/01")
+      redirect_to root_path, error: "３月１日よりサービス正式リリースとなります。"
+    end
+  end
+  
+  def set_language
+    if params[:locale].present?
+      I18n.locale = params[:locale]
+    else
+      I18n.locale = "ja"
+    end
+    @locale = I18n.locale
   end
 end

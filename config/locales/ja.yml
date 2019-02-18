@@ -259,4 +259,16 @@ ja:
       read_status:
         read: 既読
         yet: 未読
-  
+  residents:
+    registrations:
+      new:
+        registration: 入居者登録
+        name: お名前
+        email: メールアドレス
+        password: パスワード
+        more_than: "半角英数%{min_length} 文字以上"
+        password_confirmation: パスワードをもう一度入力してください
+        phone_number: 電話番号
+        family: 家族構成
+        language: 言語
+        submit: 登録

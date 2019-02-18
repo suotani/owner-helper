@@ -273,3 +273,38 @@ en:
         password: Password
         remember_me: Remember me
         submit: Login
+    shared:
+      links:
+        login: Login
+        password_forgot: Password forgot
+        new_registration: New registration
+        mail_no_reach: Not received your email address
+        mail_no_reach: Not received your email address 
+  resident:
+    contacts:
+      edit:
+        message: Contact
+        read: read
+        no_read: unread
+        submit: Submit
+    houses:
+      new:
+        request: Residence request
+        search: Search
+        house: Property
+        no_select: Unselected
+        room_number: Room number
+        submit: Submit
+    inquiries:
+      new:
+        inquiry: Inquiry
+        email: Reply mail address
+        category: Category
+        text: Content
+        submit: Submit
+    posts:
+      index:
+        search: Search
+        list: Notice list
+        title: Title
+        post_at: Distribution datetime

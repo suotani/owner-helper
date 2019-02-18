@@ -73,17 +73,18 @@
         </div>
       <% end %>
     </header>
-      <% if notice.present? %>
-        <p class="notice"><%= notice %></p>
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <% if @errors.present? %>
+      <% @errors.each do |error| %>
+        <p class="alert"><%= error %></p>
       <% end %>
-      <% if alert.present? %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      <% if @errors.present? %>
-        <% @errors.each do |error| %>
-          <p class="alert"><%= error %></p>
-        <% end %>
-      <% end %>
-      <%= yield %>
+    <% end %>
+    <%= yield %>
+    <%= render "footer" %>
   </body>
 </html>

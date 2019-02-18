@@ -2,7 +2,7 @@
 <%= javascript_include_tag 'owner/contacts/edit', 'data-turbolinks-track': 'reload' %>
 <main>
   
-  <h2>メッセージ</h2>
+  <h2><%= t('.message') %></h2>
   <div class="messages-wrap" id="chat-scroll">
     <%= hidden_field_tag "read_url", read_resident_contact_path(@contact.id) %>
     <% @contact_chats.each_with_index do |chat, i| %>
@@ -12,7 +12,7 @@
       <div class="message <%= add_class %>">
         <% if chat.resident_write? %>
           <span class="read-status <%= chat.read? ? "read" : "yet" %>">
-            <%= chat.read? ? "既読" : "未読" %>
+            <%= chat.read? ? t('.read') : t('.no_read') %>
           </span>
         <% end %>
         <% display_text = chat.resident_write? ? chat.text : chat.other_language_text %>
@@ -46,7 +46,7 @@
     <%= form_tag(resident_contact_path(@contact.id), method: "patch") do %>
       <%= text_area_tag "chat_message" %>
       <div class="actions">
-        <%= button_tag "送信", class: "button", type: "button", onclick: "$(form).submit();" %>
+        <%= button_tag t('.submit'), class: "button", type: "button", onclick: "$(form).submit();" %>
       </div>
     <% end %>
   <% end %>

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "resident/houses/new", :media => "all" %>
 <%= javascript_include_tag 'resident/houses/new', 'data-turbolinks-track': 'reload' %>
 <main>
-<h2>入居リクエスト</h2>
+<h2><%= t('.request') %></h2>
 
 <%= form_tag(new_resident_house_path, id: "select_form", method: "get") do %>
   <div class="field">
@@ -9,7 +9,7 @@
   </div>
   
   <div class="actions">
-    <button type="button" class="button" onclick="$('#select_form').submit();">検索</button>
+    <button type="button" class="button" onclick="$('#select_form').submit();"><%= t('.search') %></button>
   </div>
 
 <% end %>
@@ -24,17 +24,17 @@
   <% end %>
   </ul>
   
-  <p>物件：<span id="house_name">未選択</span></p>
+  <p><%= t('.house') %>：<span id="house_name"><%= t('.no_select') %></span></p>
   
   <%= hidden_field_tag "house_id" %>
   
   <div class="field">
-    <%= label_tag "number", "部屋番号：" %>
+    <%= label_tag "number", "#{t('.room_number')}：" %>
     <%= text_field_tag "number" %>
   </div>
 
   <div class="actions">
-    <%= button_tag "リクエストを送信", class: "button" %>
+    <%= button_tag t('.submit'), class: "button" %>
   </div>
 <% end %>
 

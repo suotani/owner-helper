@@ -5,22 +5,23 @@
   <div class="form-wrapper">
     <div class="form">
       <%= form_tag(resident_posts_path, method: "get") do %>
-        <%= text_field_tag "title", params[:title], placeholder: "タイトル", class:"search-for-title" %>
-        <%= button_tag "検索", class: "search-submit" %>
+        <%= text_field_tag "title", params[:title], placeholder: t('.title'), class:"search-for-title" %>
+        <%= button_tag t('.search'), class: "search-submit" %>
       <% end %>
     </div>
   </div>
   
   <div class="list-wrapper">
-    <h2>お知らせ一覧</h2>
+    <h2><%= t('.list') %></h2>
     <ul class="list-header">
-      <li class="title">タイトル</li>
-      <li class="post-at">配信日時</li>
+      <li class="title"><%= t('.title') %></li>
+      <li class="post-at"><%= t('.post_at') %></li></li>
     </ul>
     <% @posts.each do |post| %>
       <ul class="list-item">
         <li class="title">
-            <%= link_to post.title, resident_post_path(post.id), class: "", target: "_blank" %>
+            <%= link_to post.titl
+            e, resident_post_path(post.id), class: "", target: "_blank" %>
         </li>
         <li class="post-at"><%= post.post_at.strftime("%Y/%m/%d %H時") %></li>
       </ul>

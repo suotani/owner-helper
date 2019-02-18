@@ -119,6 +119,39 @@ ul{
     text-align: center;
 }
 
+footer{
+  margin-top: 30px;
+}
+
+.footer-links{
+  background-color: #6b6bfb;
+}
+
+footer ul{
+  margin: 0;
+  padding: 7px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer li{
+  margin-left: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.copylight{
+  text-align: center;
+  background-color: #030c38;
+  color: white;
+  font-size: 13px;
+  padding: 7px;
+}
+
 @media screen and (max-width: 770px) {
   .pc{
     display: none;

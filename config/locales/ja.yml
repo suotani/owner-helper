@@ -289,3 +289,37 @@ ja:
         password: パスワード
         remember_me: ログインいたままにする
         submit: ログイン
+    shared:
+      links:
+        login: ログイン
+        password_forgot: パスワードをお忘れですか？
+        new_registration: ご新規の登録はこちらから
+        mail_no_reach: メールアドレス確認用メールが届いていない方はこちら
+  resident:
+    contacts:
+      edit:
+        message: メッセージ
+        read: 既読
+        no_read: 未読
+        submit: 送信
+    houses:
+      new:
+        request: 入居リクエスト
+        search: 検索
+        house: 物件
+        no_select: 未選択
+        room_number: 部屋番号
+        submit: リクエストを送信
+    inquiries:
+      new:
+        inquiry: お問い合わせ
+        email: 返信用メールアドレス
+        category: お問い合わせ種別
+        text: お問い合わせ内容
+        submit: 送信
+    posts:
+      index:
+        search: 検索
+        list: お知らせ一覧
+        title: タイトル
+        post_at: 配信日時

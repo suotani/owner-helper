@@ -256,3 +256,20 @@ en:
         family: Family type
         language: Language
         submit: Submit
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{name}"
+        thanks: Thank you for registering as a member.
+        click_link: Please click on the link [Mail address authentication] below.
+        loginable: If you click on it and your email address is authenticated, you can login.
+        confirm_link: E-mail address authentication
+        loged_in: After logging in, enter the property and room number you are going to move in and request an occupancy request.
+        couse: Note
+        no_reply: We can not reply to this mail.
+    sessions:
+      new:
+        login: Login
+        email: Email-address
+        password: Password
+        remember_me: Remember me
+        submit: Login

@@ -2,6 +2,8 @@
 
 class Residents::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+    
+  before_action :set_language
   layout "resident"
   
   def after_sign_in_path_for(resource)
@@ -34,4 +36,13 @@ class Residents::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def set_language
+    if params[:locale].present?
+      I18n.locale = params[:locale]
+    else
+      I18n.locale = "ja"
+    end
+    @locale = I18n.locale
+  end
 end

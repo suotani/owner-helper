@@ -272,3 +272,20 @@ ja:
         family: 家族構成
         language: 言語
         submit: 登録
+    mailer:
+      confirmation_instructions:
+        welcome: "ようこそ%{name}さん"
+        thanks: この度は会員登録していただきありがとうございます。
+        click_link: まずは以下のリンク「メールアドレスの認証」をクリックしてください。
+        loginable: クリックしてメールアドレスが認証されますと、ログインが可能となります
+        confirm_link: メールアドレスの認証
+        loged_in: ログイン後、ご入居されます物件と部屋番号を入力し、入居リクエストを行ってください。
+        couse: 注意
+        no_reply: このメールには返信することができません。
+    sessions:
+      new:
+        login: ログイン
+        email: メールアドレス
+        password: パスワード
+        remember_me: ログインいたままにする
+        submit: ログイン

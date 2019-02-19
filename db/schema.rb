@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_131242) do
+ActiveRecord::Schema.define(version: 2019_02_19_001806) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_02_17_131242) do
     t.integer "contact_mail_setting", default: 2
     t.integer "request_mail_setting", default: 2
     t.string "language", default: "ja"
+    t.integer "invitation_owner_id"
+    t.string "invitation_code"
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end

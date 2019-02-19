@@ -112,4 +112,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.i18n.default_locale = :ja
+  
+  config.slack_webhook_url = ENV['SLACK_WEBHOOK_URL']
+  # notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
+  # notifier.ping("hello")
 end

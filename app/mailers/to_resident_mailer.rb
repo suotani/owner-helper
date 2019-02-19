@@ -35,9 +35,10 @@ class ToResidentMailer < ApplicationMailer
         )
     end
     
-    def post_reached_mail(resident, post)
+    def post_reached_mail(resident, post, foreign_post)
       @resident = resident
       @post = post
+      @foreign_post = foreign_post
         mail(
           subject: "【#{OwnerHelper::Application::SERVICE_NAME}】お知らせが投稿されました。", #メールのタイトル,
           to: @resident.email #宛先

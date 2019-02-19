@@ -6,6 +6,6 @@
   <body>
     <p><%= @post.owner.name %>様からお知らせが届きました。</p>
     <p>以下のリンクよりご確認ください</p>
-    <%= link_to @post.title, resident_post_path(post.id) %>
+    <%= link_to @foreign_post.title, resident_post_url(@post.id) %>
   </body>
 </html>

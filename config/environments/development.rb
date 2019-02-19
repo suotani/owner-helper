@@ -70,4 +70,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.i18n.default_locale = :ja
+  config.slack_webhook_url = "https://hooks.slack.com/services/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"
 end

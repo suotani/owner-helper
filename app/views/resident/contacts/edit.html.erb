@@ -16,6 +16,7 @@
           </span>
         <% end %>
         <% display_text = chat.resident_write? ? chat.text : chat.other_language_text %>
+        <% display_text ||= chat.text %>
         <div class="short">
           <div class="message-header">
             <div class="writer-name" >

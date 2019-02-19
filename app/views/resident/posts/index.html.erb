@@ -20,8 +20,7 @@
     <% @posts.each do |post| %>
       <ul class="list-item">
         <li class="title">
-            <%= link_to post.titl
-            e, resident_post_path(post.id), class: "", target: "_blank" %>
+            <%= link_to post.title, resident_post_path(post.id), class: "", target: "_blank" %>
         </li>
         <li class="post-at"><%= post.post_at.strftime("%Y/%m/%d %H時") %></li>
       </ul>

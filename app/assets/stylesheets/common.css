@@ -5,7 +5,7 @@
 }
 
 .sp{
-  display: none;
+  display: none !important;
 }
 
 
@@ -154,7 +154,7 @@ footer a {
 
 @media screen and (max-width: 770px) {
   .pc{
-    display: none;
+    display: none !important;
   }
   
   .sp{

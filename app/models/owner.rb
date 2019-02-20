@@ -8,6 +8,7 @@ class Owner < ApplicationRecord
   has_many :posts
   has_many :contacts
   has_many :contact_chats
+  has_many :bills
   
   belongs_to :invitation_owner, class_name: "Owner", foreign_key: "invitation_owner_id", optional: true
   has_many :invitation_owners, class_name: "Owner", foreign_key: "invitation_owner_id"

@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_001806) do
+ActiveRecord::Schema.define(version: 2019_02_19_141923) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "account"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bill_details", force: :cascade do |t|
+    t.integer "bill_id"
+    t.integer "house_id"
+    t.integer "moving_count"
+    t.integer "moving_amount"
+    t.integer "leave_count", default: 0
+    t.integer "new_moving_count", default: 0
+    t.integer "days_amount"
+    t.integer "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "year"
+    t.integer "month"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_001806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "postal_code", limit: 7
+    t.integer "price"
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -158,6 +181,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_001806) do
     t.boolean "request"
     t.datetime "requested_at"
     t.integer "contact_id"
+    t.datetime "moved_at"
+    t.datetime "leave_at"
   end
 
 end

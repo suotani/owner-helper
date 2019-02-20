@@ -11,7 +11,9 @@ class Owner::RequestsController < OwnerController
     ActiveRecord::Base.transaction do
       resident.update(status: Resident.statuses[:moving_in])
       contact = Contact.create!(resident_id: resident.id, owner_id: @owner.id, room_id: @room.id)
-      @room.update!(request: false, contact_id: contact.id)
+      @room.update!(request: false, contact_id: contact.id, moved_at: Time.zone.now, leave_at: nil)
+      bill_detail = @room.house.current_bill_detail
+      bill_detail.update(new_moving_count: bill_detail.new_moving_count + 1)
       @room.house.posts.each do |post|
         PostResident.create!(post_id: post.id, resident_id: resident.id)
       end

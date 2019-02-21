@@ -39,8 +39,13 @@
         <% end %>
       </div>
     </div>
+    <h3>招待情報</h3>
+    <div class="field">
+      <%= label_tag "", "招待コード" %>
+      <%= @owner.invitation_code %>
+    </div>
     <div class="actions">
-      <%= f.submit "更新" , class: "button"%>
+      <%= f.button "更新" , class: "button"%>
     </div>
   <% end %>
 </main>

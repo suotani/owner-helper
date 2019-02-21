@@ -220,7 +220,10 @@ ja:
         post_mail_setting: お知らせメール設定
         contact_mail_setting: チャット受信メール設定
       owner:
-        name: 氏名
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
         phone_number: 電話番号
         request_mail_setting: お知らせメール設定
         contact_mail_setting: チャット受信メール設定

@@ -38,13 +38,17 @@ class Owners::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  
+  def invitation_owner
+    code = params[:invitation_code]
+    @invitation_owner = Owner.get_invitation_owner(code)
+  end
 
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :invitation_code, :invitation_owner_id, :attribute])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     registrations: 'owners/registrations',
     confirmations: "owners/confirmations"
   }
+  devise_scope :owner do
+    get 'owners/registrations/invitation_owner', to: "owners/registrations#invitation_owner"
+  end
   # dashboard
   get 'owner', to: 'owners#show'
   get 'owner/setting', to: 'owners#edit'

@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "owners/registrations/new", :media => "all" %>
+<%= javascript_include_tag 'owners/registrations/new', 'data-turbolinks-track': 'reload' %>
 <main>
   <div class="main-right">
     <h2>新規管理人登録</h2>
@@ -29,9 +30,20 @@
         <%= f.label :password_confirmation, "パスワードをもう一度入力してください" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
+      <% resource.invitation_code = resource.get_invitation_code %>
+      <%= f.hidden_field :invitation_code%>
       
-      <div class="actions">
-        <%= f.submit "登録" %>
+      
+      <div class="field actions">
+        <%= label_tag "", "招待コード(入力された場合は必ずチェックを押してください)" %></br >
+        <span id="invitation-owner-name"></span></br>
+        <%= text_field_tag "invitation_owner_code", "",class: "short" %>
+        <%= button_tag "チェック", type: "button", class: "button", id: "invitation_check" %>
+      </div>
+      <%= f.hidden_field :invitation_owner_id %>
+      
+      <div class="actions right">
+        <%= f.button "登録", class: "button submit" %>
       </div>
     <% end %>
   </div>

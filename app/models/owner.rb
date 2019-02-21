@@ -27,6 +27,7 @@ class Owner < ApplicationRecord
     request_weekday_only: 3 #平日のみ通知する
   }
   
+  
   def request_mail_accept?
     return false if request_none?
     return false if request_weekday_only? && [0,6].include?(Time.zone.today.wday)
@@ -37,5 +38,18 @@ class Owner < ApplicationRecord
     return false if contact_none?
     return false if contact_weekday_only? && [0,6].include?(Time.zone.today.wday)
     true
+  end
+  
+  
+  def get_invitation_code
+    10.times do |i|
+      codes = Owner.select(&:invitation_code).map(&:invitation_code)
+      code = Random.new.rand.to_s.slice(2..7)
+      return code unless codes.include?(code)
+    end
+  end
+  
+  def self.get_invitation_owner(code)
+    Owner.where(invitation_code: code).first
   end
 end

@@ -10,6 +10,7 @@ namespace :bill do
     Owner.all.each do |owner|
       total_amount = 0
       bill = owner.bills.where(year: target.year, month: target.month).first
+      next if bill.nil?
       bill.bill_details.each do |detail|
         continue_moving_count = 0
         days_count = 0

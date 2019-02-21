@@ -1,0 +1,12 @@
+<% if @invitation_owner %>
+  $("#owner_invitation_owner_id").val("<%= @invitation_owner.id %>");
+  $("#invitation-owner-name").removeClass("error");
+  $("#invitation-owner-name").text("招待者：<%= @invitation_owner.name %>");
+  $("#invitation_check").text("OK");
+  ("#invitation_check").addClass("success")
+  console.log("aaaa")
+<% else %>
+  $("#invitation-owner-name").text("不正な招待コードです。再度お確かめ下さい。");
+  $("#invitation-owner-name").addClass("error");
+  $("#invitation_check").text("チェック");
+<% end %>

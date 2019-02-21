@@ -13,7 +13,7 @@ main{
 
 form{
   background-color: #fff;
-  padding: 30px 35px;
+  padding: 5px 35px;
 }
 
 form input{
@@ -25,11 +25,22 @@ form input{
   margin-bottom: 15px;
 }
 
-.actions input{
-  height: 35px;
-  border-radius: 10px;
-  background-color: #f39303;
+.field .short{
+  width: 100px;
 }
+
+.error{
+  color: #f00;
+}
+
+.success{
+  background-color: #ff0;
+}
+
+.actions.right{
+  text-align: right;
+}
+
 
 #error_explanation h2{
     display: none;

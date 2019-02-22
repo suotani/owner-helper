@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+    before_action :check_move
+    
+    def check_move
+        logger.info("aaaaa")
+    end
     
     rescue_from StandardError, with: :render_standard
     

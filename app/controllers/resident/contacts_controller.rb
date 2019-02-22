@@ -17,6 +17,7 @@ class Resident::ContactsController < ResidentController
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],
+      media: params[:media],
       other_language_text: other_language_text,
       resident_id: @resident.id
     )
@@ -27,13 +28,13 @@ class Resident::ContactsController < ResidentController
         owner_status: Contact.owner_statuses[:owner_no_read]
       )
     end
-    if contact_chat.contact.owner.contact_mail_accept?
+    if contact_chat.contact.owner.contact_mail_accept? && contact_chat.text.present?
       ToOwnerMailer.contact_update_mail(contact_chat).deliver_now
     end
-    redirect_to edit_resident_contact_path(@contact.id)+"#last", notice: "送信しました"
+    redirect_to edit_resident_contact_path(@contact.id), notice: "送信しました"
     rescue => e
-    logger.error(e)
-    redirect_to edit_resident_contact_path(@contact.id)+"#last", alert: "入力エラーがあります"
+    logger.error(e.backtrace.join("\n"))
+    redirect_to edit_resident_contact_path(@contact.id), alert: "入力エラーがあります"
   end
 
   def read

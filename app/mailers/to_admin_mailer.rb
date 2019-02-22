@@ -15,11 +15,4 @@ class ToAdminMailer < ApplicationMailer
           to: "s.uotani.zetakansu@gmail.com" #宛先
         )
     end
-    
-    def mail_running_check
-        mail(
-          subject: "!!メールが動いた!!", #メールのタイトル,
-          to: "s.uotani.zetakansu@gmail.com" #宛先
-        )
-    end
 end

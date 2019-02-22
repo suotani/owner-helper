@@ -1,7 +1,6 @@
 main{
     width: 80%;
     margin: auto;
-    margin-top: 50px;
     margin-bottom: 80px;
 }
 
@@ -12,6 +11,7 @@ h2{
     padding: 2px 12px;
     font-weight: 100;
     font-size: 22px;
+    margin-top: 0;
 }
 
 .resident-info-row{
@@ -42,7 +42,6 @@ h2{
   margin-bottom: 9px;
   padding: 10px;
   padding-left: 40px;
-  cursor: pointer;
   position: relative;
 }
 
@@ -90,10 +89,6 @@ h2{
 .message.owner{
     border: solid 1px #cacaca;
 }
-
-.message .short{
-}
-
 .message .long{
     display: none;
 }
@@ -102,12 +97,12 @@ h2{
     width: 80%;
 }
 
-.message.default-open .short{
-    display: none;
-}
-
 .message.default-open .long{
     display: block;
+}
+
+.message img{
+    max-height: 100px;
 }
 
 textarea{
@@ -118,19 +113,43 @@ textarea{
 .actions{
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+}
+
+.actions .button.media-select-open{
+    width: 50px;
+    background-color: #377936;
+}
+.media-select{
+    display: none;
 }
 
 .actions .button {
     width: 200px;
     background-color: #8498f9;
     border-radius: 10px;
-    line-height: 29px;
+    line-height: 35px;
     color: white;
     margin-left: 10px;
     display: inline-block;
     text-decoration: none;
     text-align: center;
 }
+
+.preview{
+  border: solid 1px #3939ef;
+  position: relative;
+}
+
+.media-remove-button{
+    position: absolute;
+    top: -18px;
+    right: -6px;
+    color: #f00;
+    cursor: pointer;
+    font-size: 25px;
+}
+
 
 @media screen and (max-width: 770px) {
     .message{
@@ -165,6 +184,20 @@ textarea{
     
     .resident-info-header{
         width: 30%;
+    }
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+    
+    .actions .button{
+        width: 135px;
+    }
+    
+    .actions .button.media-select-open{
+        margin-right: 0;
     }
 
 }

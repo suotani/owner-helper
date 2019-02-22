@@ -11,9 +11,12 @@ class Owners::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # slack通知
+    notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
+    notifier.ping("新しく管理人が登録されました！")
+  end
 
   # GET /resource/edit
   # def edit

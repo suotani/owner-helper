@@ -16,7 +16,7 @@ class Owner::ContactsController < OwnerController
   def update
     raise "終了したチャットに対して送信が行われた" if !@contact.updatable?
     from_language = @owner.language
-    to_language = @contact.resident.language
+    to_language = @contact.resident.language || "ja"
     if from_language == to_language
       other_language_text = params[:chat_message]
     else
@@ -25,6 +25,7 @@ class Owner::ContactsController < OwnerController
     contact_chat = ContactChat.new(
       contact_id: @contact.id,
       text: params[:chat_message],
+      media: params[:media],
       other_language_text: other_language_text,
       owner_id: @owner.id
     )
@@ -40,7 +41,7 @@ class Owner::ContactsController < OwnerController
     end
     redirect_to edit_owner_contact_path(@contact.id) + "#last", notice: "送信しました"
     rescue => e
-    logger.error(e)
+    logger.error(e.backtrace.join("\n"))
     redirect_to edit_owner_contact_path(@contact.id) + "#last", alert: "入力エラーがあります"
   end
   

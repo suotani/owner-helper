@@ -5,8 +5,8 @@ class ContactChat < ApplicationRecord
     belongs_to :owner, optional: true
     belongs_to :resident, optional: true
     
-    validates :text, presence: true
-    
+    has_one_attached :media
+
     enum read_status: {
         read: 1,  #既読
         yet: 2  # 未読

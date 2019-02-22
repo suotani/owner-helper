@@ -12,9 +12,12 @@ class Residents::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # slack通知
+    notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
+    notifier.ping("新しく入居者が登録されました！")
+  end
 
   # GET /resource/edit
   # def edit
@@ -63,7 +66,7 @@ class Residents::RegistrationsController < Devise::RegistrationsController
   end
   
   def before_service_start
-    if Time.zone.today < Time.zone.parse("2019/03/01")
+    if !Rails.env.development? && Time.zone.today < Time.zone.parse("2019/03/01")
       redirect_to root_path, error: "３月１日よりサービス正式リリースとなります。"
     end
   end

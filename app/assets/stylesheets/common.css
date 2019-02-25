@@ -5,7 +5,7 @@
 }
 
 .sp{
-  display: none !important;
+  display: none;
 }
 
 
@@ -22,7 +22,7 @@ h1{
   font-weight: 100;
 }
 
-input{
+input, select{
     border: none;
     border-bottom: solid 1px #d2d2d2;
 }
@@ -154,7 +154,7 @@ footer a {
 
 @media screen and (max-width: 770px) {
   .pc{
-    display: none !important;
+    display: none;
   }
   
   .sp{

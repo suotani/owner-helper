@@ -159,6 +159,10 @@ span.status.info{
     margin-right: 18px;
   }
   
+  .header-icons li a{
+    font-size: 20px;
+  }
+  
   .header-icons li.contact-info{
     margin-right: 42px;
     position: relative;

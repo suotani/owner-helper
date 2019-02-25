@@ -43,4 +43,9 @@ class Resident < ApplicationRecord
   def current_contact
     room.contact
   end
+  
+  scope :find_by_id_from_owner, ->(owner_id, resident_id) do
+    eager_load(room: :house).merge(House.where(owner_id: owner_id))
+                            .find(resident_id)
+  end
 end

@@ -1,0 +1,72 @@
+<%= stylesheet_link_tag "owner/phone_lists/index", :media => "all" %>
+<%= javascript_include_tag 'owner/phone_lists/index', 'data-turbolinks-track': 'reload' %>
+<main>
+  <h2>検索</h2>
+    <div class="form-wrap">
+      <%= form_tag(owner_phone_lists_path, method: "get") do %>
+        <div class="fields" >
+          <div class="field">
+            <%= label_tag "name", "名前" %>
+            <%= text_field_tag "name", params[:name] %>
+          </div>
+          <div class="field">
+            <%= label_tag "room_number", "部屋番号" %>
+            <%= text_field_tag "room_number", params[:room_number] %>
+          </div>
+          <div class="field">
+            <%= label_tag "house_id", "物件名" %>
+            <% options = [["指定無し", nil]] + @owner.houses.map{|h| [h.name, h.id]} %>
+            <%= select_tag "house_id", options_for_select(options, selected: params[:house_id])%>
+          </div>
+        </div>
+        
+        <div class="fields search-button">
+          <div class="actions">
+            <%= button_tag "検索", class: "button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <h2>電話帳</h2>
+  <div class="list-wrap">
+    <ul class="list">
+      <li class="list-row list-header">
+        <ul>
+          <li class="name">名前</li>
+          <li class="phone-number">電話番号</li>
+          <li class="house-room">物件・部屋番号</li>
+        </ul>
+      </li>
+      <% @rooms.each do |room| %>
+        <li class="list-row list-item">
+          <ul>
+            <% if room.resident.present? %>
+              <li class="name"><%= link_to room.resident_name, owner_phone_list_path(room.resident.id) %></li>
+            <% else %>
+              <li class="name"><%= room.resident_name %></li>
+            <% end %>
+            <li class="phone-number pc"><%= room.resident_phone_number %></li>
+            <li class="phone-number sp phone-modal-open">
+              <%= room.resident_phone_number %>
+              <p class="info" data-name="<%= room.resident_name %>" data-phone="<%= room.resident_phone_number %>" data-house="<%= room.house.name + ' ' + room.number %>"></p>
+            </li>
+            <li class="house-room"><%= room.house.name %> <%= room.number %></li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</main>
+
+<div class="modal-wrap">
+  <div class="modal">
+    <div class="modal-resident-name"></div>
+    <div class="modal-resident-phone-number"></div>
+    <div class="modal-house-room"></div>
+    <div class="modal-buttons">
+      <button type="button" class="tell"><i class="fas fa-phone"></i></button>
+      <button type="button" class="cancel"><i class="fas fa-times"></i></button>
+    </div>
+    <a href="" class="exec-tell"></a>
+  </div>
+</div>

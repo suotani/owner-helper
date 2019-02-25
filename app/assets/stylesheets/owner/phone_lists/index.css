@@ -1,0 +1,182 @@
+.form-wrap{
+    padding: 20px;
+    background-color: #fff;
+    border-top: solid 2px #eee;
+    width: 80%;
+    margin: auto;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fields{
+    width: 50%;
+}
+
+.field{
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.field label{
+    width: 20%;
+    text-align: center;
+}
+
+.field select, .field input{
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.field label.checkbox-wrapper{
+    width: 50%;
+}
+
+.search-button{
+    align-self: flex-end;
+}
+
+.search-button .actions{
+    text-align:center;
+}
+
+.list-row ul{
+    display: flex;
+    flex-wrap: wrap;
+    height: 35px;
+    padding: 0px 6px;
+}
+
+.list-header{
+    background-color: #6b6b6b;
+}
+
+.list-header li{
+    color: white;
+}
+
+
+.list-row li{
+    line-height: 35px
+}
+
+.list-item{
+    border-bottom: solid 1px #8e8e8e;
+}
+
+.list-row .name{
+    width: 25%;
+}
+.list-row .phone-number{
+    width: 20%;
+}
+.list-row .house-room{
+    width: 55%;
+}
+
+.modal-wrap{
+    display: none;
+}
+
+.phone-modal-open .info{
+    display: none;
+}
+
+.exec-tell{
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .form-wrap{
+        width: 100%;
+        padding: 10px 4px;
+    }
+
+    .fields{
+        width: 100%;
+    }
+
+    .field label{
+        width: 25%;
+    }
+    
+    .field select, .field input{
+        width: 75%;
+    }
+    .list-row ul{
+        height: 70px;
+    }
+    .list-row .name{
+        width: 50%;
+    }
+    .list-row .phone-number{
+        width: 50%;
+    }
+    .list-row .house-room{
+        width: 100%;
+    }
+    
+    .phone-modal-open{
+        color: #00f;
+    }
+    
+    .modal-wrap{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(150,150,150,0.5);
+        width: 100%;
+        height: 100%;
+    }
+    
+    .modal{
+        background-color: white;
+        width: 95%;
+        margin: auto;
+        margin-top: 200px;
+        padding: 7px;
+        box-sizing: border-box;
+    }
+    
+    .modal-resident-name{
+        text-align: center;
+        font-size: 30px;
+        margin: 5px 0;
+    }
+    
+    .modal-resident-phone-number{
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .modal-house-room{
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    .modal-buttons{
+        display: flex;
+        margin-top: 30px;
+    }
+    
+    .modal-buttons button{
+        width: 50%;
+        height: 60px;
+        font-size: 33px;
+        color: white;
+    }
+    
+    .modal-buttons button.tell{
+        background-color: #5daf13;
+    }
+    .modal-buttons button.cancel{
+        background-color: #f00;
+    }
+}

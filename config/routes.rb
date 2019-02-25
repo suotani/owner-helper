@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'owners#index'
     resources :inquiry, only: [:index]
+    resources :owners
+    resources :residents
+    resources :bills
   end
+  
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations',
+    confirmations: 'admins/confirmations'
+  }
 
   ##########owner###########
   devise_for :owners, controllers: {
@@ -56,6 +66,7 @@ Rails.application.routes.draw do
       end
     end
     resources :inquiries, only: [:new, :create]
+    resources :phone_lists, only: [:index, :show]
   end
 
   ############resident#############

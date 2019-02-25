@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_120521) do
+ActiveRecord::Schema.define(version: 2019_02_24_131323) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,11 +34,15 @@ ActiveRecord::Schema.define(version: 2019_02_21_120521) do
   end
 
   create_table "admins", force: :cascade do |t|
-    t.string "name"
-    t.string "account"
-    t.string "email"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "bill_details", force: :cascade do |t|
@@ -189,6 +193,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_120521) do
     t.integer "post_mail_setting", default: 2
     t.integer "contact_mail_setting", default: 2
     t.string "language"
+    t.string "name_kana"
     t.index ["email"], name: "index_residents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_residents_on_reset_password_token", unique: true
   end
@@ -204,6 +209,9 @@ ActiveRecord::Schema.define(version: 2019_02_21_120521) do
     t.integer "contact_id"
     t.datetime "moved_at"
     t.datetime "leave_at"
+    t.string "resident_name"
+    t.string "resident_phone_number"
+    t.string "resident_name_kana"
   end
 
 end

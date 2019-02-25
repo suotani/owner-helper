@@ -1,124 +1,67 @@
-header i{
-  line-height: 56px;
-  margin-left: 5px;
-}
-
-main{
+.main-buttons{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.card{
-  box-shadow: 0 1px 1px 0 rgba(0,28,36,0.5);
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding-bottom: 15px;
+.main-buttons li{
+  width: 225px;
+  height: 90px;
+  margin-top: 30px;
+  background-color: #000;
+  border-radius: 5px;
+  font-size: 25px;
 }
 
-main h2{
-  margin: 0;
-  font-size: 20px;
-  background-color: #fafafa;
-  border-bottom: 1px solid #eaeded;
-  padding: 10px 19px;
-  font-weight: 100;
+.main-buttons li.phone{
+  background-color: #78bb70;
+}
+.main-buttons li.chat{
+  background-color: #4277ec;
+}
+.main-buttons li.post{
+  background-color: #90a92d;
+}
+.main-buttons li.search{
+  background-color: #a9772d;
+}
+.main-buttons li.request{
+  background-color: #a92d77;
+}
+.main-buttons li.house{
+  background-color: #588019;
+}
+.main-buttons li.room{
+  background-color: #196d80;
+}
+.main-buttons li.logout{
+  background-color: #4e363b;
+}
+.main-buttons li.inquiry{
+  background-color: #334067;
+}
+.main-buttons li.setting{
+  background-color: #000;
 }
 
-main .main-block{
-  width: 65%;
-  padding-right: 20px;
+.main-buttons li a:hover{
+  background-color: rgba(180,180,180,0.5);
 }
 
-main .side-block{
-  width: 35%;
+.main-buttons li a{
+    line-height: 90px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    color: white;
 }
-
-.contact {
-  display: flex;
-  border-bottom: solid 1px #cacaca;
-  padding: 5px;
-}
-.contact .contact-date{
-  width: 20%;
-}
-
-.contact .contact-sentense{
-  width: 80%;
-}
-
-.all-contacts{
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 20px; 
-}
-
-.houses ul{
-  list-style: none;
-  margin: 0;
-  padding: 10px;
-}
-
-.posts{
-  padding-bottom: 13px;
-}
-
-.post{
-  display: flex;
-  border-bottom: solid 1px #cacaca;
-  padding: 5px;
-}
-
-.post .post-date{
-  width: 33%;
-  font-size: 12px;
-}
-
-.post .post-title{
-  width: 67%;
-}
-
-.all-posts{
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 20px; 
-}
-
-.btn{
-  border-radius: 40px;
-}
-
-.new-post-btn{
-  width: 90%;
-  background-color: #2f499e;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  text-decoration: none;
-  line-height: 32px;
-}
-
-.new-post-btn:hover{
-  background-color: #243879;
-}
-
-.new-post-btn:hover{
-  color: rgb(209, 209, 209);
+.main-buttons li a i{
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 770px) {
-  main .main-block, main .side-block{
-    width: 100%;
-  }
-  
-  main .main-block{
-    padding: 0;
-  }
-  
-  .contact{
-    flex-direction: column;
-  }
-  
-  .contact .contact-date{
-    width: 100%;
+  .main-buttons li{
+    width: 300px;
+    margin-top: 20px;
   }
 }

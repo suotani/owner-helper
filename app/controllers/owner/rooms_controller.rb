@@ -29,7 +29,14 @@ class Owner::RoomsController < OwnerController
   def remove
     ActiveRecord::Base.transaction do
       resident = @room.resident
-      @room.update!(request: nil, resident_id: nil, leave_at: Time.zone.now)
+      @room.update!(
+        request: nil,
+        resident_id: nil,
+        leave_at: Time.zone.now,
+        resident_name: nil,
+        resident_name_kana: nil,
+        resident_phone_number: nil
+      )
       bill_detail = @room.house.current_bill_detail
       bill_detail.update!(leave_count: bill_detail.leave_count + 1)
       resident.reload.update!(status: Resident.statuses[:signed_up])

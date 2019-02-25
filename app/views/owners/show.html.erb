@@ -1,57 +1,56 @@
 <%= stylesheet_link_tag "owners/show", :media => "all" %>
-  <main>
-    <div class="main-block">
-      <div class="card">
-        <h2>最近の連絡</h2>
-        <% @contacts.each do |contact| %>
-          <% next if contact.contact_chats.blank? %>
-          <div class="contact">
-            <div class="contact-date pc">
-              <%= contact.updated_at.strftime("%Y/%m/%d") %><br />
-              <%= contact.updated_at.strftime("%H:%M") %>
-            </div>
-            <div class="contact-date sp">
-              <%= contact.updated_at.strftime("%Y/%m/%d %H:%M") %>
-            </div>
-            <div class="contact-sentense">
-              <% r = contact.room %>
-              <%= r.house.name %> <%= r.number %> <%= contact.resident.name %><br />
-              <%= link_to edit_owner_contact_path(contact.id) + "#last" do %>
-                <% chat = contact.contact_chats.order(:created_at).last %>
-                <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
-                <%= display_text[0..25] + "..." %></a>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <%= link_to "すべて見る", owner_contacts_path, class: "all-contacts" %>
-      </div>
-    </div>
-    <div class="side-block">
-      <div class="card houses">
-        <h2>管理物件</h2>
-        <ul>
-          <% @owner.houses.each do |house| %>
-            <li><%= link_to house.name, owner_house_path(house.id) %></li>
-          <% end %>
-        </ul>
-        <%= link_to "新しく物件を登録する", new_owner_house_path, class: "btn new-post-btn" %>
-      </div>
-      <div class="card posts">
-        <h2>最近配信したお知らせ</h2>
-        <% @posts.each do |post| %>
-          <div class="post">
-            <div class="post-date">
-              <%= post.post_at.strftime("%Y/%m/%d %H時") %>
-            </div>
-            <div class="post-title"><%= link_to post.title, owner_post_path(post.id), target: "_blank" %></div>
-          </div>
-        <% end %>
-        <%= link_to "すべて見る>>", owner_posts_path, class: "all-posts" %>
-        <%= link_to "新しくお知らせを作る", houses_owner_posts_path, class: "btn new-post-btn" %>
-      </div>
-    </div>
-  </main>
+<main>
+  <ul class="main-buttons">
+    <li class="phone">
+      <%= link_to  owner_phone_lists_path do %>
+        <i class="fas fa-phone"></i>電話帳
+      <% end %>
+    </li>
+    <li class="chat">
+      <%= link_to  owner_contacts_path do %>
+        <i class="far fa-comments"></i>チャット
+      <% end %>
+    </li>
+    <li class="post">
+      <%= link_to owner_posts_path do %>
+        <i class="far fa-file-alt"></i>お知らせ
+      <% end %>
+    </li>
+    <li class="search">
+      <%= link_to owner_residents_path do %>
+        <i class="fas fa-user-alt"></i>入居者検索
+      <% end %>
+    </li>
+    <li class="request">
+      <%= link_to owner_requests_path do %>
+        <i class="fas fa-gavel"></i>入居申請
+      <% end %>
+    </li>
+    <li class="house">
+      <%= link_to owner_houses_path do %>
+        <i class="fas fa-building"></i>物件・部屋
+      <% end %>
+    </li>
+    <li class="room">
+      <%= link_to "" do %>
+        <i class="fab fa-sistrix"></i>使い方
+      <% end %>
+    </li>
+    <li class="setting">
+      <%= link_to owner_setting_path do %>
+        <i class="fas fa-cogs"></i>各種設定
+      <% end %>
+    </li>
+    <li class="logout">
+      <%= link_to destroy_owner_session_path, method: "delete" do %>
+        <i class="fas fa-sign-out-alt"></i>退出
+      <% end %>
+    </li>
+    <li class="inquiry">
+      <%= link_to new_owner_inquiry_path do %>
+        <i class="fas fa-question"></i>お問い合わせ
+      <% end %>
+    </li>
+  </ul>
 
-  <footer>
-  </footer>
+</main>

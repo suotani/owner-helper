@@ -6,19 +6,6 @@
 <div class="form-wrapper">
   <div class="form">
     <%= form_with(model: @post, url: url, method: method, local: true) do |f| %>
-      <div class="field title">
-        <%= f.text_field :title, placeholder: "タイトル" %>
-      </div>
-      <div class="field datetime">
-        <%= f.label :post_at, "お知らせ日時" %>
-        <% y = Time.zone.now.year %>
-        <%= select_tag "year", options_for_select((y..y+5).to_a, @post.post_at&.year), class: "year" %>年
-        <%= select_tag "month", options_for_select((1..12).to_a, @post.post_at&.month), class: "" %>月
-        <%= select_tag "day", options_for_select((1..31).to_a, @post.post_at&.day), class: "" %>日
-        <%= select_tag "hour", options_for_select((0..23).to_a, @post.post_at&.hour), class: "" %>時
-        <%= f.hidden_field :post_at %>
-        
-      </div>
       <div class="text-input-wrap">
         <div class="main-text">
           <% (@texts || []).each do |text| %>

@@ -20,6 +20,7 @@ namespace :post_mail do
       end
       residents.each do |resident|
         locale = resident.language.to_sym
+        PostResident.create!(post_id: post.id, resident_id: resident.id)
         ToResidentMailer.post_reached_mail(resident, post, posts[locale]).deliver_now
       end
     end

@@ -1,1 +1,47 @@
-<%= render 'form', url: owner_posts_path, method: "post", house_ids: @house_ids %>
+<%= stylesheet_link_tag "owner/posts/new", :media => "all" %>
+<%= javascript_include_tag 'owner/posts/new' %>
+<main>
+  <%= form_for(@post, url: owner_posts_path) do |f| %>
+    <h2>お知らせの基本設定</h2>
+    <div class="field">
+      <%= label_tag "title", "タイトル" %>
+      <%= f.text_field "title" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :post_at, "お知らせ日時" %>
+      <% y = Time.zone.now.year %>
+      <%= select_tag "year", options_for_select((y..y+5).to_a, @post.post_at&.year), class: "year" %>年
+      <%= select_tag "month", options_for_select((1..12).to_a, @post.post_at&.month), class: "" %>月
+      <%= select_tag "day", options_for_select((1..31).to_a, @post.post_at&.day), class: "" %>日
+      <%= select_tag "hour", options_for_select((0..23).to_a, @post.post_at&.hour), class: "" %>時
+      <%= f.hidden_field :post_at %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :post_at, "掲載終了日" %>
+      <%= f.select :end_option, Post.end_options.map{|k, v| [t("posts.end_option.#{k}"), v]} %>
+    </div>
+  
+    <h2>お知らせ対象の物件を選択</h2>
+    <div class="all-check">
+      <label>
+        <%= check_box_tag "all", true, false, class: "checkbox-input" %>
+        <span class="checkbox-parts">すべて</span>
+      </label>
+    </div>
+    
+    <div class="houses">
+      <% @houses.each do |house| %>
+        <label class="<%= 'parent' if @house_ids.include?(house.id) %>">
+          <%= check_box_tag "ids[]", house.id, @house_ids.include?(house.id), class: "checkbox-input" %>
+          <span class="checkbox-parts"><%= house.name %></span>
+        </label>
+      <% end %>
+    </div>
+    
+    <div class="actions">
+        <%= button_tag "作成", class: "button submit-btn" %>
+    </div>
+  <% end %>
+</main>

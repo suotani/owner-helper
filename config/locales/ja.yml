@@ -326,3 +326,8 @@ ja:
         list: お知らせ一覧
         title: タイトル
         post_at: 配信日時
+  posts:
+    end_option:
+      no_delete: '掲載終了しない'
+      one_week: '掲載日の1週間後'
+      one_month: '掲載日の1か月後'

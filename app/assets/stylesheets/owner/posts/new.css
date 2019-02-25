@@ -6,6 +6,20 @@
   padding-left: 20px;
   position:relative;
 }
+
+
+.houses label, .all-check label{
+    padding: 5px 27px 5px 4px;
+    border: solid 1px #888;
+    border-radius: 14px;
+    text-align: left;
+    background-color: white;
+    margin-right: 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
+}
+
 .checkbox-parts::before{
   content: "";
   display: block;
@@ -38,19 +52,37 @@
 }
 
 .parent{
-  background-color: #518bc7;
+  background-color: #518bc7 !important;
 }
 
-form label{
-    padding: 5px 27px 5px 4px;
-    border: solid 1px #888;
-    border-radius: 14px;
-    text-align: left;
-    background-color: white;
-    margin-right: 20px;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 5px;
+.field{
+  display: flex;
+  margin-top: 30px;
+}
+
+.field label{
+  width: 110px;
+}
+
+.field input{
+  width: 270px;
+}
+
+.datetime{
+    margin-bottom: 7px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.datetime select{
+    width: 40px;
+    height: 22px;
+    margin-left: 5px;
+}
+
+.datetime select.year{
+  width: 60px;
+    
 }
 
 .houses{

@@ -17,7 +17,7 @@ class Owner::RequestsController < OwnerController
         moved_at: Time.zone.now,
         leave_at: nil,
         resident_name: resident.name,
-        resident_name_kana: resident.name_kana
+        resident_name_kana: resident.name_kana,
         resident_phone_number: resident.phone_number
       )
       bill_detail = @room.house.current_bill_detail

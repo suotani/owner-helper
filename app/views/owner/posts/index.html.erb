@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag "owner/posts/index", :media => "all" %>
 <%= javascript_include_tag 'owner/posts/index' %>
 <main>
-  
+  <div class="actions new-post-modal-open">
+    <%= link_to "新規作成", new_owner_post_path, class: "button" %>
+  </div>
   <div class="form-wrapper">
     <div class="form">
       <%= form_tag(owner_posts_path, method: "get") do %>

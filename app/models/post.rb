@@ -8,9 +8,14 @@ class Post < ApplicationRecord
     has_many :foreign_posts
     
     validates :title, presence: true
-    validates :text, presence: true
     validates :post_at, presence: true
     validate :post_at_after_now
+    
+    enum end_option: {
+        no_delete: 1,
+        one_week: 2,
+        one_month: 3
+    }
     
     def post_at_after_now
         if Time.zone.now >= post_at
@@ -27,5 +32,15 @@ class Post < ApplicationRecord
           translated.text
         end
         translated_texts.join("\r\n")
+    end
+    
+    def self.calc_end_at(input_post_at, option)
+        if option == Post.end_options[:one_week].to_s
+          return input_post_at + 1.week
+        elsif option == Post.end_options[:one_month].to_s
+          return input_post_at + 1.month
+        else
+          return nil
+        end
     end
 end

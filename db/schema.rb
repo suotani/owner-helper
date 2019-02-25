@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_131323) do
+ActiveRecord::Schema.define(version: 2019_02_25_015033) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -172,6 +172,9 @@ ActiveRecord::Schema.define(version: 2019_02_24_131323) do
     t.integer "owner_id"
     t.string "title"
     t.datetime "post_at"
+    t.datetime "end_at"
+    t.integer "end_option"
+    t.boolean "deleted", default: false
   end
 
   create_table "residents", force: :cascade do |t|

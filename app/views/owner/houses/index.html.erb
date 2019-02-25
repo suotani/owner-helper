@@ -11,17 +11,12 @@
           <li class="name">物件名</li>
           <li class="regident-num">入居数</li>
           <li class="room-num">部屋数</li>
-          <li class="actions"></li>
         </ul>
         <% @houses.each do |house| %>
         <ul class="list-row">
           <li class="name"><%= link_to house.name, owner_house_path(house.id) %></a></li>
-          <li class="regident-num"><a href="#">20</a></li>
-          <li class="room-num"><a href="#">24</a></li>
-          <li class="actions">
-            <a href="#">編集</a>
-            <a href="#">削除</a>
-          </li>
+          <li class="regident-num"><%= house.rooms.where.not(resident_name: nil).size %></li>
+          <li class="room-num"><%= house.rooms.size %></li>
         </ul>
         <% end %>
       </div>

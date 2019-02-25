@@ -15,35 +15,27 @@ class Owner::PostsController < OwnerController
              end
     @posts = @posts.order(updated_at: :desc)
   end
-  
-  def houses
-    @houses = @owner.houses
-  end
 
   def new
+    @houses = @owner.houses
+    @house_ids = []
     @post = Post.new
-    @house_ids = params[:ids].join(",")
   end
 
   def create
-    @post = Post.new(post_params)
-    @house_ids = params[:house_ids]
-    house_ids = params[:house_ids].split(",").map(&:to_i)
-    house_ids = @owner.houses.ids & house_ids
+    @post = Post.new(post_setting_params)
+    @house_ids = params[:ids].map(&:to_i)
+    @house_ids = @owner.houses.ids & @house_ids
     ActiveRecord::Base.transaction do
       @post.save!
-      @post.reload
-      house_ids.each do |house_id|
+      @house_ids.each do |house_id|
         PostHouse.create!(house_id: house_id, post_id: @post.id)
-        residents = Resident.joins(room: :house).moving_in.merge(House.where(id: house_id))
-        residents.each do |resident|
-          PostResident.create!(post_id: @post.id, resident_id: resident.id)
-        end
       end
     end
-    redirect_to owner_posts_path, notice: "登録しました"
+    @post.reload
+    redirect_to edit_owner_post_path(@post.id)
     rescue
-    set_text
+    @houses = @owner.houses
     @errors = @post.errors.full_messages
     render :new
   end
@@ -90,11 +82,18 @@ class Owner::PostsController < OwnerController
     @post = @owner.posts.where(id: params[:id]).first
   end
   
-  def post_params
-    params.require(:post).permit(:text, :title, :post_at).tap do |v|
+  def post_setting_params
+    params.require(:post).permit(:text, :title, :post_at, :end_option).tap do |v|
       v[:owner_id] = @owner.id
       v[:post_at] = Time.zone.parse(v[:post_at])
+      v[:end_at] = Post.calc_end_at(v[:post_at], v[:end_option])
+      v[:end_option] = v[:end_option].to_i
+      v[:text] = ""
     end
+  end
+  
+  def post_params
+    params.require(:post).permit(:text)
   end
   
   def set_text
@@ -103,17 +102,6 @@ class Owner::PostsController < OwnerController
       info = paragraph[1].split(",")
       texts = paragraph[2].split(/\r\n|\n|\r/)
       [info[0], info[1], texts]
-    end
-  end
-  
-  def text_translation(target)
-    translated = ""
-    @post.text.split("$end$").map do |part|
-      paragraph = part.split("$$")
-      info = paragraph[1]
-      texts = paragraph[2]
-      translated_text = Post.text_translation(texts, "ja", target)
-      translated += "$$#{info}$$#{translated_text}$end$"
     end
   end
 end

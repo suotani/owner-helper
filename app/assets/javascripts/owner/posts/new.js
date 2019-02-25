@@ -22,4 +22,20 @@ $(document).ready(function(){
          });
      }
   });
+ 
+
+   $(".submit-btn").on("click", function(){
+       $("#post_post_at").val(createDatetime());
+       $("form").submit();
+       
+   });
 });
+
+
+function createDatetime(){
+    var y = $("#year").val();
+    var m = $("#month").val();
+    var d = $("#day").val();
+    var h = $("#hour").val();
+    return y + "/" + m + "/" + d + " " + h + ":00:00";
+}

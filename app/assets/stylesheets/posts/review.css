@@ -11,6 +11,10 @@ body{
     font-family: serif;
 }
 
+.preview.print{
+    width: 100%;
+}
+
 .preview .left{
     text-align: left;
 }

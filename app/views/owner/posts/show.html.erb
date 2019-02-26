@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "posts/review", :media => "all" %>
 <%= stylesheet_link_tag "owner/posts/show", :media => "all" %>
-<div class="preview">
+<div class="preview <%= 'print' if params[:print] %>">
   <% #[position, size, [text]] %>
   <% @texts.each do |paragraph| %>
     <div class="paragraph <%= paragraph[0] %> size<%= paragraph[1] %>">

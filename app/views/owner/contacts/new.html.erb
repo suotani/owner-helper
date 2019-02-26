@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "owner/residents/index", :media => "all" %>
 <main>
   <div class="form-wrap">
-    <%= form_tag(owner_residents_path, method: "get") do %>
+    <%= form_tag(new_owner_contact_path, method: "get") do %>
       <div class="fields" >
         <div class="field">
           <%= label_tag "name", "名前" %>
@@ -26,21 +26,20 @@
     <ul class="list list-header">
       <li class="resident-name">名前</li>
       <li class="resident-phone-number">電話番号</li>
-      <li class="resident-house-name">物件名</li>
-      <li class="resident-room-number">部屋番号</li>
+      <li class="resident-house-name">物件・部屋番号</li>
+      <li class="resident-room-number"></li>
     </ul>
     <% @residents.each do |resident| %>
       <ul class="list list-item">
         <li class="resident-name">
-          <%= link_to resident.name, owner_resident_path(resident.id) %>
+          <%= link_to resident.name, edit_owner_house_room_path(house_id: resident.room.house.id, id: resident.room.id) %>
         </li>
         <li class="resident-phone-number"><%= resident.phone_number %></li>
-        <li class="resident-house-name"><%= resident.room.house.name %></li>
+        <li class="resident-house-name">
+            <%= resident.room.house.name %> <%= resident.room.number %>
+        </li>
         <li class="resident-room-number">
-          <%= resident.room.number %>
-          <% if resident.room.request %>
-            <span class="status info">申請中</span>
-          <% end %>
+            <%= link_to "メッセージへ", edit_owner_contact_path(resident.current_contact.id) %>
         </li>
       </ul>
     <% end %>

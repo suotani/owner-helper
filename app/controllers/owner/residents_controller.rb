@@ -11,4 +11,7 @@ class Owner::ResidentsController < OwnerController
     @residents = @residents.where("residents.name LIKE ?", "%#{params[:name]}%")if params[:name].present?
     @residents = @residents.uniq
   end
+  
+  def show
+  end
 end

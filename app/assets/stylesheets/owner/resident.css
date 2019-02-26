@@ -1,0 +1,125 @@
+.row{
+  display: flex;
+  list-style: none;
+  line-height: 39px;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #5f5c5c;
+}
+
+.row .key{
+  width: 20%;
+  background-color: #333333;
+  color: white;
+  padding-left: 10px;
+}
+
+.row .value{
+  width: 80%;
+  padding-left: 10px;
+}
+
+
+
+message{
+  margin-bottom: 9px;
+  padding: 10px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.message .read-status{
+    position: absolute;
+    top: 13px;
+    left: 6px;
+    font-size: 13px;
+}
+
+.message .read-status.read{
+    color: #00f;
+}
+
+.message .read-status.yet{
+    color: #f00;
+}
+
+.message-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.long .message-header{
+    margin-bottom: 5px;
+}
+
+.long p{
+    margin: 0;
+}
+
+.writer-name .name{
+    margin-right: 3px;
+    color: #00f;
+}
+
+.created-datetime{
+    font-size: 12px;
+}
+
+.message.resident{
+    border: solid 1px #a7e3ff;
+}
+
+.message.owner{
+    border: solid 1px #cacaca;
+}
+.message .long{
+    display: none;
+}
+
+.message .long p{
+    width: 80%;
+}
+
+.message.default-open .long{
+    display: block;
+}
+
+.message img{
+    max-height: 100px;
+}
+.message{
+  margin-bottom: 9px;
+  padding: 10px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.more-read{
+    text-align: right;
+}
+
+.posts-row{
+    padding: 5px 16px;
+}
+
+.posts-row ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts-row .status{
+    width: 20%;
+}
+.posts-row .title{
+    width: 50%;
+}
+.posts-row .post-at{
+    width: 30%;
+}
+
+.posts-list-header{
+    background-color: #353535;
+}
+.posts-list-header li{
+    color: white;
+}

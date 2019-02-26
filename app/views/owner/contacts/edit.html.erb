@@ -44,9 +44,7 @@
             </div>
           </div>
           <p><%= simple_format(h(display_text)) %></p>
-          <% if chat.media.attached? %>
-            <%= image_tag chat.media %>
-          <% end %>
+          <%= image_tag chat.media.variant(auto_orient: true) if chat.media.attached? %>
         </div>
       </div>
     <% end %>
@@ -62,7 +60,7 @@
             <i class="fas fa-camera"></i>
           <% end %>
           <%= file_field_tag "media", class: "media-select" %>
-          <%= button_tag t('.submit'), class: "button", type: "button", onclick: "$(form).submit();" %>
+          <%= button_tag "送信", class: "button", type: "button", onclick: "$(form).submit();" %>
         </div>
       </div>
     <% end %>

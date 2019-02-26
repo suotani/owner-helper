@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag "owner/resident", :media => "all" %>
+
+<% @resident = Resident.find_by_id_from_owner(@owner.id, params[:id]) %>
+<% chats = @resident.current_contact.contact_chats.order(created_at: :desc).limit(5).reverse %>
+<% post_residents = @resident.post_residents %>
+<main>
+  <h2>入居者基本情報</h2>
+  <div class="info">
+    <ul class="row">
+      <li class="key">入居物件・部屋番号</li>
+      <li class="value"><%= @resident.room.house.name %> <%= @resident.room.number %></li>
+    </ul>
+    <ul class="row">
+      <li class="key">名前</li>
+      <li class="value"><%= @resident.name %>(<%= @resident.name_kana %>)</li>
+    </ul>
+    <ul class="row">
+      <li class="key">電話番号</li>
+      <li class="value"><%= @resident.phone_number %></li>
+    </ul>
+    <ul class="row">
+      <li class="key">家族構成</li>
+      <li class="value"><%= @resident.family || "未入力" %></li>
+    </ul>
+    <ul class="row">
+      <li class="key">言語設定</li>
+      <li class="value"><%= @resident.language || "日本語" %></li>
+    </ul>
+  </div>
+  <h2>最近のやり取り</h2>
+  <div class="messages-wrap" id="chat-scroll">
+    <% chats.each_with_index do |chat, i| %>
+      <% writer = chat.resident_id.present? ? chat.resident : chat.owner %>
+      <% add_class = chat.resident_id.present? ? " resident" : " owner" %>
+      <div class="message default-open <%= add_class %>">
+        <% if chat.owner_write? %>
+          <span class="read-status <%= chat.read? ? "read" : "yet" %>">
+            <%= chat.read? ? "既読" : "未読" %>
+          </span>
+        <% end %>
+        <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
+        <div class="long">
+          <div class="message-header">
+            <div class="writer-name" >
+              <span class="name"><%= writer.name %></span>
+            </div>
+            <div class="created-datetime">
+              <%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+            </div>
+          </div>
+          <p><%= simple_format(h(display_text)) %></p>
+          <%= image_tag chat.media.variant(auto_orient: true) if chat.media.attached? %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="more-read">
+    <%= link_to "チャットルームへ移動", edit_owner_contact_path(@resident.current_contact.id) %>
+  </div>
+  <h2>お知らせ既読状況</h2>
+  <ul class="posts">
+    <li class="posts-row posts-list-header">
+      <ul class="">
+        <li class="status">既読状況</li>
+        <li class="title">タイトル</li>
+        <li class="post-at">掲載日</li>
+      </ul>
+    </li>
+    <% post_residents.each do |post_resident| %>
+      <% post = post_resident.post %>
+      <li class="posts-row posts-list-item">
+        <ul class="">
+          <li class="status"><%=post_resident.read_status_i18n %></li>
+          <li class="title"><%=post.title %></li>
+          <li class="post-at"><%=post.post_at.strftime("%Y/%m/%d %H時") %></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</main>

@@ -8,6 +8,7 @@ class Resident < ApplicationRecord
   has_many :contacts
   has_many :contact_chats
   has_many :post_residents
+  has_many :posts, through: :post_residents
 
   validates :name, presence: true
   

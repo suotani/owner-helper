@@ -8,6 +8,18 @@ class Owner::ContactsController < OwnerController
                      .where.not(last_wrote_at: nil)
                      .order(:last_wrote_at)
   end
+  
+  def new
+    house_ids = @owner.houses.ids
+    house_id = params[:house_id]
+    house_ids = house_id if house_id && house_ids.include?(house_id.to_i)
+   
+    @residents = Resident.joins(room: :house)
+                         .merge(House.where(id: house_ids))
+                         .moving_in
+    @residents = @residents.where("residents.name LIKE ?", "%#{params[:name]}%") if params[:name].present?
+    @residents = @residents.uniq
+  end
 
   def edit
     @contact_chats = @contact.contact_chats.order(created_at: :desc).limit(20).reverse

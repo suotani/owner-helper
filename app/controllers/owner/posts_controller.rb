@@ -1,6 +1,6 @@
 class Owner::PostsController < OwnerController
   
-  before_action :set_post, only: [:edit, :update, :destroy, :show, :read_status]
+  before_action :set_post, only: [:edit, :update, :destroy, :show, :read_status, :setting, :update_setting]
   before_action :set_text, only: [:show, :edit]
   
   def index
@@ -44,6 +44,7 @@ class Owner::PostsController < OwnerController
   end
 
   def edit
+    render layout: "application"
   end
 
   def update
@@ -55,6 +56,30 @@ class Owner::PostsController < OwnerController
       @errors = @post.errors.full_messages
       render :edit
     end
+  end
+  
+  def setting
+    @houses = @owner.houses
+    @house_ids = @post.houses.ids
+    render :new
+  end
+  
+  def update_setting
+    @house_ids = params[:ids].map(&:to_i)
+    @house_ids = @owner.houses.ids & @house_ids
+    ActiveRecord::Base.transaction do
+      @post.update!(post_setting_params(@post.text))
+      unless @post.houses.ids.sort == @house_ids.sort
+        @post.post_houses.destroy_all
+        @house_ids.each do |house_id|
+          PostHouse.create!(house_id: house_id, post_id: @post.id)
+        end
+      end
+      redirect_to setting_owner_post_path(@post.id), notice: "更新しました"
+    end
+    rescue
+    @errors = @post.errors.full_messages
+    render :new
   end
 
   def destroy
@@ -82,13 +107,13 @@ class Owner::PostsController < OwnerController
     @post = @owner.posts.where(id: params[:id]).first
   end
   
-  def post_setting_params
-    params.require(:post).permit(:text, :title, :post_at, :end_option).tap do |v|
+  def post_setting_params(text = "")
+    params.require(:post).permit(:title, :post_at, :end_option).tap do |v|
       v[:owner_id] = @owner.id
       v[:post_at] = Time.zone.parse(v[:post_at])
       v[:end_at] = Post.calc_end_at(v[:post_at], v[:end_option])
       v[:end_option] = v[:end_option].to_i
-      v[:text] = ""
+      v[:text] = text
     end
   end
   

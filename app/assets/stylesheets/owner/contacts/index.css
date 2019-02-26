@@ -47,15 +47,28 @@ h2{
 }
 
 .message-from{
-    width: 20%;
+    width: 40%;
 }
 
 .message-text{
-    width: 50%;
+    width: 40%;
+}
+
+.message-text img{
+    max-height: 100px;
 }
 
 .message-wrote-date{
     width: 20%;
+}
+
+.new-contact{
+    text-align: right;
+}
+
+
+.actions .button{
+    padding: 7px 22px;
 }
 
 @media screen and (max-width: 770px) {

@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag "owner/contacts/index", :media => "all" %>
 
 <main>
+  <div class="new-contact actions">
+    <%= link_to "入居者を探す", new_owner_contact_path, class: "button" %>
+  </div>
   <h2>メッセージ一覧</h2>
   <div class="messages-wrpper">
     <% @contacts.each do |contact| %>
@@ -16,20 +19,23 @@
               <span class="read">既読</span>
             <% end %>
           </li>
-          <li class="message-from pc">
-            <%= contact.room.house.name %> <%= contact.room.number %><br />
-            <%= contact.resident.name %>
-          </li>
-          <li class="message-from sp">
-            <%= contact.room.house.name %> <%= contact.room.number %>
-            <%= contact.resident.name %>
-          </li>
-          <li class="message-text">
-            <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
-            <%= link_to display_text[0..30], edit_owner_contact_path(contact.id) + "#last" %>
-          </li>
-          <li class="message-wrote-date">
-            <%= contact.last_wrote_at.strftime("%Y年%m月%d日 %H:%M") %>
+          <li>
+            <li class="message-from">
+              <%= contact.room.house.name %> 
+              <%= contact.room.number %><br />
+              <%= contact.resident.name %>
+              <%= contact.last_wrote_at.strftime("%Y年%m月%d日 %H:%M") %>
+            </li>
+            <li class="message-text">
+              <% display_text = chat.owner_write? ? chat.text : chat.other_language_text %>
+              <%= link_to edit_owner_contact_path(contact.id) do %>
+                <%= display_text[0..30] %>
+                <% if display_text.present? %>
+                  <br />
+                <% end %>
+                <%= "写真を送信しました。" if chat.media.attached? %>
+              <% end %>
+            </li>
           </li>
         </ul>
       </div>

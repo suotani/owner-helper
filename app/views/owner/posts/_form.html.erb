@@ -1,11 +1,10 @@
-<%= stylesheet_link_tag "owner/posts/form", :media => "all" %>
 <%= stylesheet_link_tag "posts/review", :media => "all" %>
+<%= stylesheet_link_tag "owner/posts/form", :media => "all" %>
 <%= javascript_include_tag 'owner/posts/form' %>
 
-
+<%= form_with(model: @post, url: url, method: method, local: true) do |f| %>
 <div class="form-wrapper">
   <div class="form">
-    <%= form_with(model: @post, url: url, method: method, local: true) do |f| %>
       <div class="text-input-wrap">
         <div class="main-text">
           <% (@texts || []).each do |text| %>
@@ -29,23 +28,27 @@
           </button>
         </div>
       </div>
-      <div class="template instance">
-        <span class="remove-button"><i class="fas fa-times"></i></span>
-        <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
-        <div class="options">
-          <div class="options-select">
-            <%= select_tag "alignment", options_for_select(alignments), class: "apply-input alignment" %>
-            文字サイズ：<%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-input fontsize" %>
-          </div>
-        </div>
-        <textarea class="apply-box"></textarea>
-      </div>
-      <%= f.hidden_field :text %>
-      <%= hidden_field_tag "house_ids", house_ids %>
-      <div class="actions submit-action">
-        <button class="button submit-btn">保存</button>
-      </div>
-    <% end %>
   </div>
   <div class="preview"></div>
+</div>
+
+<%= f.hidden_field :text %>
+<%= hidden_field_tag "house_ids", house_ids %>
+<div class="actions submit-action">
+  <%= link_to "一覧へ戻る", owner_posts_path, class:"button back-btn" %>
+  <button class="button submit-btn">保存</button>
+</div>
+<% end %>
+
+
+<div class="template instance">
+  <span class="remove-button"><i class="fas fa-times"></i></span>
+  <% alignments = [["左寄せ", "left"], ["中央寄せ", "center"], ["右寄せ", "right"]] %>
+  <div class="options">
+    <div class="options-select">
+      <%= select_tag "alignment", options_for_select(alignments), class: "apply-input alignment" %>
+      文字サイズ：<%= select_tag "fontsize", options_for_select((1..5).to_a), class: "apply-input fontsize" %>
+    </div>
+  </div>
+  <textarea class="apply-box"></textarea>
 </div>

@@ -1,14 +1,27 @@
+html{
+    height: 100%;
+    margin: 0;
+}
 body{
-    margin-top: 60px;
+    margin: 0;
+    height: 100%;
     background-color: #d0d0d0;
+    border-top: solid 1px #000;
+    box-sizing: border-box;
 }
 .form-wrapper{
+    height: 100%;
     display: flex;
+    border-bottom: solid 1px #000;
+    padding-bottom: 48px;
+    box-sizing: border-box;
+    background-color: #ccc8c8;
 }
 
 form{
+    height: 100%;
     background-color: white;
-    padding: 7px;
+    padding: 0 7px;
 }
 
 .form{
@@ -16,6 +29,17 @@ form{
     padding: 5px;
     padding-top: 0;
     padding-bottom: 0;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.preview{
+    width: 40%;
+    margin: auto;
+    height: 94%;
+    padding: 10px;
+    background-color: white;
+    overflow-y: scroll;
 }
 
 .title{
@@ -64,7 +88,7 @@ form{
 }
 
 .text-input-wrap{
-    height: 350px;
+    height: 100%;
     overflow-y: scroll;
     box-sizing: border-box;
     border: solid 1px #ddd;
@@ -116,10 +140,22 @@ form{
 .actions .button {
     width: 118px;
     line-height: 24px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.actions .button.back-btn{
+    background-color: #6b6b6b;
 }
 
 .submit-action{
     justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    background-color: white;
 }
 
 .add-button{

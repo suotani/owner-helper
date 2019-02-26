@@ -32,12 +32,16 @@
           <%= link_to "プレビュー", owner_post_path(post.id), class: "", target: "_blank" %>
           <% if post.post_at > Time.zone.now %>
             <span class="separator"></span>
-            <%= link_to "編集", edit_owner_post_path(post.id), class: ""%>
+            <%= link_to "本文編集", edit_owner_post_path(post.id), class: ""%>
+            <span class="separator"></span>
+            <%= link_to "設定", setting_owner_post_path(post.id), class: ""%>
           <% else %>
             <span class="separator"></span>
             <%= link_to "既読状況", read_status_owner_post_path(post.id), id: "link-read-status#{post.id}", class: "read-status active", remote: true, data: {modal_id: post.id} %>
             <span class="read-status" data-modal-id="<%= post.id %>" id="no-link-read-status<%= post.id %>">既読状況</span>
           <% end %>
+          <span class="separator"></span>
+          <%= link_to "印刷用", owner_post_path(post.id, print: true), class: "", target: "_blank" %>
         </li>
       </ul>
       <div class="read-status-modal-wrap" id="modal<%= post.id %>">

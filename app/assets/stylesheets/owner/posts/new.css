@@ -97,6 +97,9 @@
 .actions .button {
     width: 118px;
     line-height: 24px;
-    margin: 0;
+    margin-right: 10px;
 }
 
+.actions .button.back-btn{
+  background-color: #8a8787;
+}

@@ -1,7 +1,10 @@
 <%= stylesheet_link_tag "owner/posts/new", :media => "all" %>
 <%= javascript_include_tag 'owner/posts/new' %>
+
+<% url = @post.new_record? ? owner_posts_path : update_setting_owner_post_path %>
+<% submit_label = @post.new_record? ? "作成" : "更新" %>
 <main>
-  <%= form_for(@post, url: owner_posts_path) do |f| %>
+  <%= form_for(@post, url: url) do |f| %>
     <h2>お知らせの基本設定</h2>
     <div class="field">
       <%= label_tag "title", "タイトル" %>
@@ -41,7 +44,8 @@
     </div>
     
     <div class="actions">
-        <%= button_tag "作成", class: "button submit-btn" %>
+      <%= link_to "戻る", owner_posts_path, class: "button back-btn" %>
+      <%= button_tag submit_label, class: "button submit-btn" %>
     </div>
   <% end %>
 </main>

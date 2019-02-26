@@ -58,9 +58,11 @@ Rails.application.routes.draw do
       end
       member do
         get "read_status"
+        get "setting"
+        patch "update_setting"
       end
     end
-    resources :contacts, only: [:index, :edit, :update] do
+    resources :contacts, only: [:index, :new, :edit, :update] do
       member do
         get "read"
       end

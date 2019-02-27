@@ -41,14 +41,12 @@
             <li class="contact-info">
               <%= link_to owner_requests_path do %>
                 <i class="fas fa-gavel"></i>(<%= @request_count %>)
-              <% end %>       
-              <span><%= @request_count.to_s if @request_count != 0 %></span>
+              <% end %>
             </li>
             <li class="contact-info">
               <%= link_to owner_contacts_path do %>
                 <i class="far fa-comments"></i>(<%= @new_message_count %>)
               <% end %>
-              <span><%= @new_message_count if @new_message_count != 0 %></span>
             </li>
           </ul>
         </div>

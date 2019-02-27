@@ -1,0 +1,17 @@
+<% if @result %>
+  $item = $("#room<%= @room.id %>").find(".add-resident-modal-open");
+  $item.data("number", "<%= @room.number %>");
+  $item.data("name", "<%= @room.resident_name %>");
+  $item.data("kana", "<%= @room.resident_name_kana %>");
+  $item.data("phone", "<%= @room.resident_phone_number %>");
+  $item.text("<%= @room.resident_name || '入居者を登録' %>")
+  $(".add-resident-modal").hide();
+<% else %>
+  var messages = "";
+  <% @room.errors.full_messages.each do |er| %>
+    messages += "<p class="alert"><%= er %></p>"
+  <% end %>
+  $(".error_field").html(messages);
+<% end %>
+
+$(".loading").hide();

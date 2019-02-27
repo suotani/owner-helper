@@ -47,8 +47,13 @@ Rails.application.routes.draw do
         member do
           get "remove"
         end
+        collection do
+          get "resident"
+        end
       end
     end
+
+    post "room_resident", to: "room_residents#update"
     
     resources :residents, only: [:index, :show]
     resources :requests, only: [:index, :update, :destroy]

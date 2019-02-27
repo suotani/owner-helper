@@ -9,6 +9,10 @@
     padding: 3px;
 }
 
+.list.sp{
+    display: none;
+}
+
 .list-header{
     background-color: #000;
 }
@@ -63,6 +67,7 @@
     }
     
     .list.list-item.sp{
+        display: flex;
         border-bottom: solid 1px #8e8e8e;
         padding-bottom: 7px;
     }

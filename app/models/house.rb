@@ -10,7 +10,7 @@ class House < ApplicationRecord
   validates :address, presence: true
   
   def current_bill_detail
-    bill = Bill.where(year: Time.zone.now.year, month: Time.zone.now.month).first
+    bill = owner.bills.where(year: Time.zone.now.year, month: Time.zone.now.month).first
     bill.bill_details.where(house_id: self.id).first
   end
 end

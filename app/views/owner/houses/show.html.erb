@@ -52,13 +52,15 @@
             <% rooms = @house.rooms.order(:number) %>
           <% end %>
           <% rooms.each do |room| %>
-            <li><%= link_to (room.number + "<p>#{room.resident&.name}</p>").html_safe, edit_owner_house_room_path(house_id: @house.id, id: room.id) %>  </li>
+            <li id="room<%= room.id %>">
+              <%= render "room", room: room %>
+            </li>
           <% end %>
         </ul>
       </div>
     </main>
 
-<div class="modal-wrap">
+<div class="modal-wrap add-room-modal">
   <div class="modal">
     <h2>部屋の追加</h2>
     <%= form_tag owner_house_rooms_path(house_id: @house.id) do %>
@@ -71,3 +73,46 @@
     <% end %>
   </div>
 </div>
+
+<div class="modal-wrap add-resident-modal">
+  <div class="modal">
+    <h2>入居者を登録</h2>
+    <div class="error_field"></div>
+    <%= form_tag owner_room_resident_path, id: "room_resident_form", remote: true do %>
+      <%= hidden_field_tag "id" %>
+      <div class="field">
+        <%= label_tag "部屋番号" %>
+        <%= text_field_tag 'room[number]' %>
+      </div>
+      <div class="field">
+        <%= label_tag "入居者名" %>
+        <%= text_field_tag 'room[resident_name]' %>
+      </div>
+      <div class="field">
+        <%= label_tag "入居者名かな" %>
+        <%= text_field_tag 'room[resident_name_kana]' %>
+      </div>
+      <div class="field">
+        <%= label_tag "入居者電話番号" %>
+        <%= text_field_tag 'room[resident_phone_number]' %>
+      </div>
+      
+      <div class="room-submit-wrap actions">
+        <button type="button" class="button room-add-cancel-btn">キャンセル</button>
+        <button type="button" class="button remove-btn" id="remove">
+          <div class="inner-button">
+          退居
+          <%= image_tag "loading", class: "loading" %>
+          </div>
+        </button>
+        <%= button_tag class: "room-submit button", id: "room_resident_submit", onclick: "$(this).find('.loading').show();" do %>
+          <div class="inner-button">
+            更新
+            <%= image_tag "loading", class: "loading" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,27 @@
+<% if room.resident.present? %>
+  <%= link_to edit_owner_house_room_path(house_id: room.house_id, id: room.id) do %>
+    <%= (room.number + "<p>#{room.resident_name}</p>").html_safe %>
+  <% end %>
+<% elsif room.resident_name.present? %>
+  <%= room.number %>
+  <p class="add-resident-modal-open"
+     data-id="<%= room.id %>"
+     data-number="<%= room.number %>"
+     data-name="<%= room.resident_name %>" 
+     data-kana="<%= room.resident_name_kana %>" 
+     data-phone="<%= room.resident_phone_number %>"
+  >
+    <%= room.resident_name %>
+  </p>
+<% else %>
+  <%= room.number %>
+    <p class="add-resident-modal-open"
+     data-id="<%= room.id %>"
+     data-number="<%= room.number %>"
+     data-name="" 
+     data-kana="" 
+     data-phone=""
+  >
+    入居者を登録
+  </p>
+<% end %>

@@ -47,7 +47,10 @@ class Owner::RoomsController < OwnerController
     logger.error(e)
     redirect_to edit_owner_house_room_path(house_id: @house.id, id: @room.id), alert: "エラーが発生し、処理が中断されました。"
   end
- 
+
+
+  def resident
+  end
  
   private
   

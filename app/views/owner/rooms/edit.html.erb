@@ -41,21 +41,28 @@
         <h2>住人情報</h2>
         <div>
           <% resident = @room.resident %>
-          <% if resident %>
+          <% if @room.resident_name.present? %>
             <ul class="row">
               <li class="key">名前</li>
-              <li class="value"><%= resident.name %></li>
+              <li class="value"><%= @room.resident_name %>(<%= @room.resident_name_kana %>)</li>
             </ul>
             <ul class="row">
               <li class="key">電話番号</li>
-              <li class="value"><%= resident.phone_number %></li>
+              <li class="value"><%= @room.resident_phone_number %></li>
             </ul>
             <ul class="row">
               <li class="key">家族構成</li>
-              <li class="value"><%= resident.family %></li>
+              <li class="value"><%= resident.family if resident %></li>
             </ul>
+          <% else %>
+            
           <% end %>
         </div>
+        <% if @room.resident %>
+          <div style="text-align: right;">
+            <%= link_to "もっと詳しく見る", resident_owner_house_rooms_path(house_id: @room.house_id, id: @room.resident.id) %>
+          </div>
+        <% end %>
         <% if @contact %>
           <h2>操作</h2>
           <div class="action-buttons">

@@ -116,4 +116,6 @@ Rails.application.configure do
   config.slack_webhook_url = ENV['SLACK_WEBHOOK_URL']
   # notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
   # notifier.ping("hello")
+  config.payjp_secret_key = ENV['PAYJP_SECRET_KEY']
+  config.payjp_public_key = ENV['PAYJP_PUBLIC_KEY']
 end

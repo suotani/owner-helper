@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "owner/invoices/show", :media => "all" %>
+<h2><%= bill.year %>年<%= bill.month %>月分請求詳細</h2>
+
+<% bill.bill_details.each do |detail| %>
+
+<h3><%= detail.house.name %></h3>
+<ul>
+  <li class="row">
+    <ul class="detail-list-header">
+      <li class="moving_amount">
+        <p>継続入居者数</p>
+        <p>継続入居者分料金</p>
+      </li>
+      <li class="day_amount">
+        <p>
+          <span class="leave">退居者</span>
+          <span>新規入居者</span>
+        </p>
+        <p>日割り計算分料金</p>
+      </li>
+      <li class="total_amount">合計料金</li>
+    </ul>
+  </li>
+  <li class="row">
+    <ul class="detail-list-item">
+      <li class="moving_amount">
+        <p><%= detail.moving_count || 0 %>世帯</p>
+        <p><%= detail.moving_amount || 0 %>円</p>
+      </li>
+      <li class="day_amount">
+        <p>
+          <span class="leave"><%= detail.leave_count || 0 %>世帯</span>
+          <span><%= detail.new_moving_count || 0 %>世帯</span>
+        </p>
+        <p><%= detail.days_amount || 0 %>円</p>
+      </li>
+      <li class="total_amount"><%= detail.total_amount || 0 %>円</li>
+    </ul>
+  </li>
+</ul>
+<% end %>

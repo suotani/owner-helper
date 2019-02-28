@@ -43,6 +43,9 @@
 .main-buttons li.setting{
   background-color: #000;
 }
+.main-buttons li.invoice{
+  background-color: #a5a139;
+}
 
 .main-buttons li a:hover{
   background-color: rgba(180,180,180,0.5);

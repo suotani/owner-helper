@@ -57,4 +57,19 @@ namespace :bill do
       end
     end
   end
+  
+  desc "請求レコードに基づく支払"
+  #毎月15日に実行
+  task :pay => :environment do
+    exit if Time.zone.now.strftime("%d").to_i == 15
+    current_date = Time.zone.now
+    target = Time.zone.now - 1.month
+    target_year = target.year
+    target_month = target.month
+    Owner.all.each do |owner|
+      bill = owner.bills.where(year: target_year, month: target_month).first
+      next if bill.amount == 0
+      Payment.charge(bill.amount, owner.pay_customer_id)
+    end
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_015033) do
+ActiveRecord::Schema.define(version: 2019_02_27_143147) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_015033) do
     t.string "language", default: "ja"
     t.integer "invitation_owner_id"
     t.string "invitation_code"
+    t.string "pay_token"
+    t.string "pay_customer_id"
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end

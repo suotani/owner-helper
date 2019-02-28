@@ -14,6 +14,8 @@ class Owners::RegistrationsController < Devise::RegistrationsController
   def create
     super
     # slack通知
+    c = Payment.create_customer(resource.email, resource.name)
+    resource.update(pay_customer_id: c.id)
     notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
     notifier.ping("新しく管理人が登録されました！")
   end

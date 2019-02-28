@@ -71,4 +71,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.i18n.default_locale = :ja
   config.slack_webhook_url = "https://hooks.slack.com/services/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"
+  
+  config.payjp_secret_key = "sk_test_0448f2e37c2d2fd54841839c"
+  config.payjp_public_key = "pk_test_d057651ff4f7d1a12ed3b15a"
 end

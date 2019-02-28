@@ -1,0 +1,35 @@
+.detail-list-header{
+    background-color: black;
+    display: flex;
+}
+
+.detail-list-item{
+    display: flex;
+}
+
+.row li.moving_amount{
+    width: 30%;
+}
+
+.row li.day_amount{
+    width: 50%;
+}
+
+.row li.total_amount{
+    width: 20%;
+}
+
+.detail-list-header li,
+.detail-list-header p,
+.detail-list-header span{
+    color: white;
+}
+
+.row p{
+    margin: 0;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.day_amount span.leave{
+  padding-right: 65px;
+}

@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "owner/invoices/index", :media => "all" %>
+<%= javascript_include_tag 'owner/invoices/index', 'data-turbolinks-track': 'reload' %>
+<main>
+  <h2>請求</h2>
+  <% if @owner.pay_token.blank? %>
+    <p class="alert">まだクレジットカードの登録がお済でありません。</p>
+    <form action="/owner/invoices" method="post">
+      <script
+        src="https://checkout.pay.jp/"
+        class="payjp-button"
+        data-key="<%= Rails.application.config.payjp_public_key %>"
+        data-text="支払用カードを登録"
+        data-token-name="token"
+      >
+      </script>
+    </form>
+  <% else %>
+    <ul class="bill-list">
+      <li class="bill-list-row">
+        <ul class="bill-list-header">
+          <li class="year-month">対象年月</li>
+          <li class="amount">請求金額</li>
+          <li class="status"></li>
+        </ul>
+      </li>
+      <li class="bill-list-row">
+        <ul class="bill-list-header">
+          <li class="year-month">対象年月</li>
+          <li class="amount">請求金額</li>
+          <li class="status"></li>
+        </ul>
+      </li>
+      <% @bills.each do |bill| %>
+        <li class="bill-list-row">
+          <ul class="bill-list-item">
+            <li class="year-month"><%= "#{bill.year}年#{bill.month}月" %></li>
+            <li class="amount"><%= bill.amount || 0 %>円</li>
+            <li class="status"><%= link_to "詳細", owner_invoice_path(bill.id), remote: true %></li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</main>
+
+<div class="modal-wrap">
+  <span class="modal-close-btn"><i class="fas fa-times"></i>閉じる</span>
+  <div class="modal" id="modal"></div>
+</div>

@@ -41,6 +41,11 @@
         <i class="fas fa-cogs"></i>各種設定
       <% end %>
     </li>
+    <li class="invoice">
+      <%= link_to owner_invoices_path do %>
+        <i class="fas fa-yen-sign"></i>請求
+      <% end %>
+    </li>
     <li class="logout">
       <%= link_to destroy_owner_session_path, method: "delete" do %>
         <i class="fas fa-sign-out-alt"></i>退出

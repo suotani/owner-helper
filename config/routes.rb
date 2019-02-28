@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'invoices/index'
+  get 'invoices/create'
+  get 'invoices/show'
   ########common#######
   root to: 'statics#index'
   post 'inquiry', to: 'statics#inquiry'
@@ -40,6 +43,7 @@ Rails.application.routes.draw do
   get 'owner', to: 'owners#show'
   get 'owner/setting', to: 'owners#edit'
   post 'owner/setting', to: 'owners#update'
+  post 'owner/card', to: "owners#card"
   
   namespace :owner do
     resources :houses do
@@ -74,6 +78,7 @@ Rails.application.routes.draw do
     end
     resources :inquiries, only: [:new, :create]
     resources :phone_lists, only: [:index, :show]
+    resources :invoices, only: [:index, :create, :show]
   end
 
   ############resident#############

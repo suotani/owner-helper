@@ -20,6 +20,10 @@ class OwnersController < OwnerController
     end
   end
   
+  def card
+    
+  end
+  
   def owner_params
     params.require(:owner).permit(:name, :phone_number, :contact_mail_setting, :request_mail_setting)
   end

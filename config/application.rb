@@ -22,5 +22,6 @@ module OwnerHelper
     config.i18n.available_locales = %i(ja en)
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
+    config.generators.fixture_replacement :factory_girl, dir: 'spec/factories'
   end
 end

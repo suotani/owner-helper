@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "owner/resident", :media => "all" %>
 
-<% @resident = Resident.find_by_id_from_owner(@owner.id, params[:id]) %>
+<% @resident = Resident.search_id_from_owner(@owner.id, params[:id]) %>
 <% chats = @resident.current_contact.contact_chats.order(created_at: :desc).limit(5).reverse %>
 <% post_residents = @resident.post_residents %>
 <main>

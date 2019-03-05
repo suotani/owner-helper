@@ -44,6 +44,6 @@ class Owner::HousesController < OwnerController
     end
     
     def get_house
-      @house = House.find(params[:id])
+      @house = @owner.houses.find(params[:id])
     end
 end

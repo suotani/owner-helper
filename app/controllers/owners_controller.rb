@@ -21,7 +21,6 @@ class OwnersController < OwnerController
   end
   
   def card
-    
   end
   
   def owner_params

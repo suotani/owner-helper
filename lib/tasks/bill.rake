@@ -5,7 +5,7 @@ namespace :bill do
   # 実行時の前の月の請求レコードを更新する
   # 毎月2日に実行
   task :update => :environment do
-    exit if Time.zone.now.strftime("%d").to_i == 2
+    exit unless Time.zone.now.strftime("%d").to_i == 2
     target = Time.zone.now - 1.month
     Owner.all.each do |owner|
       total_amount = 0
@@ -46,7 +46,7 @@ namespace :bill do
   #毎月25日に実行
   # 実行月の次の月の請求レコードを作成
   task :create => :environment do
-    exit if Time.zone.now.strftime("%d").to_i == 25
+    exit unless Time.zone.now.strftime("%d").to_i == 25
     current_date = Time.zone.now
     next_year = (current_date + 1.month).strftime("%Y").to_i
     next_month = (current_date + 1.month).strftime("%m").to_i
@@ -61,7 +61,7 @@ namespace :bill do
   desc "請求レコードに基づく支払"
   #毎月15日に実行
   task :pay => :environment do
-    exit if Time.zone.now.strftime("%d").to_i == 15
+    exit unless Time.zone.now.strftime("%d").to_i == 15
     current_date = Time.zone.now
     target = Time.zone.now - 1.month
     target_year = target.year
@@ -72,4 +72,5 @@ namespace :bill do
       Payment.charge(bill.amount, owner.pay_customer_id)
     end
   end
+
 end

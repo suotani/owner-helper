@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::Base
     
     # rescue_from StandardError, with: :render_standard
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
     
-    #   def render_standard(e = nil)
-    #     if e
-    #       logger.error e 
-    #       logger.error e.backtrace.join("\n") 
-    #     end
-    #     #render template: '500', status: 500, layout: 'application', content_type: 'text/html'
-    #   end
+  def render_404(e = nil)
+    logger.info "Rendering 404 with exception: #{e.message}" if e
+    render file: Rails.root.join('public/404.html'), status: 404, layout: false, content_type: 'text/html'
+  end
 end

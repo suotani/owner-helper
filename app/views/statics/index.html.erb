@@ -17,7 +17,7 @@
       <ul>
         <li><i class="fas fa-circle"></i><p>電話番号の管理が大変</p></li>
         <li><i class="fas fa-circle"></i><p>電話だとなかなか連絡がつかない</p></li>
-        <li><i class="fas fa-circle"></i><p>アプリやサービスを使いこなせるか不安</p></li>
+        <li><i class="fas fa-circle"></i><p>サービスを使いこなせるか不安</p></li>
       </ul>
       <%= image_tag "problem.jpg" %>
     </div>
@@ -46,8 +46,48 @@
         </p>
       </div>
     </div>
+    <div class="page">
+      <p class="title">管理人様電話帳画面</p>
+      <%= image_tag "phone-list.png" %>
+      <%= image_tag "phone-list-sp.png", class: "sp-image" %>
+      <div class="page-explain">
+        <p>
+          検索付きの電話帳ですぐに連絡先が分かる！スマートフォンからは直接
+          電話をかけることも出来ます。
+        </p>
+      </div>
+    </div>
+    <div class="page">
+      <p class="title">管理人様チャット画面</p>
+      <%= image_tag "chat.png" %>
+      <%= image_tag "chat-sp.png", class: "sp-image" %>
+      <div class="page-explain">
+        <p>
+          チャットでラクラクやり取り。自動で外国語へ翻訳されるので、
+          外国人とも簡単にやり取りすることができます。<br />
+          画像を送受信することも出来ます。
+        </p>
+      </div>
+    </div>
   </div>
   <div class="price">
     <h2>料金体系</h2>
+    <div class="prices">
+      <ul>
+        <li><span class="key">基本使用料</span><span class="value">0円</span></li>
+        <li><span class="key">月額</span><span class="value">300円/1世帯<span class="little">※</span></span></li>
+      </ul>
+      <div class="cause">
+        <span>※</span>
+        入居者様自身がサービスにご登録の場合のみ料金が発生します。<br />
+        管理人様が登録された入居者様分の料金は発生いたしません。
+      </div>
+    </div>
+  </div>
+  <div class="bg-fullcolor">
+    <div class="registration">
+      <%= link_to "今すぐ登録(無料)", new_owner_registration_path, class: "button" %>
+      <%= button_tag "お問い合わせ", type: "button", onclick: "$('.modal').show();", class: "button inquiry" %>
+    </div>
   </div>
 </main>

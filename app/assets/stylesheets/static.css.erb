@@ -2,10 +2,15 @@ body{
   margin: 0;
 }
 
+p{
+  font-family: Meirio;
+}
+
 main{
     width: 100%;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
+    
 }
 
 .attension{
@@ -135,6 +140,7 @@ main{
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  padding-top: 17px;
 }
 
 .desire .fa-caret-up{
@@ -190,7 +196,89 @@ main{
   border: none;
   background: linear-gradient(90deg, #002eb1, #9ed3e9);
   color: white
-  
+}
+
+.prices ul{
+  width: 60%;
+  margin: auto;
+}
+
+.prices li{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #c7c7c7;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.little{
+  font-size: 14px;
+}
+
+.cause{
+    border: solid 1px #f98181;
+    position: relative;
+    width: 60%;
+    margin: auto;
+    padding: 12px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-family: Meirio;
+}
+
+.cause span{
+    position: absolute;
+    top: -11px;
+    left: 7px;
+    background-color: white;
+}
+
+.prices li span.key{
+  width: 50%;
+  text-align: center;
+}
+.prices li span.value{
+  width: 50%;
+  text-align: center;
+  color: #3c4dd4;
+}
+
+.bg-fullcolor{
+    width: 100%;
+    background-color: #f1ecca;
+    padding: 27px 0 52px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.registration{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.registration .button{
+    width: 30%;
+    text-align: center;
+    background-color: #5c6acc;
+    color: white;
+    padding: 7px;
+    border: none;
+    font-size: 19px;
+    box-shadow: 2px 2px #a2a2a2;
+    border-radius: 6px;
+    margin: 16px 6px 0;
+    cursor: pointer;
+}
+
+.registration .button.inquiry{
+    background-color: #6ba907;
 }
 
 .large-button{
@@ -293,4 +381,94 @@ main{
         width: 100%;
         padding: 0;
     }
+
+    .attension{
+        width: 100%;
+        background: linear-gradient(90deg, rgba(96, 150, 206, 0.59), rgba(171, 234, 226, 0.51)),
+        url(<%= asset_path 'main-image-sp.jpg' %>);
+        background-size: cover;
+        padding-bottom: 63px;
+    }
+    
+    .attension .left{
+      width: 100%;
+    }
+    
+    .left h2{
+      font-size: 43px;
+    }
+    
+    .left ul{
+      padding: 4px;
+    }
+    
+    .interest .problem, .interest .solusion{
+      width: 100%;
+    }
+    
+    .interest ul{
+      padding: 3px;
+      padding-right: 0;
+    }
+    
+    .interest img{
+      height: 60px;
+    }
+    
+    .interest i{
+      transform: rotate(90deg);
+    }
+    
+    .interest i.fa-circle{
+      display: none;
+    }
+    
+    .interest .problem{
+      border: solid 5px #a9a9a9;
+      border-top: solid 37px #a9a9a9;
+    }
+    
+    .interest .solusion{
+      border: solid 5px #719bc7;
+      border-top: solid 37px #719bc7;
+      margin-top: 5px;
+    }
+    .desire{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .desire .page{
+      width: 100%;
+      padding: 5px;
+    }
+    .desire .page img.sp-image{
+      position: absolute;
+      top: 96px;
+      right: 8px;
+      height: 144px;
+      width: unset;
+    }
+    .desire .page-explain {
+        width: 100%;
+        margin-top: 54px;
+    }
+    
+    .price{
+      width: 100%;
+    }
+    
+    .prices ul, .cause{
+      width: 90%;
+    }
+    
+    .registration{
+      width: 100%;
+    }
+    
+    .registration .button{
+      box-sizing: border-box;
+      width: 80%;
+    }
+    
+    
 }

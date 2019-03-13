@@ -176,6 +176,7 @@ span.status.info{
   
   .header-icons li a i, .header-icons li i{
     font-size: 26px;
+    display: inline;
   }
   
   .header-menu-wrap{

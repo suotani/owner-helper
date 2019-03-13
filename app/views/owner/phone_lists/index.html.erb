@@ -46,9 +46,10 @@
               <li class="name"><%= room.resident_name %></li>
             <% end %>
             <li class="phone-number pc"><%= room.resident_phone_number %></li>
-            <li class="phone-number sp phone-modal-open">
-              <%= room.resident_phone_number %>
-              <p class="info" data-name="<%= room.resident_name %>" data-phone="<%= room.resident_phone_number %>" data-house="<%= room.house.name + ' ' + room.number %>"></p>
+            <li class="phone-number sp">
+              <a href="tel: <%= room.resident_phone_number %>">
+                <%= room.resident_phone_number %>
+              </a>
             </li>
             <li class="house-room"><%= room.house.name %> <%= room.number %></li>
           </ul>
